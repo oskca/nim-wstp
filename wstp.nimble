@@ -11,6 +11,8 @@ srcDir        = "src"
 requires "nim >= 0.18.0"
 requires "c2nim"
 
+let MMA_HOME="/usr/local/Wolfram/Mathematica/11.3"
+
 import strutils
 
 const
@@ -31,8 +33,8 @@ typedef struct MLYieldData * MLYieldDataPointer;
   r3 = """typedef WSHandlerProcPtr MLHandlerUPP; typedef MLHandlerUPP MLDeviceHandlerUPP;"""
 
   hdrPrefix = """
-{.passC:"-I/usr/local/Wolfram/Mathematica/11.3/SystemFiles/Links/WSTP/DeveloperKit/Linux-x86-64/CompilerAdditions".}
-{.passL:"/usr/local/Wolfram/Mathematica/11.3/SystemFiles/Links/WSTP/DeveloperKit/Linux-x86-64/CompilerAdditions/libWSTP64i4.a".}
+{.passC:"-I" & MMA_HOME & "/SystemFiles/Links/WSTP/DeveloperKit/Linux-x86-64/CompilerAdditions".}
+{.passL: MMA_HOME & "/SystemFiles/Links/WSTP/DeveloperKit/Linux-x86-64/CompilerAdditions/libWSTP64i4.a".}
 const
   wstphdr = "wstp.h"
 """

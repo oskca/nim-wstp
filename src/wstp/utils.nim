@@ -1,7 +1,8 @@
 import wstp, os, wstp/defs
+export defs
 
 proc argcv*(): tuple[argc:cint, argv:cStringArray] =
-  ## return argc,argv for c interop
+  ## return argc,argv for c interop with 
   let argc = cint(paramCount()+1)
   var args = commandLineParams()
   args.insert(getAppFilename())
@@ -9,15 +10,21 @@ proc argcv*(): tuple[argc:cint, argv:cStringArray] =
   return (argc, argv)
 
 proc defaultArgv(): cStringArray =
-  var argv = @[getAppFilename(), "-linkname", "math -tp"]
+  var argv = @[getAppFilename(), "-linkname", "math -wstp"]
   when defined(windo):
     argv = @[getAppFilename(), "-linkmode", "launch"]
   return allocCStringArray(argv)
 
-proc openLink*(): WSLink =
-  ## open TP link 
+proc runWSTP*(): int {.discardable.} =
+  ## run a background WSTP server 
+  ## that cat be Installed by MMA
+  let (argc, argv) = argcv()
+  return WSMain((argc+1).cint, argv)
+
+proc launchLink*(): WSLink =
+  ## launch a new/sub process/standalone WSTP(math or wolfram) link 
   ## if no *CMDLINE* arg is specified, 
-  ## defautl args for each platform will be used
+  ## defautl args(starts a sub process) for each platform will be used
   var (argc, argv) = argcv()
   # for easy usage
   if argc <= 1: 
@@ -31,9 +38,6 @@ proc openLink*(): WSLink =
   var err: cint
   var argend: cStringArray
   {.emit:[argend, "=argv+argc;"].}
-  # let argend = cast[cStringArray](cast[int](argv)+argc)
-  # proc argend(argv:cStringArray, argc:cint):cStringArray = 
-  #   return {.emit:"`argv`+`argc`".}
   return OpenArgv(ep, argv, argend, err.addr)
 
 proc waitReturn*(lp: WSLink) =
@@ -45,7 +49,7 @@ proc waitReturn*(lp: WSLink) =
 
 when isMainModule:
   import ospaths
-  let lp = openLink()
+  let lp = launchLink()
   if lp == nil:
     echo "lp:", lp.repr
     echo osErrorMsg(osLastError())
