@@ -1,7 +1,7 @@
 ##  To run this program use the command-line below:
 ##  Unix:           factor -linkname "math -wstp"
 ##  Mac or Windows: factor -linkmode launch
-## 
+##  or factor directly
 
 import wstp/launch, parseutils, strformat
 
