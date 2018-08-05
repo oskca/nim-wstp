@@ -17,4 +17,4 @@ proc testHead*(mlp: WSLINK; s: cstring; countp: ptr cint): bool =
 
 converter tocint*(x: int): cint = x.cint
 converter tocStringArray*(s:ptr cstring): cStringArray = cast[cStringArray](s)
-converter tocfloat*(x: float): cint = x.cfloat
+converter tocfloat*(x: float): cfloat = x.cfloat

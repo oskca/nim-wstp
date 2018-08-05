@@ -33,7 +33,7 @@ proc main*(): cint =
 
   PutFunction(lp, "EvaluatePacket", 1)
   PutFunction(lp, "FactorInteger", 1)
-  PutInteger(lp, i.cint)
+  PutInteger(lp, i)
   EndPacket(lp)
 
   lp.waitReturn()
