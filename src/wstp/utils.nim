@@ -14,3 +14,7 @@ proc hasError*(lp: WSLink): bool =
 
 proc testHead*(mlp: WSLINK; s: cstring; countp: ptr cint): bool =
   return TestHead(mlp, s, countp) != 0
+
+converter tocint*(x: int): cint = x.cint
+converter tocStringArray*(s:ptr cstring): cStringArray = cast[cStringArray](s)
+converter tocfloat*(x: float): cint = x.cfloat
