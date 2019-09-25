@@ -1,3 +1,6 @@
+#define _WSTP_H
+#define _WSVERS_H
+#define _MLPLATFM_H
 #define WIN64_MATHLINK 1
 #define I86_WIN32_MATHLINK 1
 #define WIN32_MATHLINK 1
@@ -51,23 +54,713 @@
 #define NO_GLOBAL_DATA 0
 #define LITTLEENDIAN_NUMERIC_TYPES 1
 #define BIGENDIAN_NUMERIC_TYPES 1
+#define WSVERSION 4
 #define WSVERSION 6
 #define WSREVISION 40
-// #define WSMATHVERSION 11.2.0
 #define WSCREATIONID 114411
+#define WSAPI4REVISION 25  /* the first revision to support interface 4 */
 #define WSINTERFACE 4
 #define WSAPIREVISION WSAPI4REVISION
 #define WSAPIREVISION WSAPI4REVISION
+#define WSOLDDEFINITION WSAPI4REVISION /* WSPI4 is as old as it gets */
+#define _REBRAND_H_
+#define MLActivate	WSActivate
+#define MLAlert	WSAlert
+#define MLAlertCast	WSAlertCast
+#define MLAlign	WSAlign
+#define MLAllocParameter	WSAllocParameter
+#define MLAllocatorCast	WSAllocatorCast
+#define MLBegin	WSBegin
+#define MLBrowseForLinkServices	WSBrowseForLinkServices
+#define MLBytesToGet	WSBytesToGet
+#define MLBytesToPut	WSBytesToPut
+#define MLCallMessageHandler	WSCallMessageHandler
+#define MLCallYieldFunction	WSCallYieldFunction
+#define MLCharacterOffset	WSCharacterOffset
+#define MLCheckFunction	WSCheckFunction
+#define MLCheckFunctionWithArgCount	WSCheckFunctionWithArgCount
+#define MLClearAllSymbolReplacements	WSClearAllSymbolReplacements
+#define MLClearError	WSClearError
+#define MLClearSymbolReplacement	WSClearSymbolReplacement
+#define MLClose	WSClose
+#define MLCompilerID	WSCompilerID
+#define MLConfirm	WSConfirm
+#define MLConfirmCast	WSConfirmCast
+#define MLConnect	WSConnect
+#define MLContextFromLinkServer	WSContextFromLinkServer
+#define MLConvertByteString	WSConvertByteString
+#define MLConvertByteStringNL	WSConvertByteStringNL
+#define MLConvertCharacter	WSConvertCharacter
+#define MLConvertDoubleByteString	WSConvertDoubleByteString
+#define MLConvertDoubleByteStringNL	WSConvertDoubleByteStringNL
+#define MLConvertNewLine	WSConvertNewLine
+#define MLConvertUCS2String	WSConvertUCS2String
+#define MLConvertUCS2StringNL	WSConvertUCS2StringNL
+#define MLConvertUTF16String	WSConvertUTF16String
+#define MLConvertUTF16StringNL	WSConvertUTF16StringNL
+#define MLConvertUTF32String	WSConvertUTF32String
+#define MLConvertUTF32StringNL	WSConvertUTF32StringNL
+#define MLConvertUTF8String	WSConvertUTF8String
+#define MLConvertUTF8StringNL	WSConvertUTF8StringNL
+#define MLCountYP	WSCountYP
+#define MLCreateLinkWithExternalProtocol	WSCreateLinkWithExternalProtocol
+#define MLCreateMark	WSCreateMark
+#define MLCreateMessageHandler	WSCreateMessageHandler
+#define MLCreateYieldFunction	WSCreateYieldFunction
+#define MLDeallocatorCast	WSDeallocatorCast
+#define MLDefaultYieldFunction	WSDefaultYieldFunction
+#define MLDeinit	WSDeinit
+#define MLDeinitialize	WSDeinitialize
+#define MLDestroyMark	WSDestroyMark
+#define MLDestroyMessageHandler	WSDestroyMessageHandler
+#define MLDestroyYieldFunction	WSDestroyYieldFunction
+#define MLDeviceInformation	WSDeviceInformation
+#define MLDisableLinkLock	WSDisableLinkLock
+#define MLDisableLoggingStream	WSDisableLoggingStream
+#define MLDoNotHandleSignalParameter	WSDoNotHandleSignalParameter
+#define MLDuplicateLink	WSDuplicateLink
+#define MLEnableLinkLock	WSEnableLinkLock
+#define MLEnableLoggingStream	WSEnableLoggingStream
+#define MLEnclosingEnvironment	WSEnclosingEnvironment
+#define MLEnd	WSEnd
+#define MLEndPacket	WSEndPacket
+#define MLEnvironmentData	WSEnvironmentData
+#define MLError	WSError
+#define MLErrorMessage	WSErrorMessage
+#define MLErrorParameter	WSErrorParameter
+#define MLErrorString	WSErrorString
+#define MLEstablish	WSEstablish
+#define MLEstablishString	WSEstablishString
+#define MLExpressionsToGet	WSExpressionsToGet
+#define MLFeatureString	WSFeatureString
+#define MLFill	WSFill
+#define MLFilterArgv	WSFilterArgv
+#define MLFlush	WSFlush
+#define MLForwardReset	WSForwardReset
+#define MLFromLinkID	WSFromLinkID
+#define MLGet7BitCharacters	WSGet7BitCharacters
+#define MLGet8BitCharacters	WSGet8BitCharacters
+#define MLGetAvailableLinkProtocolNames	WSGetAvailableLinkProtocolNames
+#define MLGetArgCount	WSGetArgCount
+#define MLGetArrayDimensions	WSGetArrayDimensions
+#define MLGetArrayType	WSGetArrayType
+#define MLGetArrayTypeWithDepthAndLeafType	WSGetArrayTypeWithDepthAndLeafType
+#define MLGetBinaryNumber	WSGetBinaryNumber
+#define MLGetBinaryNumberArray	WSGetBinaryNumberArray
+#define MLGetBinaryNumberArrayData	WSGetBinaryNumberArrayData
+#define MLGetBinaryNumberArrayDataWithHeads	WSGetBinaryNumberArrayDataWithHeads
+#define MLGetBinaryNumberArrayWithLeafType	WSGetBinaryNumberArrayWithLeafType
+#define MLGetBinaryNumberList	WSGetBinaryNumberList
+#define MLGetByteArray	WSGetByteArray
+#define MLGetByteArrayData	WSGetByteArrayData
+#define MLGetByteString	WSGetByteString
+#define MLGetByteSymbol	WSGetByteSymbol
+#define MLGetData	WSGetData
+#define MLGetDomainNameList	WSGetDomainNameList
+#define MLGetDouble	WSGetDouble
+#define MLGetDoubleArray	WSGetDoubleArray
+#define MLGetDoubleArrayData	WSGetDoubleArrayData
+#define MLGetFloat	WSGetFloat
+#define MLGetFloatArray	WSGetFloatArray
+#define MLGetFloatArrayData	WSGetFloatArrayData
+#define MLGetFunction	WSGetFunction
+#define MLGetInteger	WSGetInteger
+#define MLGetInteger16	WSGetInteger16
+#define MLGetInteger16Array	WSGetInteger16Array
+#define MLGetInteger16ArrayData	WSGetInteger16ArrayData
+#define MLGetInteger16List	WSGetInteger16List
+#define MLGetInteger32	WSGetInteger32
+#define MLGetInteger32Array	WSGetInteger32Array
+#define MLGetInteger32ArrayData	WSGetInteger32ArrayData
+#define MLGetInteger32List	WSGetInteger32List
+#define MLGetInteger64	WSGetInteger64
+#define MLGetInteger64Array	WSGetInteger64Array
+#define MLGetInteger64ArrayData	WSGetInteger64ArrayData
+#define MLGetInteger64List	WSGetInteger64List
+#define MLGetInteger8	WSGetInteger8
+#define MLGetInteger8Array	WSGetInteger8Array
+#define MLGetInteger8ArrayData	WSGetInteger8ArrayData
+#define MLGetInteger8List	WSGetInteger8List
+#define MLGetIntegerArray	WSGetIntegerArray
+#define MLGetIntegerArrayData	WSGetIntegerArrayData
+#define MLGetIntegerList	WSGetIntegerList
+#define MLGetLinkedEnvIDString	WSGetLinkedEnvIDString
+#define MLGetLinksFromEnvironment	WSGetLinksFromEnvironment
+#define MLGetLongDouble	WSGetLongDouble
+#define MLGetLongDoubleArray	WSGetLongDoubleArray
+#define MLGetLongDoubleArrayData	WSGetLongDoubleArrayData
+#define MLGetLongInteger	WSGetLongInteger
+#define MLGetLongIntegerArray	WSGetLongIntegerArray
+#define MLGetLongIntegerArrayData	WSGetLongIntegerArrayData
+#define MLGetMessage	WSGetMessage
+#define MLGetMessageHandler	WSGetMessageHandler
+#define MLGetNetworkAddressList	WSGetNetworkAddressList
+#define MLGetNext	WSGetNext
+#define MLGetNextRaw	WSGetNextRaw
+#define MLGetNumberAsByteString	WSGetNumberAsByteString
+#define MLGetNumberAsString	WSGetNumberAsString
+#define MLGetNumberAsUCS2String	WSGetNumberAsUCS2String
+#define MLGetNumberAsUTF16String	WSGetNumberAsUTF16String
+#define MLGetNumberAsUTF32String	WSGetNumberAsUTF32String
+#define MLGetNumberAsUTF8String	WSGetNumberAsUTF8String
+#define MLGetRawArgCount	WSGetRawArgCount
+#define MLGetRawData	WSGetRawData
+#define MLGetRawType	WSGetRawType
+#define MLGetReal	WSGetReal
+#define MLGetReal128	WSGetReal128
+#define MLGetReal128Array	WSGetReal128Array
+#define MLGetReal128ArrayData	WSGetReal128ArrayData
+#define MLGetReal128List	WSGetReal128List
+#define MLGetReal32	WSGetReal32
+#define MLGetReal32Array	WSGetReal32Array
+#define MLGetReal32ArrayData	WSGetReal32ArrayData
+#define MLGetReal32List	WSGetReal32List
+#define MLGetReal64	WSGetReal64
+#define MLGetReal64Array	WSGetReal64Array
+#define MLGetReal64ArrayData	WSGetReal64ArrayData
+#define MLGetReal64List	WSGetReal64List
+#define MLGetRealArray	WSGetRealArray
+#define MLGetRealList	WSGetRealList
+#define MLGetShortInteger	WSGetShortInteger
+#define MLGetShortIntegerArray	WSGetShortIntegerArray
+#define MLGetShortIntegerArrayData	WSGetShortIntegerArrayData
+#define MLGetString	WSGetString
+#define MLGetSymbol	WSGetSymbol
+#define MLGetType	WSGetType
+#define MLGetUCS2Characters	WSGetUCS2Characters
+#define MLGetUCS2String	WSGetUCS2String
+#define MLGetUCS2Symbol	WSGetUCS2Symbol
+#define MLGetUTF16Characters	WSGetUTF16Characters
+#define MLGetUTF16String	WSGetUTF16String
+#define MLGetUTF16Symbol	WSGetUTF16Symbol
+#define MLGetUTF32Characters	WSGetUTF32Characters
+#define MLGetUTF32String	WSGetUTF32String
+#define MLGetUTF32Symbol	WSGetUTF32Symbol
+#define MLGetUTF8Characters	WSGetUTF8Characters
+#define MLGetUTF8String	WSGetUTF8String
+#define MLGetUTF8Symbol	WSGetUTF8Symbol
+#define MLGetYieldFunction	WSGetYieldFunction
+#define MLHandlerCast	WSHandlerCast
+#define MLHandleSignal	WSHandleSignal
+#define MLInit	WSInit
+#define MLInitialize	WSInitialize
+#define MLInterfaceFromLinkServer	WSInterfaceFromLinkServer
+#define MLIsLinkLoopback	WSIsLinkLoopback
+#define MLinkEnvironment	WLinkEnvironment
+#define MLLinkEnvironment	WSLinkEnvironment
+#define MLLinkName	WSLinkName
+#define MLLogFileNameForLink	WSLogFileNameForLink
+#define MLLogStreamToFile	WSLogStreamToFile
+#define MLLoopbackOpen	WSLoopbackOpen
+#define MLLowLevelDeviceName	WSLowLevelDeviceName
+#define MLMessageHandler	WSMessageHandler
+#define MLMessageReady	WSMessageReady
+#define MLName	WSName
+#define MLNewLinkServer	WSNewLinkServer
+#define MLNewLinkServerWithPort	WSNewLinkServerWithPort
+#define MLNewLinkServerWithPortAndInterface	WSNewLinkServerWithPortAndInterface
+#define MLNewPacket	WSNewPacket
+#define MLNewParameters	WSNewParameters
+#define MLNewUnicodeContainer	WSNewUnicodeContainer
+#define MLNextCharacter	WSNextCharacter
+#define MLNextCharacterFromStringWithLength	WSNextCharacterFromStringWithLength
+#define MLNextPacket	WSNextPacket
+#define MLNumber	WSNumber
+#define MLNumericsQuery	WSNumericsQuery
+#define MLOldConvertByteString	WSOldConvertByteString
+#define MLOldConvertUCS2String	WSOldConvertUCS2String
+#define MLOldPutCharToString	WSOldPutCharToString
+#define MLOldStringCharFun	WSOldStringCharFun
+#define MLOldStringFirstPosFun	WSOldStringFirstPosFun
+#define MLOldStringNextPosFun	WSOldStringNextPosFun
+#define MLOpen	WSOpen
+#define MLOpenArgcArgv	WSOpenArgcArgv
+#define MLOpenArgv	WSOpenArgv
+#define MLOpenInEnv	WSOpenInEnv
+#define MLOpenString	WSOpenString
+#define MLPortFromLinkServer	WSPortFromLinkServer
+#define MLPrintArgv	WSPrintArgv
+#define MLPut7BitCharacters	WSPut7BitCharacters
+#define MLPut7BitCount	WSPut7BitCount
+#define MLPut8BitCharacters	WSPut8BitCharacters
+#define MLPutArgCount	WSPutArgCount
+#define MLPutArray	WSPutArray
+#define MLPutArrayLeaves	WSPutArrayLeaves
+#define MLPutArrayType	WSPutArrayType
+#define MLPutBinaryNumber	WSPutBinaryNumber
+#define MLPutBinaryNumberArray	WSPutBinaryNumberArray
+#define MLPutBinaryNumberArrayData	WSPutBinaryNumberArrayData
+#define MLPutBinaryNumberArrayDataWithHeads	WSPutBinaryNumberArrayDataWithHeads
+#define MLPutBinaryNumberList	WSPutBinaryNumberList
+#define MLPutByteArray	WSPutByteArray
+#define MLPutByteArrayData	WSPutByteArrayData
+#define MLPutByteString	WSPutByteString
+#define MLPutByteSymbol	WSPutByteSymbol
+#define MLPutComposite	WSPutComposite
+#define MLPutData	WSPutData
+#define MLPutDouble	WSPutDouble
+#define MLPutDoubleArray	WSPutDoubleArray
+#define MLPutDoubleArrayData	WSPutDoubleArrayData
+#define MLPutFloat	WSPutFloat
+#define MLPutFloatArray	WSPutFloatArray
+#define MLPutFloatArrayData	WSPutFloatArrayData
+#define MLPutFunction	WSPutFunction
+#define MLPutInteger	WSPutInteger
+#define MLPutInteger16	WSPutInteger16
+#define MLPutInteger16Array	WSPutInteger16Array
+#define MLPutInteger16ArrayData	WSPutInteger16ArrayData
+#define MLPutInteger16List	WSPutInteger16List
+#define MLPutInteger32	WSPutInteger32
+#define MLPutInteger32Array	WSPutInteger32Array
+#define MLPutInteger32ArrayData	WSPutInteger32ArrayData
+#define MLPutInteger32List	WSPutInteger32List
+#define MLPutInteger64	WSPutInteger64
+#define MLPutInteger64Array	WSPutInteger64Array
+#define MLPutInteger64ArrayData	WSPutInteger64ArrayData
+#define MLPutInteger64List	WSPutInteger64List
+#define MLPutInteger8	WSPutInteger8
+#define MLPutInteger8Array	WSPutInteger8Array
+#define MLPutInteger8ArrayData	WSPutInteger8ArrayData
+#define MLPutInteger8List	WSPutInteger8List
+#define MLPutIntegerArray	WSPutIntegerArray
+#define MLPutIntegerArrayData	WSPutIntegerArrayData
+#define MLPutIntegerList	WSPutIntegerList
+#define MLPutLongDouble	WSPutLongDouble
+#define MLPutLongDoubleArray	WSPutLongDoubleArray
+#define MLPutLongDoubleArrayData	WSPutLongDoubleArrayData
+#define MLPutLongInteger	WSPutLongInteger
+#define MLPutLongIntegerArray	WSPutLongIntegerArray
+#define MLPutLongIntegerArrayData	WSPutLongIntegerArrayData
+#define MLPutMessage	WSPutMessage
+#define MLPutMessageWithArg	WSPutMessageWithArg
+#define MLPutNext	WSPutNext
+#define MLPutRawData	WSPutRawData
+#define MLPutRawSize	WSPutRawSize
+#define MLPutReal	WSPutReal
+#define MLPutReal128	WSPutReal128
+#define MLPutReal128Array	WSPutReal128Array
+#define MLPutReal128ArrayData	WSPutReal128ArrayData
+#define MLPutReal128List	WSPutReal128List
+#define MLPutReal32	WSPutReal32
+#define MLPutReal32Array	WSPutReal32Array
+#define MLPutReal32ArrayData	WSPutReal32ArrayData
+#define MLPutReal32List	WSPutReal32List
+#define MLPutReal64	WSPutReal64
+#define MLPutReal64Array	WSPutReal64Array
+#define MLPutReal64ArrayData	WSPutReal64ArrayData
+#define MLPutReal64List	WSPutReal64List
+#define MLPutRealArray	WSPutRealArray
+#define MLPutRealList	WSPutRealList
+#define MLPutRealNumberAsByteString	WSPutRealNumberAsByteString
+#define MLPutRealNumberAsString	WSPutRealNumberAsString
+#define MLPutRealNumberAsUCS2String	WSPutRealNumberAsUCS2String
+#define MLPutRealNumberAsUTF16String	WSPutRealNumberAsUTF16String
+#define MLPutRealNumberAsUTF32String	WSPutRealNumberAsUTF32String
+#define MLPutRealNumberAsUTF8String	WSPutRealNumberAsUTF8String
+#define MLPutShortInteger	WSPutShortInteger
+#define MLPutShortIntegerArray	WSPutShortIntegerArray
+#define MLPutShortIntegerArrayData	WSPutShortIntegerArrayData
+#define MLPutSize	WSPutSize
+#define MLPutString	WSPutString
+#define MLPutSymbol	WSPutSymbol
+#define MLPutType	WSPutType
+#define MLPutUCS2Characters	WSPutUCS2Characters
+#define MLPutUCS2Function	WSPutUCS2Function
+#define MLPutUCS2String	WSPutUCS2String
+#define MLPutUCS2Symbol	WSPutUCS2Symbol
+#define MLPutUTF16Characters	WSPutUTF16Characters
+#define MLPutUTF16Function	WSPutUTF16Function
+#define MLPutUTF16String	WSPutUTF16String
+#define MLPutUTF16Symbol	WSPutUTF16Symbol
+#define MLPutUTF32Characters	WSPutUTF32Characters
+#define MLPutUTF32Function	WSPutUTF32Function
+#define MLPutUTF32String	WSPutUTF32String
+#define MLPutUTF32Symbol	WSPutUTF32Symbol
+#define MLPutUTF8Characters	WSPutUTF8Characters
+#define MLPutUTF8Function	WSPutUTF8Function
+#define MLPutUTF8String	WSPutUTF8String
+#define MLPutUTF8Symbol	WSPutUTF8Symbol
+#define MLRawBytesToGet	WSRawBytesToGet
+#define MLReady	WSReady
+#define MLReadyParallel	WSReadyParallel
+#define MLRegisterCallbackFunctionWithLinkServer	WSRegisterCallbackFunctionWithLinkServer
+#define MLRegisterLinkService	WSRegisterLinkService
+#define MLRegisterLinkServiceFromLinkServer	WSRegisterLinkServiceFromLinkServer
+#define MLRegisterLinkServiceWithHostname	WSRegisterLinkServiceWithHostname
+#define MLRegisterLinkServiceWithPortAndHostname	WSRegisterLinkServiceWithPortAndHostname
+#define MLReleaseBinaryNumberArray	WSReleaseBinaryNumberArray
+#define MLReleaseBinaryNumberList	WSReleaseBinaryNumberList
+#define MLReleaseByteArray	WSReleaseByteArray
+#define MLReleaseByteString	WSReleaseByteString
+#define MLReleaseByteSymbol	WSReleaseByteSymbol
+#define MLReleaseCompilerID	WSReleaseCompilerID
+#define MLReleaseDomainNameList	WSReleaseDomainNameList
+#define MLReleaseDoubleArray	WSReleaseDoubleArray
+#define MLReleaseEnvIDString	WSReleaseEnvIDString
+#define MLReleaseErrorMessage	WSReleaseErrorMessage
+#define MLReleaseFloatArray	WSReleaseFloatArray
+#define MLReleaseGetArrayState	WSReleaseGetArrayState
+#define MLReleaseInteger16Array	WSReleaseInteger16Array
+#define MLReleaseInteger16List	WSReleaseInteger16List
+#define MLReleaseInteger32Array	WSReleaseInteger32Array
+#define MLReleaseInteger32List	WSReleaseInteger32List
+#define MLReleaseInteger64Array	WSReleaseInteger64Array
+#define MLReleaseInteger64List	WSReleaseInteger64List
+#define MLReleaseInteger8Array	WSReleaseInteger8Array
+#define MLReleaseInteger8List	WSReleaseInteger8List
+#define MLReleaseIntegerArray	WSReleaseIntegerArray
+#define MLReleaseIntegerList	WSReleaseIntegerList
+#define MLReleaseInterfaceFromLinkServer	WSReleaseInterfaceFromLinkServer
+#define MLReleaseLinkName	WSReleaseLinkName
+#define MLReleaseLinkProtocolNames	WSReleaseLinkProtocolNames
+#define MLReleaseLinksFromEnvironment	WSReleaseLinksFromEnvironment
+#define MLReleaseLogFileNameForLink	WSReleaseLogFileNameForLink
+#define MLReleaseLongDoubleArray	WSReleaseLongDoubleArray
+#define MLReleaseLongIntegerArray	WSReleaseLongIntegerArray
+#define MLReleaseLowLevelDeviceName	WSReleaseLowLevelDeviceName
+#define MLReleaseNetworkAddressList	WSReleaseNetworkAddressList
+#define MLReleaseParameters	WSReleaseParameters
+#define MLReleasePutArrayState	WSReleasePutArrayState
+#define MLReleaseReal128Array	WSReleaseReal128Array
+#define MLReleaseReal128List	WSReleaseReal128List
+#define MLReleaseReal32Array	WSReleaseReal32Array
+#define MLReleaseReal32List	WSReleaseReal32List
+#define MLReleaseReal64Array	WSReleaseReal64Array
+#define MLReleaseReal64List	WSReleaseReal64List
+#define MLReleaseRealArray	WSReleaseRealArray
+#define MLReleaseRealList	WSReleaseRealList
+#define MLReleaseShortIntegerArray	WSReleaseShortIntegerArray
+#define MLReleaseString	WSReleaseString
+#define MLReleaseSymbol	WSReleaseSymbol
+#define MLReleaseUCS2CompilerID	WSReleaseUCS2CompilerID
+#define MLReleaseUCS2ErrorMessage	WSReleaseUCS2ErrorMessage
+#define MLReleaseUCS2LinkName	WSReleaseUCS2LinkName
+#define MLReleaseUCS2String	WSReleaseUCS2String
+#define MLReleaseUCS2Symbol	WSReleaseUCS2Symbol
+#define MLReleaseUnicodeContainer	WSReleaseUnicodeContainer
+#define MLReleaseUTF16CompilerID	WSReleaseUTF16CompilerID
+#define MLReleaseUTF16ErrorMessage	WSReleaseUTF16ErrorMessage
+#define MLReleaseUTF16LinkName	WSReleaseUTF16LinkName
+#define MLReleaseUTF16String	WSReleaseUTF16String
+#define MLReleaseUTF16Symbol	WSReleaseUTF16Symbol
+#define MLReleaseUTF32CompilerID	WSReleaseUTF32CompilerID
+#define MLReleaseUTF32ErrorMessage	WSReleaseUTF32ErrorMessage
+#define MLReleaseUTF32LinkName	WSReleaseUTF32LinkName
+#define MLReleaseUTF32String	WSReleaseUTF32String
+#define MLReleaseUTF32Symbol	WSReleaseUTF32Symbol
+#define MLReleaseUTF8CompilerID	WSReleaseUTF8CompilerID
+#define MLReleaseUTF8ErrorMessage	WSReleaseUTF8ErrorMessage
+#define MLReleaseUTF8LinkName	WSReleaseUTF8LinkName
+#define MLReleaseUTF8String	WSReleaseUTF8String
+#define MLReleaseUTF8Symbol	WSReleaseUTF8Symbol
+#define MLRequest	WSRequest
+#define MLRequestArgv	WSRequestArgv
+#define MLRequestArgvCast	WSRequestArgvCast
+#define MLRequestCast	WSRequestCast
+#define MLRequestToInteract	WSRequestToInteract
+#define MLRequestToInteractCast	WSRequestToInteractCast
+#define MLResolveLinkService	WSResolveLinkService
+#define MLScanString	WSScanString
+#define MLSeekMark	WSSeekMark
+#define MLSeekToMark	WSSeekToMark
+#define MLServiceProtocolFromReference	WSServiceProtocolFromReference
+#define MLSetAllocParameter	WSSetAllocParameter
+#define MLSetDefaultYieldFunction	WSSetDefaultYieldFunction
+#define MLSetDeviceParameter	WSSetDeviceParameter
+#define MLSetDialogFunction	WSSetDialogFunction
+#define MLSetEncodingParameter	WSSetEncodingParameter
+#define MLSetEnvIDString	WSSetEnvIDString
+#define MLSetEnvironmentData	WSSetEnvironmentData
+#define MLSetError	WSSetError
+#define MLSetMessageHandler	WSSetMessageHandler
+#define MLSetName	WSSetName
+#define MLSetResourceParameter	WSSetResourceParameter
+#define MLSetSignalHandler	WSSetSignalHandler
+#define MLSetSignalHandlerFromFunction	WSSetSignalHandlerFromFunction
+#define MLSetSymbolReplacement	WSSetSymbolReplacement
+#define MLSetThreadSafeLinksParameter	WSSetThreadSafeLinksParameter
+#define MLSetUserBlock	WSSetUserBlock
+#define MLSetUserData	WSSetUserData
+#define MLSetYieldFunction	WSSetYieldFunction
+#define MLShutdownLinkServer	WSShutdownLinkServer
+#define MLSleepYP	WSSleepYP
+#define MLStopBrowsingForLinkServices	WSStopBrowsingForLinkServices
+#define MLStopHandlingSignal	WSStopHandlingSignal
+#define MLStopLoggingStream	WSStopLoggingStream
+#define MLStopLoggingStreamToFile	WSStopLoggingStreamToFile
+#define MLStopRegisteringLinkService	WSStopRegisteringLinkService
+#define MLStopResolvingLinkService	WSStopResolvingLinkService
+#define MLStopRegisteringLinkServiceForLink	WSStopRegisteringLinkServiceForLink
+#define MLStringCharacter	WSStringCharacter
+#define MLStringFirstPosFun	WSStringFirstPosFun
+#define MLStringToArgv	WSStringToArgv
+#define MLTakeLast	WSTakeLast
+#define MLTestHead	WSTestHead
+#define MLTestHeadWithArgCount	WSTestHeadWithArgCount
+#define MLTestString	WSTestString
+#define MLTestSymbol	WSTestSymbol
+#define MLTestUCS2Head	WSTestUCS2Head
+#define MLTestUCS2HeadWithArgCount	WSTestUCS2HeadWithArgCount
+#define MLTestUCS2String	WSTestUCS2String
+#define MLTestUCS2Symbol	WSTestUCS2Symbol
+#define MLTestUTF16Head	WSTestUTF16Head
+#define MLTestUTF16HeadWithArgCount	WSTestUTF16HeadWithArgCount
+#define MLTestUTF16String	WSTestUTF16String
+#define MLTestUTF16Symbol	WSTestUTF16Symbol
+#define MLTestUTF32Head	WSTestUTF32Head
+#define MLTestUTF32HeadWithArgCount	WSTestUTF32HeadWithArgCount
+#define MLTestUTF32String	WSTestUTF32String
+#define MLTestUTF32Symbol	WSTestUTF32Symbol
+#define MLTestUTF8Head	WSTestUTF8Head
+#define MLTestUTF8HeadWithArgCount	WSTestUTF8HeadWithArgCount
+#define MLTestUTF8String	WSTestUTF8String
+#define MLTestUTF8Symbol	WSTestUTF8Symbol
+#define MLToLinkID	WSToLinkID
+#define MLTransferExpression	WSTransferExpression
+#define MLTransferToEndOfLoopbackLink	WSTransferToEndOfLoopbackLink
+#define MLUCS2CompilerID	WSUCS2CompilerID
+#define MLUCS2ErrorMessage	WSUCS2ErrorMessage
+#define MLUCS2LinkName	WSUCS2LinkName
+#define MLUTF16CompilerID	WSUTF16CompilerID
+#define MLUTF16ErrorMessage	WSUTF16ErrorMessage
+#define MLUTF16LinkName	WSUTF16LinkName
+#define MLUTF32CompilerID	WSUTF32CompilerID
+#define MLUTF32ErrorMessage	WSUTF32ErrorMessage
+#define MLUTF32LinkName	WSUTF32LinkName
+#define MLUTF8CompilerID	WSUTF8CompilerID
+#define MLUTF8ErrorMessage	WSUTF8ErrorMessage
+#define MLUTF8LinkName	WSUTF8LinkName
+#define MLUnsetSignalHandler	WSUnsetSignalHandler
+#define MLUserBlock	WSUserBlock
+#define MLUserCast	WSUserCast
+#define MLUserData	WSUserData
+#define MLValid	WSValid
+#define MLVersionNumbers	WSVersionNumbers
+#define MLWaitForLinkActivity	WSWaitForLinkActivity
+#define MLWaitForLinkActivityWithCallback	WSWaitForLinkActivityWithCallback
+#define MLWaitForNewLinkFromLinkServer	WSWaitForNewLinkFromLinkServer
+#define MLYieldFunction	WSYieldFunction
+#define MLYielderCast	WSYielderCast
+#define MLPointer  WSPointer
+#define MLENV  WSENV
+#define MLEnvironment  WSEnvironment
+#define MLEnvironmentParameter  WSEnvironmentParameter
+#define MLINK  WSLINK
+#define MLMARK  WSMARK
+#define MLMessageHandlerObject  WSMessageHandlerObject
 #define mlint64  wsint64
 #define mlextended_double wsextended_double
+#define MLMessageHandlerType  WSMessageHandlerType
+#define MLLinkWaitCallBackObject  WSLinkWaitCallBackObject
+#define MLServiceRef  WSServiceRef
+#define MLSignalHandlerType  WSSignalHandlerType
+#define MLUserFunction  WSUserFunction
+#define MLUserFunctionType  WSUserFunctionType
+#define MLUserFunctionTypePointer  WSUserFunctionTypePointer
+#define MLYieldFunctionObject  WSYieldFunctionObject
+#define MLYieldParameters  WSYieldParameters
+#define MLAllocator  WSAllocator
+#define MLAllocatorp  WSAllocatorp
+#define MLDeallocator  WSDeallocator
+#define MLDeallocatorp  WSDeallocatorp
+#define MLLinkServer  WSLinkServer
+#define MLNewLinkCallbackFunction  WSNewLinkCallbackFunction
+#define MLOldStringPositionPointer  WSOldStringPositionPointer
+#define MLUnicodeContainer  WSUnicodeContainer
+#define MLAllocatorProcPtr  WSAllocatorProcPtr
+#define MLDeallocatorProcPtr  WSDeallocatorProcPtr
+#define MLHandlerProcPtr  WSHandlerProcPtr
+#define MLUserProcPtr  WSUserProcPtr
+#define MLYielderProcPtr  WSYielderProcPtr
+#define MLYieldFunctionType  WSYieldFunctionType
+#define MLDialogProcPtr  WSDialogProcPtr
+#define MLAlertProcPtr  WSAlertProcPtr
+#define MLRequestProcPtr  WSRequestProcPtr
+#define MLConfirmProcPtr  WSConfirmProcPtr
+#define MLRequestArgvProcPtr  WSRequestArgvProcPtr
+#define MLRequestToInteractProcPtr  WSRequestToInteractProcPtr
+#define mltimeval wstimeval  /* may capitalize to distingush public symbol */
+#define MLParametersPointer  WSParametersPointer
+#define MLTerminateMessage  WSTerminateMessage
+#define MLInterruptMessage  WSInterruptMessage
+#define MLAbortMessage  WSAbortMessage
+#define MLEndPacketMessage  WSEndPacketMessage
+#define MLSynchronizeMessage  WSSynchronizeMessage
+#define MLImDyingMessage  WSImDyingMessage
+#define MLWaitingAcknowledgment  WSWaitingAcknowledgment
+#define MLMarkTopLevelMessage  WSMarkTopLevelMessage
+#define MLLinkClosingMessage  WSLinkClosingMessage
+#define MLAuthenticateFailure  WSAuthenticateFailure
+#define MLSuspendActivitiesMessage  WSSuspendActivitiesMessage
+#define MLResumeActivitiesMessage  WSResumeActivitiesMessage
+#define MLFirstUserMessage  WSFirstUserMessage
+#define MLLastUserMessage  WSLastUserMessage
+#define MLAlertFunction  WSAlertFunction
+#define MLRequestFunction  WSRequestFunction
+#define MLConfirmFunction  WSConfirmFunction
+#define MLRequestArgvFunction  WSRequestArgvFunction
+#define MLRequestToInteractFunction  WSRequestToInteractFunction
+#define MLDialogFunctionType  WSDialogFunctionType
+#define MLUnicodeContainerType  WSUnicodeContainerType
 #define mlapi_packet wsapi_packet
+#define MLMain  WSMain
+#define MLINTERFACE WSINTERFACE
+#define ML_C "C"
+#define ML_EXTERN_C extern "C" {
+#define ML_END_EXTERN_C }
 #define WS_C "C"
+#define WS_EXTERN_C extern "C" {
+#define WS_END_EXTERN_C }
+#define ML_C
+#define ML_EXTERN_C
+#define ML_END_EXTERN_C
+#define WS_C
+#define WS_EXTERN_C
+#define WS_END_EXTERN_C
+#define WIN32_EXTRA_LEAN
+#define WIN32_LEAN_AND_MEAN
+#define WIN32_EXTRA_LEAN
+#define WIN32_LEAN_AND_MEAN
+#define _MLDEVICE_H
+#define MLPROTOTYPES 1
+#define P(s) s
+#define MLPROTOTYPES 1
+#define P(s) ()
+#define MLPROTOTYPES 0
+#define _MLFAR_H
+#define FAR
+#define MLHUGE huge
+#define MLHUGE
+#define _MLTYPES_H
+#define _MLBASICTYPES_H
+#define _MLINT64_H
+#define ML64BIT_MATHLINK 1
+#define ML_SMALLEST_SIGNED_64BIT        -9223372036854775807L - 1
+#define ML_LARGEST_SIGNED_64BIT         9223372036854775807L
+#define ML_LARGEST_UNSIGNED_64BIT       18446744073709551615UL
+#define ML_SMALLEST_SIGNED_64BIT        -9223372036854775807LL - 1
+#define ML_LARGEST_SIGNED_64BIT         9223372036854775807LL
+#define ML_LARGEST_UNSIGNED_64BIT       18446744073709551615ULL
+#define NO_INT64_STRUCT
+#define NO_MLINT64_STRUCT
+#define APIENTRY far pascal
+#define CALLBACK APIENTRY
+#define MLEXPORT
+#define WSEXPORT
+#define MLEXPORT __export
+#define WSEXPORT __export
+#define MLCB APIENTRY MLEXPORT
+#define WSCB APIENTRY WSEXPORT
+#define MLAPI APIENTRY
+#define WSAPI APIENTRY
+#define MLCB
+#define WSCB
+#define MLAPI
+#define WSAPI
+#define MLEXPORT
+#define WSEXPORT
+#define MLATTR __attribute__ ((visibility("default")))
+#define WSATTR __attribute__ ((visibility("default")))
+#define MLATTR
+#define WSATTR
+#define MLAPI_ MLAPI
+#define MLDEFN( rtype, name, params) extern MLATTR rtype MLAPI MLEXPORT name params
+#define MLDECL( rtype, name, params) extern rtype MLAPI name P(params)
+#define WSDEFN( rtype, name, params) extern WSATTR rtype WSAPI WSEXPORT name params
+#define WSDECL( rtype, name, params) extern rtype WSAPI name P(params)
+#define ML_DEFN( rtype, name, params) extern rtype MLAPI_ MLEXPORT name params
+#define ML_DECL( rtype, name, params) extern ML_C rtype MLAPI_ name P(params)
+#define MLCBPROC( rtype, name, params) typedef rtype (MLCB * name) P(params)
+#define MLCBDECL( rtype, name, params) extern rtype MLCB name P(params)
+#define MLCBDEFN( rtype, name, params) extern rtype MLCB name params
+#define MLDPROC MLCBPROC
+#define MLDDECL MLCBDECL
+#define MLDDEFN MLCBDEFN
+#define MLTPROC MLCBPROC
+#define MLTDECL MLCBDECL
+#define MLTDEFN MLCBDEFN
+#define MLNPROC MLCBPROC
+#define MLNDECL MLCBDECL
+#define MLNDEFN MLCBDEFN
+#define MLAPROC MLCBPROC
+#define MLADECL MLCBDECL
+#define MLADEFN MLCBDEFN
+#define MLFPROC MLCBPROC
+#define MLFDECL MLCBDECL
+#define MLFDEFN MLCBDEFN
+#define MLRAPROC MLCBPROC
+#define MLRADECL MLCBDECL
+#define MLRADEFN MLCBDEFN
+#define MLYPROC MLCBPROC
+#define MLYDECL MLCBDECL
+#define MLYDEFN MLCBDEFN
+#define MLMPROC MLCBPROC
+#define MLMDECL MLCBDECL
+#define MLMDEFN MLCBDEFN
+#define MLUPROC MLCBPROC
+#define MLUDECL MLCBDECL
+#define MLUDEFN MLCBDEFN
+#define MLBPROC MLCBPROC
+#define MLBDECL MLCBDECL
+#define MLBDEFN MLCBDEFN
+#define MLDMPROC MLCBPROC
+#define MLDMDECL MLCBDECL
+#define MLDMDEFN MLCBDEFN
+#define MLWPROC MLCBPROC
+#define __uint_ct__ unsigned int
+#define __int_ct__ int
+#define MLCONST const
+#define MLCONST
+#define __MLENVPARAM__
+#define __MLENV__
+#define __MLINK__
+#define __MLMARK__
+#define __mlapi_token__ int_ct
+#define __mlapi_packet__ int_ct
+#define __mlapi_result__ int_ct
+#define MLSUCCESS (1) /*bugcheck:  this stuff doesnt belong where it can be seen at MLAPI_ layer */
+#define MLFAILURE (0)
+#define	APIENTRY far pascal
+#define MLBN APIENTRY /* bottleneck function: upper layer calls lower layer */
+#define MLBN
+#define BN MLBN
+#define MLDEV_WRITE_WINDOW  0
+#define MLDEV_WRITE         1
+#define MLDEV_HAS_DATA      2
+#define MLDEV_READ          3
+#define MLDEV_READ_COMPLETE 4
+#define MLDEV_ACKNOWLEDGE   5
+#define T_DEV_WRITE_WINDOW  MLDEV_WRITE_WINDOW
+#define T_DEV_WRITE         MLDEV_WRITE
+#define T_DEV_HAS_DATA      MLDEV_HAS_DATA
+#define T_DEV_READ          MLDEV_READ
+#define T_DEV_READ_COMPLETE MLDEV_READ_COMPLETE
 #define SCATTERED 0
 #define NOT_SCATTERED 1
+#define CallMLDeviceProc(userRoutine, thing, selector, p1, p2) (*(userRoutine))((thing), (selector), (dev_voidp)(p1), (dev_voidp)(p2))
+#define NewMLDeviceProc(userRoutine) (userRoutine)
+#define _MLAPI_H
+#define _MLALLOC_H
+#define CallMLAllocatorProc(userRoutine, size) (*(userRoutine))((size))
+#define NewMLAllocatorProc(userRoutine) (userRoutine)
+#define CallMLDeallocatorProc(userRoutine, p) (*(userRoutine))((p))
+#define NewMLDeallocatorProc(userRoutine) (userRoutine)
+#define MLCallAllocator CallMLAllocatorProc
+#define MLNewAllocator NewMLAllocatorProc
+#define MLCallDeallocator CallMLDeallocatorProc
+#define MLNewDeallocator NewMLDeallocatorProc
+#define MLallocator MLAllocator
+#define MLdeallocator MLDeallocator
+#define _WSNTYPES_H
+#define _WSNUMENV_H
 #define REALBIT 4
+#define REAL_MASK (1 << REALBIT)
 #define XDRBIT 5
+#define XDR_MASK (1 << XDRBIT)
 #define BINARYBIT 7
+#define BINARY_MASK (1 << BINARYBIT)
 #define SIZEVARIANTBIT 6
+#define SIZEVARIANT_MASK (1 << SIZEVARIANTBIT)
 #define WSTK_INVALID                                          155
 #define	WSTK_8BIT_SIGNED_2sCOMPLEMENT_INTEGER                 160
 #define	WSTK_8BIT_UNSIGNED_2sCOMPLEMENT_INTEGER               161
@@ -96,6 +789,21 @@
 #define	WSTK_LITTLEENDIAN_IEEE754_SINGLE	                  244
 #define	WSTK_LITTLEENDIAN_IEEE754_DOUBLE	                  246
 #define WSTK_LITTLEENDIAN_128BIT_DOUBLE                       248
+#define WSNE__SIZESELECTOR( tok) WSNE__SELECTOR( 0, tok)
+#define WSNE__INITSELECTOR (0)
+#define WSNE__TOSTRINGSELECTOR( tok) WSNE__SELECTOR( WSNE__IS_REAL(tok) ? WSTKREAL : WSTKINT, tok)
+#define WSNE__FROMSTRINGSELECTOR( dtok, stok) WSNE__SELECTOR( dtok, stok)
+#define WSNE__STOK( selector) ( (selector) & 0x000000FF)
+#define WSNE__DTOK( selector) ( ((selector) & 0x0000FF00)>>8)
+#define WSNE__IS_BINARY( tok) ((tok) & BINARY_MASK)
+#define WSNE__IS_REAL( tok) ((tok) & REAL_MASK)
+#define WSNE__TEXT_TOKEN( tok) (WSNE__IS_REAL( tok) ? WSTKREAL : WSTKINT)
+#define WSTK_CSHORT_P       (( BINARY_MASK | SIZEVARIANT_MASK | 1))
+#define WSTK_CINT_P         (( BINARY_MASK | SIZEVARIANT_MASK | 2))
+#define WSTK_CLONG_P        (( BINARY_MASK | SIZEVARIANT_MASK | 3))
+#define WSTK_CFLOAT_P       (( BINARY_MASK | SIZEVARIANT_MASK | REAL_MASK | 1))
+#define WSTK_CDOUBLE_P      (( BINARY_MASK | SIZEVARIANT_MASK | REAL_MASK | 2))
+#define WSTK_CLONGDOUBLE_P  (( BINARY_MASK | SIZEVARIANT_MASK | REAL_MASK | 3))
 #define WSTK_64BIT_LITTLEENDIAN_STRUCTURE 196
 #define WSTK_64BIT_BIGENDIAN_STRUCTURE    197
 #define WSTK_128BIT_EXTENDED 158
@@ -778,6 +1486,7 @@
 #define WSCHINOOK_WSFLOAT            WSTK_LITTLEENDIAN_IEEE754_SINGLE
 #define WSCHINOOK_WSDOUBLE           WSTK_LITTLEENDIAN_IEEE754_DOUBLE
 #define WSCHINOOK_WSLONGDOUBLE       WSTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define WSOLD_WIN_ENV_NUMERICS_ID    "Sep 13 1996, 13:46:34"
 #define WSOLD_WIN_ENV_CSHORT         WSTK_CSHORT_P
 #define WSOLD_WIN_ENV_CINT           WSTK_CINT_P
 #define WSOLD_WIN_ENV_CLONG          WSTK_CLONG_P
@@ -984,6 +1693,114 @@
 #define WSTK_WSDOUBLE      WSOLD_WIN_ENV_WSDOUBLE
 #define WSTK_WSLONGDOUBLE  WSOLD_WIN_ENV_WSLONGDOUBLE
 #define CC_SUPPORTS_LONG_DOUBLE 1
+#define CC_SUPPORTS_LONG_DOUBLE MLPROTOTYPES
+#define __extended_nt__ struct _i87extended_nt
+#define EXTENDED_NT_TO_I87_EXTENDED(a,b) a = b
+#define I87_EXTENDED_TO_EXTENDED_NT(a,b) a = b
+#define __extended_nt__ long double
+#define _MLSTDDEV_H
+#define _MLVERS_H
+#define MLVERSION 4
+#define MLVERSION 6
+#define MLREVISION 41
+#define MLCREATIONID 114411
+#define MLAPI1REVISION 1   /* the first revision to support interface 1 */
+#define MLAPI2REVISION 6   /* the first revision to support interface 2 */
+#define MLAPI3REVISION 16  /* the first revision to support interface 3 */
+#define MLAPI4REVISION 25  /* the first revision to support interface 4 */
+#define MLINTERFACE 4
+#define MLAPIREVISION MLAPI4REVISION
+#define MLAPIREVISION MLAPI1REVISION
+#define MLAPIREVISION MLAPI2REVISION
+#define MLAPIREVISION MLAPI3REVISION
+#define MLAPIREVISION MLAPI4REVISION
+#define MLOLDDEFINITION MLAPI1REVISION
+#define MLOLDDEFINITION MLAPI2REVISION
+#define MLOLDDEFINITION MLAPI2REVISION
+#define MLOLDDEFINITION MLAPI3REVISION
+#define MLOLDDEFINITION MLAPI1REVISION
+#define call_dev_allocator CallMLAllocatorProc
+#define new_dev_allocator NewMLAllocatorProc
+#define call_dev_deallocator CallMLDeallocatorProc
+#define new_dev_deallocator NewMLDeallocatorProc
+#define MLSTDWORLD_INIT        16
+#define MLSTDWORLD_DEINIT      17
+#define MLSTDWORLD_MAKE        18
+#define MLSTDWORLD_GET_SIGNAL_HANDLERS      29
+#define MLSTDWORLD_RELEASE_SIGNAL_HANDLERS  30
+#define MLSTDWORLD_PROTOCOL        31
+#define MLSTDWORLD_MODES           32
+#define MLSTDWORLD_STREAMCAPACITY  33
+#define MLSTDWORLD_ID              34
+#define MLSTDDEV_CONNECT_READY 19
+#define MLSTDDEV_CONNECT       20
+#define MLSTDDEV_DESTROY       21
+#define MLSTDDEV_SET_YIELDER   22
+#define MLSTDDEV_GET_YIELDER   23
+#define MLSTDDEV_WRITE_MSG     24
+#define MLSTDDEV_HAS_MSG       25
+#define MLSTDDEV_READ_MSG      26
+#define MLSTDDEV_SET_HANDLER   27
+#define MLSTDDEV_GET_HANDLER   28
+#define MLSTDDEV_GET_SIGNAL_HANDLERS        29
+#define MLSTDDEV_RELEASE_SIGNAL_HANDLERS    30
+#define T_WORLD_INIT        MLSTDWORLD_INIT
+#define T_WORLD_DEINIT      MLSTDWORLD_DEINIT
+#define T_WORLD_MAKE        MLSTDWORLD_MAKE
+#define T_DEV_CONNECT_READY MLSTDDEV_CONNECT_READY
+#define T_DEV_CONNECT       MLSTDDEV_CONNECT
+#define T_DEV_DESTROY       MLSTDDEV_DESTROY
+#define T_DEV_SET_YIELDER   MLSTDDEV_SET_YIELDER
+#define T_DEV_GET_YIELDER   MLSTDDEV_GET_YIELDER
+#define T_DEV_WRITE_MSG     MLSTDDEV_WRITE_MSG
+#define T_DEV_HAS_MSG       MLSTDDEV_HAS_MSG
+#define T_DEV_READ_MSG      MLSTDDEV_READ_MSG
+#define T_DEV_SET_HANDLER   MLSTDDEV_SET_HANDLER
+#define T_DEV_GET_HANDLER   MLSTDDEV_GET_HANDLER
+#define NOMODE           ((dev_mode)0x0000)
+#define LOOPBACKBIT      ((dev_mode)0x0001)
+#define LISTENBIT        ((dev_mode)0x0002)
+#define CONNECTBIT       ((dev_mode)0x0004)
+#define LAUNCHBIT        ((dev_mode)0x0008)
+#define PARENTCONNECTBIT ((dev_mode)0x0010)
+#define READBIT          ((dev_mode)0x0020)
+#define WRITEBIT         ((dev_mode)0x0040)
+#define SERVERBIT        ((dev_mode)0x0080)
+#define ANYMODE          (~(dev_mode)0)
+#define _DefaultOptions              ((dev_options)0x00000000)
+#define _NetworkVisibleMask          ((dev_options)0x00000003)
+#define _BrowseMask                  ((dev_options)0x00000010)
+#define _NonBlockingMask             ((dev_options)0x00000020)
+#define _InteractMask                ((dev_options)0x00000100)
+#define _YieldMask                   ((dev_options)0x00000200)
+#define _UseIPV6Mask                 ((dev_options)0x00010000)
+#define _UseIPV4Mask                 ((dev_options)0x00020000)
+#define _VersionMask                 ((dev_options)0x0F000000)
+#define _UseNewTCPIPConnectionMask   ((dev_options)0x00100000)
+#define _UseOldTCPIPConnectionMask   ((dev_options)0x00200000)
+#define _UseUUIDTCPIPConnectionMask  ((dev_options)0x00000004)
+#define _UseAnyNetworkAddressMask    ((dev_options)0x00000008)
+#define _NetworkVisible              ((dev_options)0x00000000)
+#define _LocallyVisible              ((dev_options)0x00000001)
+#define _InternetVisible             ((dev_options)0x00000002)
+#define _Browse                      ((dev_options)0x00000000)
+#define _DontBrowse                  ((dev_options)0x00000010)
+#define _NonBlocking                 ((dev_options)0x00000000)
+#define _Blocking                    ((dev_options)0x00000020)
+#define _Interact                    ((dev_options)0x00000000)
+#define _DontInteract                ((dev_options)0x00000100)
+#define _ForceYield                  ((dev_options)0x00000200)
+#define _UseIPV6                     ((dev_options)0x00010000)
+#define _UseIPV4                     ((dev_options)0x00020000)
+#define _UseNewTCPIPConnection       ((dev_options)0x00100000)
+#define _UseOldTCPIPConnection       ((dev_options)0x00200000)
+#define _UseUUIDTCPIPConnection      ((dev_options)0x00000004)
+#define _UseAnyNetworkAddress        ((dev_options)0x00000008)
+#define INFO_MASK (1UL << 31)
+#define INFO_TYPE_MASK ((1UL << 31) - 1UL)
+#define INFO_SWITCH_MASK (1UL << 30)
+#define MLDEVICE_MASK INFO_MASK
+#define WORLD_MASK (INFO_MASK | (1UL << 30))
 #define UNREGISTERED_TYPE  0
 #define UNIXPIPE_TYPE      1
 #define UNIXSOCKET_TYPE    2
@@ -992,9 +1809,54 @@
 #define WINFMAP_TYPE       10
 #define WINSHM_TYPE        11
 #define SOCKET2_TYPE       12
+#define GENERIC_TYPE	   13  /* Internal use only, not valid for MLDeviceInformation */
 #define UNIXSHM_TYPE       14
 #define INTRAPROCESS_TYPE  15
+#define MLDEVICE_TYPE 0                                       /* long */
+#define MLDEVICE_NAME 1                                       /* char */
+#define MLDEVICE_NAME_SIZE 2                                  /* long */
+#define MLDEVICE_WORLD_ID 5                                   /* char */
+#define SHM_FD                 (UNIXSHM_TYPE * 256 + 0)       /* int */
+#define PIPE_FD                (UNIXPIPE_TYPE * 256 + 0)      /* int */
+#define PIPE_CHILD_PID         (UNIXPIPE_TYPE * 256 + 1)      /* int */
+#define SOCKET_FD              (UNIXSOCKET_TYPE * 256 + 0)    /* int */
+#define INTRA_FD               (INTRAPROCESS_TYPE * 256 + 0)  /* int */
+#define SOCKET_PARTNER_ADDR    (UNIXSOCKET_TYPE * 256 + 1)    /* unsigned long */
+#define SOCKET_PARTNER_PORT    (UNIXSOCKET_TYPE * 256 + 2)    /* unsigned short */
+#define LOOPBACK_FD            (LOOPBACK_TYPE * 256 + 2)      /* int */
+#define INTRAPROCESS_FD        (INTRAPROCESS_TYPE * 256 + 0)  /* int */
+#define	WINDOWS_SET_NOTIFY_WINDOW     2330 /* HWND */
+#define	WINDOWS_REMOVE_NOTIFY_WINDOW  2331 /* HWND */
 #define WINDOWS_READY_CONDITION       2332
+#define WORLD_THISLOCATION 1        /* char */
+#define WORLD_MODES 2               /* dev_mode */
+#define WORLD_PROTONAME 3           /* char */
+#define WORLD_STREAMCAPACITY 4      /* long */ /*this belongs in mlolddev.h*/
+#define WORLD_ID MLDEVICE_WORLD_ID    /* char */
+#define MLDEVICE_TYPE          MLDEVICE_MASK + 0UL                                        /* long */
+#define MLDEVICE_NAME          MLDEVICE_MASK + 1UL                                        /* char */
+#define MLDEVICE_NAME_SIZE     MLDEVICE_MASK + 2UL                                   /* long */
+#define MLDEVICE_WORLD_ID      MLDEVICE_MASK + 5UL                                    /* char */
+#define SHM_FD                 MLDEVICE_MASK + (UNIXSHM_TYPE * 256UL + 0UL)      /* int */
+#define PIPE_FD                MLDEVICE_MASK + (UNIXPIPE_TYPE * 256UL + 0UL)     /* int */
+#define PIPE_CHILD_PID         MLDEVICE_MASK + (UNIXPIPE_TYPE * 256UL + 1UL)     /* int */
+#define SOCKET_FD              MLDEVICE_MASK + (UNIXSOCKET_TYPE * 256UL + 0UL)   /* int */
+#define INTRA_FD               MLDEVICE_MASK + (INTRAPROCESS_TYPE * 256UL + 0UL) /* int */
+#define SOCKET_PARTNER_ADDR    MLDEVICE_MASK + (UNIXSOCKET_TYPE * 256UL + 1UL)   /* unsigned long */
+#define SOCKET_PARTNER_PORT    MLDEVICE_MASK + (UNIXSOCKET_TYPE * 256UL + 2UL)   /* unsigned short */
+#define LOOPBACK_FD            MLDEVICE_MASK + (LOOPBACK_TYPE * 256UL + 0UL)     /* int */
+#define INTRAPROCESS_FD        MLDEVICE_MASK + (INTRAPROCESS_TYPE * 256 + 0)     /* int */
+#define	WINDOWS_SET_NOTIFY_WINDOW     MLDEVICE_MASK + 2330UL /* HWND */
+#define	WINDOWS_REMOVE_NOTIFY_WINDOW  MLDEVICE_MASK + 2331UL /* HWND */
+#define WINDOWS_READY_CONDITION       MLDEVICE_MASK + 2332UL /* HANDLE */
+#define WORLD_THISLOCATION (1UL + WORLD_MASK)        /* char */
+#define WORLD_MODES (2UL + WORLD_MASK)               /* dev_mode */
+#define WORLD_PROTONAME (3UL + WORLD_MASK)           /* char */
+#define WORLD_STREAMCAPACITY (4UL + WORLD_MASK)      /* long */ /*this belongs in mlolddev.h*/
+#define WORLD_ID (5UL + WORLD_MASK)    /* char */
+#define MATHLINK_DEVICE_WORLD_ID (__DATE__ ", " __TIME__)
+#define MLDEVICE_MODE      MLDEVICE_MASK + 6UL                                    /* long */
+#define MLDEVICE_OPTIONS   MLDEVICE_MASK + 7UL                                    /* long */
 #define YIELDVERSION 1
 #define INTERNAL_YIELDING 0
 #define MAKE_YIELDING 1
@@ -1003,6 +1865,80 @@
 #define WRITE_YIELDING 4
 #define DESTROY_YIELDING 5
 #define READY_YIELDING 6
+#define MAX_SLEEP (600)
+#define NewMLYielderProc(userRoutine) (userRoutine)
+#define NewMLDeviceYielderProc NewMLYielderProc
+#define NewMLHandlerProc(userRoutine) (userRoutine)
+#define NewMLDeviceHandlerProc NewMLHandlerProc
+#define MLSIGNAL_H
+#define _WSMAKE_H
+#define MLPARAMETERSIZE_R1 256
+#define MLPARAMETERSIZE 356
+#define MLPARAMETERSIZE 256
+#define MLLoopBackOpen MLLoopbackOpen
+#define NewMLUserProc(userRoutine) (userRoutine)
+#define MLNetworkVisibleMask         ((unsigned long)0x00000003)          /* 00000000000000000000011 */
+#define MLBrowseMask                 ((unsigned long)0x00000010)          /* 00000000000000000010000 */
+#define MLNonBlockingMask            ((unsigned long)0x00000020)          /* 00000000000000000110000 */
+#define MLInteractMask               ((unsigned long)0x00000100)          /* 00000000000000100000000 */
+#define MLYieldMask                  ((unsigned long)0x00000200)          /* 00000000000001000000000 */
+#define MLUseIPV6Mask                ((unsigned long)0x00010000)          /* 00000010000000000000000 */
+#define MLUseIPV4Mask                ((unsigned long)0x00020000)          /* 00000100000000000000000 */
+#define MLVersionMask                ((unsigned long)0x0000F000)          /* 00000001111000000000000 */
+#define MLUseNewTCPIPConnectionMask  ((unsigned long)0x00100000)          /* 00100000000000000000000 */
+#define MLUseOldTCPIPConnectionMask  ((unsigned long)0x00200000)          /* 01000000000000000000000 */
+#define MLUseUUIDTCPIPConnectionMask ((unsigned long)0x00000004)          /* 00000000000000000000110 */
+#define MLUseAnyNetworkAddressMask   ((unsigned long)0x00000008)          /* 00000000000000000001000 */
+#define MLDefaultOptions             ((unsigned long)0x00000000)
+#define MLNetworkVisible             ((unsigned long)0x00000000)
+#define MLLocallyVisible             ((unsigned long)0x00000001)
+#define MLInternetVisible            ((unsigned long)0x00000002)
+#define MLBrowse                     ((unsigned long)0x00000000)
+#define MLDontBrowse                 ((unsigned long)0x00000010)
+#define MLNonBlocking                ((unsigned long)0x00000000)
+#define MLBlocking                   ((unsigned long)0x00000020)
+#define MLInteract                   ((unsigned long)0x00000000)
+#define MLDontInteract               ((unsigned long)0x00000100)
+#define MLForceYield                 ((unsigned long)0x00000200)
+#define MLUseIPV6                    ((unsigned long)0x00010000)
+#define MLUseIPV4                    ((unsigned long)0x00020000)
+#define MLUseNewTCPIPConnection      ((unsigned long)0x00100000)
+#define MLUseOldTCPIPConnection      ((unsigned long)0x00200000)
+#define MLUseUUIDTCPIPConnection     ((unsigned long)0x00000004)
+#define MLUseAnyNetworkAddress       ((unsigned long)0x00000008)
+#define MLASCII_ENC		1
+#define MLBYTES_ENC		2
+#define MLUCS2_ENC		3
+#define MLOLD_ENC		4
+#define MLUTF8_ENC		5
+#define MLUTF16_ENC		6
+#define MLUTF32_ENC		8
+#define MLTOTAL_TEXT_ENCODINGS 8
+#define MLLOGERROR              0
+#define MLLOGWARNING            1
+#define MLLOGNOTICE             2
+#define MLLOGINFO               3
+#define MLLOGDEBUG              4
+#define MLLOGDEBUG1             5
+#define MLLOGDEBUG2             6
+#define MLLOGDEBUG3             7
+#define MLLOGDEBUG4             8
+#define MLNTESTPOINTS 1
+#define MLNTESTPOINTS 2
+#define MLNTESTPOINTS 3
+#define MLNTESTPOINTS 4
+#define MLActivate MLConnect
+#define __feature_setp__
+#define MLLINKSERVER_H
+#define MLSERVICEDISCOVERYAPI_H
+#define MLSDADDSERVICE      0x0001
+#define MLSDREMOVESERVICE   0x0002
+#define MLSDBROWSEERROR     0x0003
+#define MLSDRESOLVEERROR    0x0004
+#define MLSDREGISTERERROR   0x0005
+#define MLSDMORECOMING      0x0010
+#define MLSDNAMECONFLICT    0x0007
+#define _WSERRNO_H
 #define WSEUNKNOWN          -1
 #define WSEOK                0
 #define WSEDEAD              1
@@ -1016,11 +1952,20 @@
 #define WSEACCEPT            9
 #define WSECONNECT          10
 #define WSECLOSED           11
+#define WSEDEPTH            12  /* internal error */
+#define WSENODUPFCN         13  /* stream cannot be duplicated */
+#define WSENOACK            15  /* */
+#define WSENODATA           16  /* */
+#define WSENOTDELIVERED     17  /* */
+#define WSENOMSG            18  /* */
+#define WSEFAILED           19  /* */
 #define WSEGETENDEXPR       20
+#define WSEPUTENDPACKET     21 /* unexpected call of WSEndPacket */
 #define WSENEXTPACKET       22
 #define WSEUNKNOWNPACKET    23
 #define WSEGETENDPACKET     24
 #define WSEABORT            25
+#define WSEMORE             26 /* internal error */
 #define WSENEWLIB           27
 #define WSEOLDLIB           28
 #define WSEBADPARAM         29
@@ -1037,8 +1982,10 @@
 #define WSENOLISTEN         41
 #define WSEBADNAME          42
 #define WSEBADHOST          43
+#define WSERESOURCE         44  /* a required resource was missing */
 #define WSELAUNCHFAILED     45
 #define WSELAUNCHNAME       46
+#define WSELAST WSELAUNCHNAME /* for internal use only */
 #define WSEPDATABAD         47
 #define WSEPSCONVERT        48
 #define WSEGSCONVERT        49
@@ -1066,23 +2013,1621 @@
 #define WSEDISCOVERYNAMECOLLISION       64
 #define WSEBADSERVICEDISCOVERY          65
 #define WSELAST WSESERVICENOTAVAILABLE
-#define	WSTKEND     '\n'
-#define	WSTKAEND    '\r'
+#define WSETRACEON         996  /* */
+#define WSETRACEOFF        997  /* */
+#define WSEDEBUG           998  /* */
+#define WSEASSERT          999  /* an internal assertion failed */
+#define WSEUSER           1000  /* start of user defined errors */
+#define _MLERRORS_H
+#define _MLERRNO_H
+#define MLEUNKNOWN          -1
+#define MLEOK                0
+#define MLEDEAD              1
+#define MLEGBAD              2
+#define MLEGSEQ              3
+#define MLEPBTK              4
+#define MLEPSEQ              5
+#define MLEPBIG              6
+#define MLEOVFL              7
+#define MLEMEM               8
+#define MLEACCEPT            9
+#define MLECONNECT          10
+#define MLECLOSED           11
+#define MLEDEPTH            12  /* internal error */
+#define MLENODUPFCN         13  /* stream cannot be duplicated */
+#define MLENOACK            15  /* */
+#define MLENODATA           16  /* */
+#define MLENOTDELIVERED     17  /* */
+#define MLENOMSG            18  /* */
+#define MLEFAILED           19  /* */
+#define MLEGETENDEXPR       20
+#define MLEPUTENDPACKET     21 /* unexpected call of MLEndPacket */
+#define MLENEXTPACKET       22
+#define MLEUNKNOWNPACKET    23
+#define MLEGETENDPACKET     24
+#define MLEABORT            25
+#define MLEMORE             26 /* internal error */
+#define MLENEWLIB           27
+#define MLEOLDLIB           28
+#define MLEBADPARAM         29
+#define MLENOTIMPLEMENTED   30
+#define MLEINIT             32
+#define MLEARGV             33
+#define MLEPROTOCOL         34
+#define MLEMODE             35
+#define MLELAUNCH           36
+#define MLELAUNCHAGAIN      37
+#define MLELAUNCHSPACE      38
+#define MLENOPARENT         39
+#define MLENAMETAKEN        40
+#define MLENOLISTEN         41
+#define MLEBADNAME          42
+#define MLEBADHOST          43
+#define MLERESOURCE         44  /* a required resource was missing */
+#define MLELAUNCHFAILED     45
+#define MLELAUNCHNAME       46
+#define MLELAST MLELAUNCHNAME /* for internal use only */
+#define MLEPDATABAD         47
+#define MLEPSCONVERT        48
+#define MLEGSCONVERT        49
+#define MLENOTEXE           50
+#define MLESYNCOBJECTMAKE   51
+#define MLEBACKOUT          52
+#define MLELAST MLEBACKOUT
+#define MLEPDATABAD         47
+#define MLEPSCONVERT        48
+#define MLEGSCONVERT        49
+#define MLENOTEXE           50
+#define MLESYNCOBJECTMAKE   51
+#define MLEBACKOUT          52
+#define MLEBADOPTSYM        53
+#define MLEBADOPTSTR        54
+#define MLENEEDBIGGERBUFFER 55
+#define MLEBADNUMERICSID    56
+#define MLESERVICENOTAVAILABLE 57
+#define MLEBADARGUMENT      58
+#define MLEBADDISCOVERYHOSTNAME         59
+#define MLEBADDISCOVERYDOMAINNAME       60
+#define MLEBADSERVICENAME               61
+#define MLEBADDISCOVERYSTATE            62
+#define MLEBADDISCOVERYFLAGS            63
+#define MLEDISCOVERYNAMECOLLISION       64
+#define MLEBADSERVICEDISCOVERY          65
+#define MLELAST MLESERVICENOTAVAILABLE
+#define MLETRACEON         996  /* */
+#define MLETRACEOFF        997  /* */
+#define MLEDEBUG           998  /* */
+#define MLEASSERT          999  /* an internal assertion failed */
+#define MLEUSER           1000  /* start of user defined errors */
+#define _MLYLDMSG_H
+#define _MLGET_H
+#define _MLPUT_H
+#define MLPutExpression is obsolete, use MLPutComposite
+#define _WSTK_H
+#define	WSTKOLDINT     'I'		/* 73 Ox49 01001001 */ /* integer leaf node */
+#define	WSTKOLDREAL    'R'		/* 82 Ox52 01010010 */ /* real leaf node */
+#define	WSTKFUNC    'F'		/* 70 Ox46 01000110 */ /* non-leaf node */
+#define	WSTKERROR   (0)		/* bad token */
+#define	WSTKERR     (0)		/* bad token */
+#define WSTK__IS_TEXT( tok) ( (tok & 0x00F6) == 0x0022)
+#define	WSTKSTR     '"'         /* 34 0x22 00100010 */
+#define WSTKOPTSYM  'O'       /* 79 00101010 */
+#define WSTKOPTSTR  'Q'       /* 81 01010001 */
+#define	WSTKREAL    '*'         /* 42 0x2A 00101010 */
+#define	WSTKINT     '+'         /* 43 0x2B 00101011 */
+#define	WSTKPCTEND  ']'     /* at end of top level expression */
 #define	WSTKSEND    ','
-#define	WSTKCONT    '\\'
+#define	WSTKELEN    ' '
 #define	WSTKNULL    '.'
-#define WSTK_LASTUSER  '\x3F'
+#define	WSTKOLDSYM  'Y'     /* 89 0x59 01011001 */
+#define	WSTKOLDSTR  'S'     /* 83 0x53 01010011 */
+#define	WSTKPACKED	'P'     /* 80 0x50 01010000 */
+#define	WSTKARRAY	'A'     /* 65 0x41 01000001 */
+#define	WSTKDIM		'D'     /* 68 0x44 01000100 */
+#define WSLENGTH_DECODER        ((decoder_mask) 1<<16)
+#define WSTKPACKED_DECODER      ((decoder_mask) 1<<17)
+#define WSTKARRAY_DECODER	    ((decoder_mask) 1<<18)
+#define WSTKMODERNCHARS_DECODER ((decoder_mask) 1<<19)
+#define WSTKNULLSEQUENCE_DECODER ((decoder_mask) 0)
+#define WSTKALL_DECODERS (WSLENGTH_DECODER | WSTKPACKED_DECODER | WSTKARRAY_DECODER | WSTKMODERNCHARS_DECODER | WSTKNULLSEQUENCE_DECODER)
+#define _MLINTEGER64_H
+#define MLGETNUMBERS_HPP
+#define MLGETSTRINGS_HPP
+#define MLGETSYMBOLS_HPP
+#define MLPUTNUMBERS_HPP
+#define MLPUTSTRINGS_HPP
+#define MLPUTSYMBOLS_HPP
+#define MLGETNUMBERS_HPP
+#define _MLNTYPES_H
+#define _MLNUMENV_H
 #define REALBIT 4
+#define REAL_MASK (1 << REALBIT)
 #define XDRBIT 5
+#define XDR_MASK (1 << XDRBIT)
 #define BINARYBIT 7
+#define BINARY_MASK (1 << BINARYBIT)
 #define SIZEVARIANTBIT 6
+#define SIZEVARIANT_MASK (1 << SIZEVARIANTBIT)
+#define MLTK_INVALID                                          155
+#define	MLTK_8BIT_SIGNED_2sCOMPLEMENT_INTEGER                 160
+#define	MLTK_8BIT_UNSIGNED_2sCOMPLEMENT_INTEGER               161
+#define MLTK_8BIT_UNSIGNED_INTEGER MLTK_8BIT_UNSIGNED_2sCOMPLEMENT_INTEGER
+#define	MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER      162
+#define	MLTK_16BIT_UNSIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER    163
+#define	MLTK_16BIT_UNSIGNED_BIGENDIAN_INTEGER MLTK_16BIT_UNSIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define	MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER      164
+#define	MLTK_32BIT_UNSIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER    165
+#define	MLTK_32BIT_UNSIGNED_BIGENDIAN_INTEGER MLTK_32BIT_UNSIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define	MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER      166
+#define	MLTK_64BIT_UNSIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER    167
+#define	MLTK_64BIT_UNSIGNED_BIGENDIAN_INTEGER MLTK_64BIT_UNSIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define	MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER   226
+#define	MLTK_16BIT_UNSIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER 227
+#define	MLTK_16BIT_UNSIGNED_LITTLEENDIAN_INTEGER MLTK_16BIT_UNSIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define	MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER   228
+#define	MLTK_32BIT_UNSIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER 229
+#define	MLTK_32BIT_UNSIGNED_LITTLEENDIAN_INTEGER MLTK_32BIT_UNSIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define	MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER   230
+#define	MLTK_64BIT_UNSIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER 231
+#define	MLTK_64BIT_UNSIGNED_LITTLEENDIAN_INTEGER MLTK_64BIT_UNSIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define	MLTK_BIGENDIAN_IEEE754_SINGLE	                      180
+#define	MLTK_BIGENDIAN_IEEE754_DOUBLE	                      182
+#define MLTK_BIGENDIAN_128BIT_DOUBLE                          184
+#define	MLTK_LITTLEENDIAN_IEEE754_SINGLE	                  244
+#define	MLTK_LITTLEENDIAN_IEEE754_DOUBLE	                  246
+#define MLTK_LITTLEENDIAN_128BIT_DOUBLE                       248
+#define MLNE__SIZESELECTOR( tok) MLNE__SELECTOR( 0, tok)
+#define MLNE__INITSELECTOR (0)
+#define MLNE__TOSTRINGSELECTOR( tok) MLNE__SELECTOR( MLNE__IS_REAL(tok) ? MLTKREAL : MLTKINT, tok)
+#define MLNE__FROMSTRINGSELECTOR( dtok, stok) MLNE__SELECTOR( dtok, stok)
+#define MLNE__STOK( selector) ( (selector) & 0x000000FF)
+#define MLNE__DTOK( selector) ( ((selector) & 0x0000FF00)>>8)
+#define MLNE__IS_BINARY( tok) ((tok) & BINARY_MASK)
+#define MLNE__IS_REAL( tok) ((tok) & REAL_MASK)
+#define MLNE__TEXT_TOKEN( tok) (MLNE__IS_REAL( tok) ? MLTKREAL : MLTKINT)
+#define MLTK_CSHORT_P       (( BINARY_MASK | SIZEVARIANT_MASK | 1))
+#define MLTK_CINT_P         (( BINARY_MASK | SIZEVARIANT_MASK | 2))
+#define MLTK_CLONG_P        (( BINARY_MASK | SIZEVARIANT_MASK | 3))
+#define MLTK_CFLOAT_P       (( BINARY_MASK | SIZEVARIANT_MASK | REAL_MASK | 1))
+#define MLTK_CDOUBLE_P      (( BINARY_MASK | SIZEVARIANT_MASK | REAL_MASK | 2))
+#define MLTK_CLONGDOUBLE_P  (( BINARY_MASK | SIZEVARIANT_MASK | REAL_MASK | 3))
+#define MLTK_64BIT_LITTLEENDIAN_STRUCTURE 196
+#define MLTK_64BIT_BIGENDIAN_STRUCTURE    197
+#define MLTK_128BIT_EXTENDED 158
+#define MLTK_128BIT_LONGDOUBLE 158
+#define MLTK_96BIT_HIGHPADDED_INTEL_80BIT_EXTENDED 218
+#define MLTK_INTEL_80BIT_EXTENDED 216
+#define MLMASTIFF_NUMERICS_ID    "mastiff"
+#define MLMASTIFF_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLMASTIFF_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLMASTIFF_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLMASTIFF_CINT64         MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLMASTIFF_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLMASTIFF_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLMASTIFF_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLMASTIFF_CLONGDOUBLE    MLTK_128BIT_EXTENDED
+#define MLMASTIFF_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLMASTIFF_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLMASTIFF_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLMASTIFF_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLMASTIFF_MLINT64        MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLMASTIFF_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLMASTIFF_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLMASTIFF_MLLONGDOUBLE   MLTK_128BIT_EXTENDED
+#define MLJAPANESECHIN_NUMERICS_ID    "japanesechin"
+#define MLJAPANESECHIN_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLJAPANESECHIN_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLJAPANESECHIN_CLONG          MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLJAPANESECHIN_CINT64         MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLJAPANESECHIN_CSIZE_T        MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLJAPANESECHIN_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLJAPANESECHIN_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLJAPANESECHIN_CLONGDOUBLE    MLTK_128BIT_EXTENDED
+#define MLJAPANESECHIN_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLJAPANESECHIN_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLJAPANESECHIN_MLLONG         MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLJAPANESECHIN_MLINT64        MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLJAPANESECHIN_MLSIZE_T       MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLJAPANESECHIN_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLJAPANESECHIN_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLJAPANESECHIN_MLLONGDOUBLE   MLTK_128BIT_EXTENDED
+#define MLBORZOI_NUMERICS_ID          "borzoi"
+#define MLBORZOI_CSHORT               MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORZOI_CINT                 MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORZOI_CLONG                MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORZOI_CSIZE_T              MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORZOI_CINT64               MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLBORZOI_CFLOAT               MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLBORZOI_CDOUBLE              MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLBORZOI_MLSHORT              MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORZOI_MLINT                MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORZOI_MLLONG               MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORZOI_MLSIZE_T             MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORZOI_MLINT64              MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLBORZOI_MLFLOAT              MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLBORZOI_MLDOUBLE             MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLBRIARD_NUMERICS_ID          "briard"
+#define MLBRIARD_CSHORT               MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBRIARD_CINT                 MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBRIARD_CLONG                MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBRIARD_CINT64               MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBRIARD_CSIZE_T              MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBRIARD_CFLOAT               MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLBRIARD_CDOUBLE              MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLBRIARD_MLSHORT              MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBRIARD_MLINT                MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBRIARD_MLLONG               MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBRIARD_MLINT64              MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBRIARD_MLSIZE_T             MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBRIARD_MLFLOAT              MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLBRIARD_MLDOUBLE             MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLKEESHOND_NUMERICS_ID    "keeshond"
+#define MLKEESHOND_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKEESHOND_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKEESHOND_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKEESHOND_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKEESHOND_CINT64         MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLKEESHOND_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLKEESHOND_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLKEESHOND_CLONGDOUBLE    MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLKEESHOND_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKEESHOND_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKEESHOND_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKEESHOND_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKEESHOND_MLINT64        MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLKEESHOND_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLKEESHOND_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLKEESHOND_MLLONGDOUBLE   MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLKOMONDOR_NUMERICS_ID    "komondor"
+#define MLKOMONDOR_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKOMONDOR_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKOMONDOR_CLONG          MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKOMONDOR_CINT64         MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKOMONDOR_CSIZE_T        MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKOMONDOR_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLKOMONDOR_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLKOMONDOR_CLONGDOUBLE    MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLKOMONDOR_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKOMONDOR_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKOMONDOR_MLLONG         MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKOMONDOR_MLSIZE_T       MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKOMONDOR_MLINT64        MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLKOMONDOR_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLKOMONDOR_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLKOMONDOR_MLLONGDOUBLE   MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLNORWEGIANELKHOUND_NUMERICS_ID    "norwegianelkhound"
+#define MLNORWEGIANELKHOUND_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWEGIANELKHOUND_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWEGIANELKHOUND_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWEGIANELKHOUND_CINT64         MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLNORWEGIANELKHOUND_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWEGIANELKHOUND_CFLOAT         MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLNORWEGIANELKHOUND_CDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLNORWEGIANELKHOUND_CLONGDOUBLE    MLTK_96BIT_HIGHPADDED_INTEL_80BIT_EXTENDED
+#define MLNORWEGIANELKHOUND_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWEGIANELKHOUND_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWEGIANELKHOUND_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWEGIANELKHOUND_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWEGIANELKHOUND_MLINT64        MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLNORWEGIANELKHOUND_MLFLOAT        MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLNORWEGIANELKHOUND_MLDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLNORWEGIANELKHOUND_MLLONGDOUBLE   MLTK_96BIT_HIGHPADDED_INTEL_80BIT_EXTENDED
+#define MLNORWICHTERRIOR_NUMERICS_ID    "norwichterrior"
+#define MLNORWICHTERRIOR_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWICHTERRIOR_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWICHTERRIOR_CLONG          MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWICHTERRIOR_CINT64         MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWICHTERRIOR_CSIZE_T        MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWICHTERRIOR_CFLOAT         MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLNORWICHTERRIOR_CDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLNORWICHTERRIOR_CLONGDOUBLE    MLTK_LITTLEENDIAN_128BIT_DOUBLE
+#define MLNORWICHTERRIOR_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWICHTERRIOR_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWICHTERRIOR_MLLONG         MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWICHTERRIOR_MLSIZE_T       MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWICHTERRIOR_MLINT64        MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLNORWICHTERRIOR_MLFLOAT        MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLNORWICHTERRIOR_MLDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLNORWICHTERRIOR_MLLONGDOUBLE   MLTK_LITTLEENDIAN_128BIT_DOUBLE
+#define MLSAINTBERNARD_NUMERICS_ID    "saintbernarnd"
+#define MLSAINTBERNARD_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAINTBERNARD_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAINTBERNARD_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAINTBERNARD_CINT64         MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLSAINTBERNARD_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAINTBERNARD_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLSAINTBERNARD_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLSAINTBERNARD_CLONGDOUBLE    MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLSAINTBERNARD_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAINTBERNARD_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAINTBERNARD_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAINTBERNARD_MLINT64        MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLSAINTBERNARD_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAINTBERNARD_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLSAINTBERNARD_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLSAINTBERNARD_MLLONGDOUBLE   MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLBERNESEMOUNTAINDOG_NUMERICS_ID    "bernesemountaindog"
+#define MLBERNESEMOUNTAINDOG_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBERNESEMOUNTAINDOG_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBERNESEMOUNTAINDOG_CLONG          MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBERNESEMOUNTAINDOG_CINT64         MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBERNESEMOUNTAINDOG_CSIZE_T        MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBERNESEMOUNTAINDOG_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLBERNESEMOUNTAINDOG_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLBERNESEMOUNTAINDOG_CLONGDOUBLE    MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLBERNESEMOUNTAINDOG_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBERNESEMOUNTAINDOG_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBERNESEMOUNTAINDOG_MLLONG         MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBERNESEMOUNTAINDOG_MLINT64        MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBERNESEMOUNTAINDOG_MLSIZE_T       MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBERNESEMOUNTAINDOG_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLBERNESEMOUNTAINDOG_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLBERNESEMOUNTAINDOG_MLLONGDOUBLE   MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLSETTER_NUMERICS_ID    "setter"
+#define MLSETTER_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSETTER_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSETTER_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSETTER_CINT64         MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLSETTER_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSETTER_CFLOAT         MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLSETTER_CDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLSETTER_CLONGDOUBLE    MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLSETTER_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSETTER_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSETTER_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSETTER_MLINT64        MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLSETTER_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSETTER_MLFLOAT        MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLSETTER_MLDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLSETTER_MLLONGDOUBLE   MLTK_INTEL_80BIT_EXTENDED
+#define MLFRENCH_BULLDOG_NUMERICS_ID    "french_bulldog"
+#define MLFRENCH_BULLDOG_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLFRENCH_BULLDOG_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLFRENCH_BULLDOG_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLFRENCH_BULLDOG_CINT64         MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLFRENCH_BULLDOG_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLFRENCH_BULLDOG_CFLOAT         MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLFRENCH_BULLDOG_CDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLFRENCH_BULLDOG_CLONGDOUBLE    MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLFRENCH_BULLDOG_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLFRENCH_BULLDOG_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLFRENCH_BULLDOG_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLFRENCH_BULLDOG_MLINT64        MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLFRENCH_BULLDOG_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLFRENCH_BULLDOG_MLFLOAT        MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLFRENCH_BULLDOG_MLDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLFRENCH_BULLDOG_MLLONGDOUBLE   MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBICHON_FRISE_NUMERICS_ID    "bichon_frise"
+#define MLBICHON_FRISE_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBICHON_FRISE_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBICHON_FRISE_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBICHON_FRISE_CINT64         MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBICHON_FRISE_CSIZE_T        MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBICHON_FRISE_CFLOAT         MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLBICHON_FRISE_CDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBICHON_FRISE_CLONGDOUBLE    MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBICHON_FRISE_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBICHON_FRISE_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBICHON_FRISE_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBICHON_FRISE_MLINT64        MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBICHON_FRISE_MLSIZE_T       MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBICHON_FRISE_MLFLOAT        MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLBICHON_FRISE_MLDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBICHON_FRISE_MLLONGDOUBLE   MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLHELEN_NUMERICS_ID    "helen"
+#define MLHELEN_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLHELEN_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLHELEN_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLHELEN_CINT64         MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLHELEN_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLHELEN_CFLOAT         MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLHELEN_CDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLHELEN_CLONGDOUBLE    MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLHELEN_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLHELEN_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLHELEN_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLHELEN_MLINT64        MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLHELEN_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLHELEN_MLFLOAT        MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLHELEN_MLDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLHELEN_MLLONGDOUBLE   MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBEAGLE_NUMERICS_ID    "beagle"
+#define MLBEAGLE_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBEAGLE_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBEAGLE_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBEAGLE_CINT64         MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLBEAGLE_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBEAGLE_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLBEAGLE_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLBEAGLE_CLONGDOUBLE    MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLBEAGLE_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBEAGLE_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBEAGLE_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBEAGLE_MLINT64        MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLBEAGLE_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBEAGLE_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLBEAGLE_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLBEAGLE_MLLONGDOUBLE   MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLBULLTERRIER_NUMERICS_ID    "bullterrier"
+#define MLBULLTERRIER_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBULLTERRIER_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBULLTERRIER_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBULLTERRIER_CINT64         MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLBULLTERRIER_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBULLTERRIER_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLBULLTERRIER_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLBULLTERRIER_CLONGDOUBLE    MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLBULLTERRIER_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBULLTERRIER_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBULLTERRIER_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBULLTERRIER_MLINT64        MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLBULLTERRIER_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBULLTERRIER_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLBULLTERRIER_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLBULLTERRIER_MLLONGDOUBLE   MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLBORDERTERRIER_NUMERICS_ID    "borderterrier"
+#define MLBORDERTERRIER_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORDERTERRIER_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORDERTERRIER_CLONG          MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORDERTERRIER_CINT64         MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORDERTERRIER_CSIZE_T        MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORDERTERRIER_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLBORDERTERRIER_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLBORDERTERRIER_CLONGDOUBLE    MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLBORDERTERRIER_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORDERTERRIER_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORDERTERRIER_MLLONG         MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORDERTERRIER_MLINT64        MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORDERTERRIER_MLSIZE_T       MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLBORDERTERRIER_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLBORDERTERRIER_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLBORDERTERRIER_MLLONGDOUBLE   MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLBASENJI_NUMERICS_ID    "basenji"
+#define MLBASENJI_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBASENJI_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBASENJI_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBASENJI_CINT64         MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLBASENJI_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBASENJI_CFLOAT         MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLBASENJI_CDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBASENJI_CLONGDOUBLE    MLTK_LITTLEENDIAN_128BIT_DOUBLE
+#define MLBASENJI_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBASENJI_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBASENJI_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBASENJI_MLINT64        MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLBASENJI_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBASENJI_MLFLOAT        MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLBASENJI_MLDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBASENJI_MLLONGDOUBLE   MLTK_LITTLEENDIAN_128BIT_DOUBLE
+#define MLSHARPEI_NUMERICS_ID    "sharpei"
+#define MLSHARPEI_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHARPEI_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHARPEI_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHARPEI_CINT64         MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLSHARPEI_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHARPEI_CFLOAT         MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLSHARPEI_CDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLSHARPEI_CLONGDOUBLE    MLTK_LITTLEENDIAN_128BIT_DOUBLE
+#define MLSHARPEI_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHARPEI_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHARPEI_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHARPEI_MLINT64        MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLSHARPEI_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHARPEI_MLFLOAT        MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLSHARPEI_MLDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLSHARPEI_MLLONGDOUBLE   MLTK_LITTLEENDIAN_128BIT_DOUBLE
+#define MLTIBETANMASTIFF_NUMERICS_ID    "tibetanmastiff"
+#define MLTIBETANMASTIFF_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLTIBETANMASTIFF_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLTIBETANMASTIFF_CLONG          MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLTIBETANMASTIFF_CINT64         MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLTIBETANMASTIFF_CSIZE_T        MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLTIBETANMASTIFF_CFLOAT         MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLTIBETANMASTIFF_CDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLTIBETANMASTIFF_CLONGDOUBLE    MLTK_LITTLEENDIAN_128BIT_DOUBLE
+#define MLTIBETANMASTIFF_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLTIBETANMASTIFF_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLTIBETANMASTIFF_MLLONG         MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLTIBETANMASTIFF_MLINT64        MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLTIBETANMASTIFF_MLSIZE_T       MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLTIBETANMASTIFF_MLFLOAT        MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLTIBETANMASTIFF_MLDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLTIBETANMASTIFF_MLLONGDOUBLE   MLTK_LITTLEENDIAN_128BIT_DOUBLE
+#define MLGREATDANE_NUMERICS_ID    "greatdane"
+#define MLGREATDANE_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLGREATDANE_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLGREATDANE_CLONG          MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLGREATDANE_CINT64         MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLGREATDANE_CSIZE_T        MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLGREATDANE_CFLOAT         MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLGREATDANE_CDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLGREATDANE_CLONGDOUBLE    MLTK_LITTLEENDIAN_128BIT_DOUBLE
+#define MLGREATDANE_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLGREATDANE_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLGREATDANE_MLLONG         MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLGREATDANE_MLINT64        MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLGREATDANE_MLSIZE_T       MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLGREATDANE_MLFLOAT        MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLGREATDANE_MLDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLGREATDANE_MLLONGDOUBLE   MLTK_LITTLEENDIAN_128BIT_DOUBLE
+#define MLREDDOG_NUMERICS_ID    "reddog"
+#define MLREDDOG_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLREDDOG_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLREDDOG_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLREDDOG_CINT64         MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLREDDOG_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLREDDOG_CFLOAT         MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLREDDOG_CDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLREDDOG_CLONGDOUBLE    MLTK_96BIT_HIGHPADDED_INTEL_80BIT_EXTENDED
+#define MLREDDOG_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLREDDOG_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLREDDOG_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLREDDOG_MLINT64        MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLREDDOG_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLREDDOG_MLFLOAT        MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLREDDOG_MLDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLREDDOG_MLLONGDOUBLE   MLTK_96BIT_HIGHPADDED_INTEL_80BIT_EXTENDED
+#define MLAUSTRALIANCATTLEDOG_NUMERICS_ID    "australiancattledog"
+#define MLAUSTRALIANCATTLEDOG_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAUSTRALIANCATTLEDOG_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAUSTRALIANCATTLEDOG_CLONG          MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAUSTRALIANCATTLEDOG_CINT64         MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAUSTRALIANCATTLEDOG_CSIZE_T        MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAUSTRALIANCATTLEDOG_CFLOAT         MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLAUSTRALIANCATTLEDOG_CDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLAUSTRALIANCATTLEDOG_CLONGDOUBLE    MLTK_LITTLEENDIAN_128BIT_DOUBLE
+#define MLAUSTRALIANCATTLEDOG_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAUSTRALIANCATTLEDOG_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAUSTRALIANCATTLEDOG_MLLONG         MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAUSTRALIANCATTLEDOG_MLINT64        MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAUSTRALIANCATTLEDOG_MLSIZE_T       MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAUSTRALIANCATTLEDOG_MLFLOAT        MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLAUSTRALIANCATTLEDOG_MLDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLAUSTRALIANCATTLEDOG_MLLONGDOUBLE   MLTK_LITTLEENDIAN_128BIT_DOUBLE
+#define MLBOXER_NUMERICS_ID    "boxer"
+#define MLBOXER_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOXER_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOXER_CLONG          MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOXER_CINT64         MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOXER_CSIZE_T        MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOXER_CFLOAT         MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLBOXER_CDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBOXER_CLONGDOUBLE    MLTK_LITTLEENDIAN_128BIT_DOUBLE
+#define MLBOXER_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOXER_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOXER_MLLONG         MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOXER_MLINT64        MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOXER_MLSIZE_T       MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOXER_MLFLOAT        MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLBOXER_MLDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBOXER_MLLONGDOUBLE   MLTK_LITTLEENDIAN_128BIT_DOUBLE
+#define MLAKITAINU_NUMERICS_ID    "akitainu"
+#define MLAKITAINU_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAKITAINU_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAKITAINU_CLONG          MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAKITAINU_CINT64         MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAKITAINU_CSIZE_T        MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAKITAINU_CFLOAT         MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLAKITAINU_CDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLAKITAINU_CLONGDOUBLE    MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLAKITAINU_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAKITAINU_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAKITAINU_MLLONG         MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAKITAINU_MLINT64        MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAKITAINU_MLSIZE_T       MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLAKITAINU_MLFLOAT        MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLAKITAINU_MLDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLAKITAINU_MLLONGDOUBLE   MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLCHIHUAHUA_NUMERICS_ID    "chihuahua"
+#define MLCHIHUAHUA_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHIHUAHUA_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHIHUAHUA_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHIHUAHUA_CINT64         MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLCHIHUAHUA_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHIHUAHUA_CFLOAT         MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLCHIHUAHUA_CDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLCHIHUAHUA_CLONGDOUBLE    MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLCHIHUAHUA_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHIHUAHUA_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHIHUAHUA_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHIHUAHUA_MLINT64        MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLCHIHUAHUA_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHIHUAHUA_MLFLOAT        MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLCHIHUAHUA_MLDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLCHIHUAHUA_MLLONGDOUBLE   MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLROTTWEILER_NUMERICS_ID    "rottweiler"
+#define MLROTTWEILER_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLROTTWEILER_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLROTTWEILER_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLROTTWEILER_CINT64         MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLROTTWEILER_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLROTTWEILER_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLROTTWEILER_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLROTTWEILER_CLONGDOUBLE    MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLROTTWEILER_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLROTTWEILER_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLROTTWEILER_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLROTTWEILER_MLINT64        MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLROTTWEILER_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLROTTWEILER_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLROTTWEILER_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLROTTWEILER_MLLONGDOUBLE   MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLPHARAOHHOUND_NUMERICS_ID    "pharaohhound"
+#define MLPHARAOHHOUND_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPHARAOHHOUND_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPHARAOHHOUND_CLONG          MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPHARAOHHOUND_CINT64         MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPHARAOHHOUND_CSIZE_T        MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPHARAOHHOUND_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLPHARAOHHOUND_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLPHARAOHHOUND_CLONGDOUBLE    MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLPHARAOHHOUND_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPHARAOHHOUND_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPHARAOHHOUND_MLLONG         MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPHARAOHHOUND_MLINT64        MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPHARAOHHOUND_MLSIZE_T       MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPHARAOHHOUND_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLPHARAOHHOUND_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLPHARAOHHOUND_MLLONGDOUBLE   MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLTROUT_NUMERICS_ID    "trout"
+#define MLTROUT_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLTROUT_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLTROUT_CLONG          MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLTROUT_CINT64         MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLTROUT_CSIZE_T        MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLTROUT_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLTROUT_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLTROUT_CLONGDOUBLE    MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLTROUT_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLTROUT_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLTROUT_MLLONG         MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLTROUT_MLINT64        MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLTROUT_MLSIZE_T       MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLTROUT_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLTROUT_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLTROUT_MLLONGDOUBLE   MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLPUG_NUMERICS_ID    "pug"
+#define MLPUG_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPUG_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPUG_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPUG_CINT64         MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLPUG_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPUG_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLPUG_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLPUG_CLONGDOUBLE    MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLPUG_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPUG_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPUG_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPUG_MLINT64        MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLPUG_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPUG_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLPUG_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLPUG_MLLONGDOUBLE   MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLPOINTER_NUMERICS_ID    "pointer"
+#define MLPOINTER_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPOINTER_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPOINTER_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPOINTER_CINT64         MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLPOINTER_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPOINTER_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLPOINTER_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLPOINTER_CLONGDOUBLE    MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLPOINTER_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPOINTER_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPOINTER_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPOINTER_MLINT64        MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLPOINTER_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLPOINTER_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLPOINTER_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLPOINTER_MLLONGDOUBLE   MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLSAMOYED_NUMERICS_ID    "samoyed"
+#define MLSAMOYED_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAMOYED_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAMOYED_CLONG          MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAMOYED_CINT64         MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAMOYED_CSIZE_T        MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAMOYED_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLSAMOYED_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLSAMOYED_CLONGDOUBLE    MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLSAMOYED_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAMOYED_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAMOYED_MLLONG         MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAMOYED_MLINT64        MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAMOYED_MLSIZE_T       MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSAMOYED_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLSAMOYED_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLSAMOYED_MLLONGDOUBLE   MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLSIBERIANHUSKY_NUMERICS_ID    "siberianhusky"
+#define MLSIBERIANHUSKY_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSIBERIANHUSKY_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSIBERIANHUSKY_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSIBERIANHUSKY_CINT64         MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLSIBERIANHUSKY_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSIBERIANHUSKY_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLSIBERIANHUSKY_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLSIBERIANHUSKY_CLONGDOUBLE    MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLSIBERIANHUSKY_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSIBERIANHUSKY_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSIBERIANHUSKY_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSIBERIANHUSKY_MLINT64        MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLSIBERIANHUSKY_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLSIBERIANHUSKY_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLSIBERIANHUSKY_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLSIBERIANHUSKY_MLLONGDOUBLE   MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLSHIBAINU_NUMERICS_ID    "shibainu"
+#define MLSHIBAINU_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHIBAINU_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHIBAINU_CLONG          MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHIBAINU_CINT64         MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHIBAINU_CSIZE_T        MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHIBAINU_CFLOAT         MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLSHIBAINU_CDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLSHIBAINU_CLONGDOUBLE    MLTK_LITTLEENDIAN_128BIT_DOUBLE
+#define MLSHIBAINU_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHIBAINU_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHIBAINU_MLLONG         MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHIBAINU_MLINT64        MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHIBAINU_MLSIZE_T       MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLSHIBAINU_MLFLOAT        MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLSHIBAINU_MLDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLSHIBAINU_MLLONGDOUBLE   MLTK_LITTLEENDIAN_128BIT_DOUBLE
+#define MLNEWFOUNDLAND_NUMERICS_ID    "newfoundland"
+#define MLNEWFOUNDLAND_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLNEWFOUNDLAND_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLNEWFOUNDLAND_CLONG          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLNEWFOUNDLAND_CINT64         MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLNEWFOUNDLAND_CSIZE_T        MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLNEWFOUNDLAND_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLNEWFOUNDLAND_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLNEWFOUNDLAND_CLONGDOUBLE    MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLNEWFOUNDLAND_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLNEWFOUNDLAND_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLNEWFOUNDLAND_MLLONG         MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLNEWFOUNDLAND_MLINT64        MLTK_64BIT_BIGENDIAN_STRUCTURE
+#define MLNEWFOUNDLAND_MLSIZE_T       MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLNEWFOUNDLAND_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLNEWFOUNDLAND_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLNEWFOUNDLAND_MLLONGDOUBLE   MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLAFFENPINSCHER_NUMERICS_ID    "affenpinscher"
+#define MLAFFENPINSCHER_CSHORT         MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLAFFENPINSCHER_CINT           MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLAFFENPINSCHER_CLONG          MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLAFFENPINSCHER_CINT64         MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLAFFENPINSCHER_CSIZE_T        MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLAFFENPINSCHER_CFLOAT         MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLAFFENPINSCHER_CDOUBLE        MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLAFFENPINSCHER_CLONGDOUBLE    MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLAFFENPINSCHER_MLSHORT        MLTK_16BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLAFFENPINSCHER_MLINT          MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLAFFENPINSCHER_MLLONG         MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLAFFENPINSCHER_MLINT64        MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLAFFENPINSCHER_MLSIZE_T       MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+#define MLAFFENPINSCHER_MLFLOAT        MLTK_BIGENDIAN_IEEE754_SINGLE
+#define MLAFFENPINSCHER_MLDOUBLE       MLTK_BIGENDIAN_IEEE754_DOUBLE
+#define MLAFFENPINSCHER_MLLONGDOUBLE   MLTK_BIGENDIAN_128BIT_DOUBLE
+#define MLBEAUCERON_NUMERICS_ID        "beauceron"
+#define MLBEAUCERON_CSHORT             MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBEAUCERON_CINT               MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBEAUCERON_CLONG              MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBEAUCERON_CINT64             MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBEAUCERON_CSIZE_T            MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBEAUCERON_CFLOAT             MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLBEAUCERON_CDOUBLE            MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBEAUCERON_CLONGDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBEAUCERON_MLSHORT            MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBEAUCERON_MLINT              MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBEAUCERON_MLLONG             MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBEAUCERON_MLINT64            MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBEAUCERON_MLSIZE_T           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBEAUCERON_MLFLOAT            MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLBEAUCERON_MLDOUBLE           MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBEAUCERON_MLLONGDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBERGAMASCO_NUMERICS_ID       "bergamasco"
+#define MLBERGAMASCO_CSHORT             MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBERGAMASCO_CINT               MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBERGAMASCO_CLONG              MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBERGAMASCO_CINT64             MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBERGAMASCO_CSIZE_T            MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBERGAMASCO_CFLOAT             MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLBERGAMASCO_CDOUBLE            MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBERGAMASCO_CLONGDOUBLE        MLTK_96BIT_HIGHPADDED_INTEL_80BIT_EXTENDED
+#define MLBERGAMASCO_MLSHORT            MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBERGAMASCO_MLINT              MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBERGAMASCO_MLLONG             MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBERGAMASCO_MLINT64            MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBERGAMASCO_MLSIZE_T           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBERGAMASCO_MLFLOAT            MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLBERGAMASCO_MLDOUBLE           MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBERGAMASCO_MLLONGDOUBLE       MLTK_96BIT_HIGHPADDED_INTEL_80BIT_EXTENDED
+#define MLBOERBOEL_NUMERICS_ID       "boerboel"
+#define MLBOERBOEL_CSHORT             MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOERBOEL_CINT               MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOERBOEL_CLONG              MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOERBOEL_CINT64             MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOERBOEL_CSIZE_T            MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOERBOEL_CFLOAT             MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLBOERBOEL_CDOUBLE            MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBOERBOEL_CLONGDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBOERBOEL_MLSHORT            MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOERBOEL_MLINT              MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOERBOEL_MLLONG             MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOERBOEL_MLINT64            MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOERBOEL_MLSIZE_T           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLBOERBOEL_MLFLOAT            MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLBOERBOEL_MLDOUBLE           MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLBOERBOEL_MLLONGDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLCHINOOK_NUMERICS_ID       "chinook"
+#define MLCHINOOK_CSHORT             MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHINOOK_CINT               MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHINOOK_CLONG              MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHINOOK_CINT64             MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHINOOK_CSIZE_T            MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHINOOK_CFLOAT             MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLCHINOOK_CDOUBLE            MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLCHINOOK_CLONGDOUBLE        MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLCHINOOK_MLSHORT            MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHINOOK_MLINT              MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHINOOK_MLLONG             MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHINOOK_MLINT64            MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHINOOK_MLSIZE_T           MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+#define MLCHINOOK_MLFLOAT            MLTK_LITTLEENDIAN_IEEE754_SINGLE
+#define MLCHINOOK_MLDOUBLE           MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLCHINOOK_MLLONGDOUBLE       MLTK_LITTLEENDIAN_IEEE754_DOUBLE
+#define MLOLD_WIN_ENV_NUMERICS_ID    "Sep 13 1996, 13:46:34"
+#define MLOLD_WIN_ENV_CSHORT         MLTK_CSHORT_P
+#define MLOLD_WIN_ENV_CINT           MLTK_CINT_P
+#define MLOLD_WIN_ENV_CLONG          MLTK_CLONG_P
+#define MLOLD_WIN_ENV_CINT64         MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLOLD_WIN_ENV_CSIZE_T        MLTK_CLONG_P
+#define MLOLD_WIN_ENV_CFLOAT         MLTK_CFLOAT_P
+#define MLOLD_WIN_ENV_CDOUBLE        MLTK_CDOUBLE_P
+#define MLOLD_WIN_ENV_CLONGDOUBLE    MLTK_CLONGDOUBLE_P
+#define MLOLD_WIN_ENV_MLSHORT        MLTK_CSHORT_P
+#define MLOLD_WIN_ENV_MLINT          MLTK_CINT_P
+#define MLOLD_WIN_ENV_MLLONG         MLTK_CLONG_P
+#define MLOLD_WIN_ENV_MLINT64        MLTK_64BIT_LITTLEENDIAN_STRUCTURE
+#define MLOLD_WIN_ENV_MLSIZE_T       MLTK_CLONG_P
+#define MLOLD_WIN_ENV_MLFLOAT        MLTK_CFLOAT_P
+#define MLOLD_WIN_ENV_MLDOUBLE       MLTK_CDOUBLE_P
+#define MLOLD_WIN_ENV_MLLONGDOUBLE   MLTK_CLONGDOUBLE_P
+#define MLTK_CUCHAR  MLTK_8BIT_UNSIGNED_INTEGER
+#define MLTK_MLUCHAR MLTK_8BIT_UNSIGNED_INTEGER
 #define NEW_WIN32_NUMENV 1
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID MLMASTIFF_NUMERICS_ID
+#define MLTK_CSHORT       MLMASTIFF_CSHORT
+#define MLTK_CINT         MLMASTIFF_CINT
+#define MLTK_CLONG        MLMASTIFF_CLONG
+#define MLTK_CINT64       MLMASTIFF_CINT64
+#define MLTK_CSIZE_T      MLMASTIFF_CSIZE_T
+#define MLTK_CFLOAT       MLMASTIFF_CFLOAT
+#define MLTK_CDOUBLE      MLMASTIFF_CDOUBLE
+#define MLTK_CLONGDOUBLE  MLMASTIFF_CLONGDOUBLE
+#define MLTK_MLSHORT      MLMASTIFF_MLSHORT
+#define MLTK_MLINT        MLMASTIFF_MLINT
+#define MLTK_MLLONG       MLMASTIFF_MLLONG
+#define MLTK_MLINT64      MLMASTIFF_MLINT64
+#define MLTK_MLSIZE_T     MLMASTIFF_MLSIZE_T
+#define MLTK_MLFLOAT      MLMASTIFF_MLFLOAT
+#define MLTK_MLDOUBLE     MLMASTIFF_MLDOUBLE
+#define MLTK_MLLONGDOUBLE MLMASTIFF_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID MLJAPANESECHIN_NUMERICS_ID
+#define MLTK_CSHORT       MLJAPANESECHIN_CSHORT
+#define MLTK_CINT         MLJAPANESECHIN_CINT
+#define MLTK_CLONG        MLJAPANESECHIN_CLONG
+#define MLTK_CINT64       MLJAPANESECHIN_CINT64
+#define MLTK_CSIZE_T      MLJAPANESECHIN_CSIZE_T
+#define MLTK_CFLOAT       MLJAPANESECHIN_CFLOAT
+#define MLTK_CDOUBLE      MLJAPANESECHIN_CDOUBLE
+#define MLTK_CLONGDOUBLE  MLJAPANESECHIN_CLONGDOUBLE
+#define MLTK_MLSHORT      MLJAPANESECHIN_MLSHORT
+#define MLTK_MLINT        MLJAPANESECHIN_MLINT
+#define MLTK_MLLONG       MLJAPANESECHIN_MLLONG
+#define MLTK_MLINT64      MLJAPANESECHIN_MLINT64
+#define MLTK_MLSIZE_T     MLJAPANESECHIN_MLSIZE_T
+#define MLTK_MLFLOAT      MLJAPANESECHIN_MLFLOAT
+#define MLTK_MLDOUBLE     MLJAPANESECHIN_MLDOUBLE
+#define MLTK_MLLONGDOUBLE MLJAPANESECHIN_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLKEESHOND_NUMERICS_ID
+#define MLTK_CSHORT        MLKEESHOND_CSHORT
+#define MLTK_CINT          MLKEESHOND_CINT
+#define MLTK_CLONG         MLKEESHOND_CLONG
+#define MLTK_CINT64        MLKEESHOND_CINT64
+#define MLTK_CSIZE_T       MLKEESHOND_CSIZE_T
+#define MLTK_CFLOAT        MLKEESHOND_CFLOAT
+#define MLTK_CDOUBLE       MLKEESHOND_CDOUBLE
+#define MLTK_CLONGDOULBE   MLKEESHOND_CLONGDOUBLE
+#define MLTK_MLSHORT       MLKEESHOND_MLSHORT
+#define MLTK_MLINT         MLKEESHOND_MLINT
+#define MLTK_MLLONG        MLKEESHOND_MLLONG
+#define MLTK_MLINT64       MLKEESHOND_MLINT64
+#define MLTK_MLSIZE_T      MLKEESHOND_MLSIZE_T
+#define MLTK_MLFLOAT       MLKEESHOND_MLFLOAT
+#define MLTK_MLDOUBLE      MLKEESHOND_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLKEESHOND_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLKOMONDOR_NUMERICS_ID
+#define MLTK_CSHORT        MLKOMONDOR_CSHORT
+#define MLTK_CINT          MLKOMONDOR_CINT
+#define MLTK_CLONG         MLKOMONDOR_CLONG
+#define MLTK_CINT64        MLKOMONDOR_CINT64
+#define MLTK_CSIZE_T       MLKOMONDOR_CSIZE_T
+#define MLTK_CFLOAT        MLKOMONDOR_CFLOAT
+#define MLTK_CDOUBLE       MLKOMONDOR_CDOUBLE
+#define MLTK_CLONGDOULBE   MLKOMONDOR_CLONGDOUBLE
+#define MLTK_MLSHORT       MLKOMONDOR_MLSHORT
+#define MLTK_MLINT         MLKOMONDOR_MLINT
+#define MLTK_MLLONG        MLKOMONDOR_MLLONG
+#define MLTK_MLINT64       MLKOMONDOR_MLINT64
+#define MLTK_MLSIZE_T      MLKOMONDOR_MLSIZE_T
+#define MLTK_MLFLOAT       MLKOMONDOR_MLFLOAT
+#define MLTK_MLDOUBLE      MLKOMONDOR_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLKOMONDOR_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLBORZOI_NUMERICS_ID
+#define MLKT_CSHORT        MLBORZOI_CSHORT
+#define MLTK_CINT          MLBORZOI_CINT
+#define MLTK_CLONG         MLBORZOI_CLONG
+#define MLTK_CINT64        MLBORZOI_CINT64
+#define MLTK_CSIZE_T       MLBORZOI_CSIZE_T
+#define MLTK_CFLOAT        MLBORZOI_CFLOAT
+#define MLTK_CDOUBLE       MLBORZOI_CDOUBLE
+#define MLTK_MLSHORT       MLBORZOI_MLSHORT
+#define MLTK_MLINT         MLBORZOI_MLINT
+#define MLTK_MLLONG        MLBORZOI_MLLONG
+#define MLTK_MLINT64       MLBORZOI_MLINT64
+#define MLTK_MLSIZE_T      MLBORZOI_MLSIZE_T
+#define MLTK_MLFLOAT       MLBORZOI_MLFLOAT
+#define MLTK_MLDOUBLE      MLBORZOI_MLDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLBRIARD_NUMERICS_ID
+#define MLTK_CSHORT        MLBRIARD_CSHORT
+#define MLTK_CINT          MLBRIARD_CINT
+#define MLTK_CLONG         MLBRIARD_CLONG
+#define MLTK_CINT64        MLBRIARD_CINT64
+#define MLTK_CSIZE_T       MLBRIARD_CSIZE_T
+#define MLTK_CFLOAT        MLBRIARD_CFLOAT
+#define MLTK_CDOUBLE       MLBRIARD_CDOUBLE
+#define MLTK_MLSHORT       MLBRIARD_MLSHORT
+#define MLTK_MLINT         MLBRIARD_MLINT
+#define MLTK_MLLONG        MLBRIARD_MLLONG
+#define MLTK_MLINT64       MLBRIARD_MLINT64
+#define MLTK_MLSIZE_T      MLBRIARD_MLSIZE_T
+#define MLTK_MLFLOAT       MLBRIARD_MLFLOAT
+#define MLTK_MLDOUBLE      MLBRIARD_MLDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLNORWEGIANELKHOUND_NUMERICS_ID
+#define MLTK_CSHORT        MLNORWEGIANELKHOUND_CSHORT
+#define MLTK_CINT          MLNORWEGIANELKHOUND_CINT
+#define MLTK_CLONG         MLNORWEGIANELKHOUND_CLONG
+#define MLTK_CINT64        MLNORWEGIANELKHOUND_CINT64
+#define MLTK_CSIZE_T       MLNORWEGIANELKHOUND_CSIZE_T
+#define MLTK_CFLOAT        MLNORWEGIANELKHOUND_CFLOAT
+#define MLTK_CDOUBLE       MLNORWEGIANELKHOUND_CDOUBLE
+#define MLTK_CLONGDOULBE   MLNORWEGIANELKHOUND_CLONGDOUBLE
+#define MLTK_MLSHORT       MLNORWEGIANELKHOUND_MLSHORT
+#define MLTK_MLINT         MLNORWEGIANELKHOUND_MLINT
+#define MLTK_MLLONG        MLNORWEGIANELKHOUND_MLLONG
+#define MLTK_MLINT64       MLNORWEGIANELKHOUND_MLINT64
+#define MLTK_MLSIZE_T      MLNORWEGIANELKHOUND_MLSIZE_T
+#define MLTK_MLFLOAT       MLNORWEGIANELKHOUND_MLFLOAT
+#define MLTK_MLDOUBLE      MLNORWEGIANELKHOUND_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLNORWEGIANELKHOUND_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLNORWICHTERRIOR_NUMERICS_ID
+#define MLTK_CSHORT        MLNORWICHTERRIOR_CSHORT
+#define MLTK_CINT          MLNORWICHTERRIOR_CINT
+#define MLTK_CLONG         MLNORWICHTERRIOR_CLONG
+#define MLTK_CINT64        MLNORWICHTERRIOR_CINT64
+#define MLTK_CSIZE_T       MLNORWICHTERRIOR_CSIZE_T
+#define MLTK_CFLOAT        MLNORWICHTERRIOR_CFLOAT
+#define MLTK_CDOUBLE       MLNORWICHTERRIOR_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLNORWICHTERRIOR_CLONGDOUBLE
+#define MLTK_MLSHORT       MLNORWICHTERRIOR_MLSHORT
+#define MLTK_MLINT         MLNORWICHTERRIOR_MLINT
+#define MLTK_MLLONG        MLNORWICHTERRIOR_MLLONG
+#define MLTK_MLINT64       MLNORWICHTERRIOR_MLINT64
+#define MLTK_MLSIZE_T      MLNORWICHTERRIRO_MLSIZE_T
+#define MLTK_MLFLOAT       MLNORWICHTERRIOR_MLFLOAT
+#define MLTK_MLDOUBLE      MLNORWICHTERRIOR_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLNORWICHTERRIOR_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLSAINTBERNARD_NUMERICS_ID
+#define MLTK_CSHORT        MLSAINTBERNARD_CSHORT
+#define MLTK_CINT          MLSAINTBERNARD_CINT
+#define MLTK_CLONG         MLSAINTBERNARD_CLONG
+#define MLTK_CINT64        MLSAINTBERNARD_CINT64
+#define MLTK_CSIZE_T       MLSAINTBERNARD_CSIZE_T
+#define MLTK_CFLOAT        MLSAINTBERNARD_CFLOAT
+#define MLTK_CDOUBLE       MLSAINTBERNARD_CDOUBLE
+#define MLTK_CLONGDOULBE   MLSAINTBERNARD_CLONGDOUBLE
+#define MLTK_MLSHORT       MLSAINTBERNARD_MLSHORT
+#define MLTK_MLINT         MLSAINTBERNARD_MLINT
+#define MLTK_MLLONG        MLSAINTBERNARD_MLLONG
+#define MLTK_MLINT64       MLSAINTBERNARD_MLINT64
+#define MLTK_MLSIZE_T      MLSAINTBERNARD_MLSIZE_T
+#define MLTK_MLFLOAT       MLSAINTBERNARD_MLFLOAT
+#define MLTK_MLDOUBLE      MLSAINTBERNARD_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLSAINTBERNARD_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLBERNESEMOUNTAINDOG_NUMERICS_ID
+#define MLTK_CSHORT        MLBERNESEMOUNTAINDOG_CSHORT
+#define MLTK_CINT          MLBERNESEMOUNTAINDOG_CINT
+#define MLTK_CLONG         MLBERNESEMOUNTAINDOG_CLONG
+#define MLTK_CINT64        MLBERNESEMOUNTAINDOG_CINT64
+#define MLTK_CSIZE_T       MLBERNESEMOUNTAINDOG_CSIZE_T
+#define MLTK_CFLOAT        MLBERNESEMOUNTAINDOG_CFLOAT
+#define MLTK_CDOUBLE       MLBERNESEMOUNTAINDOG_CDOUBLE
+#define MLTK_CLONGDOULBE   MLBERNESEMOUNTAINDOG_CLONGDOUBLE
+#define MLTK_MLSHORT       MLBERNESEMOUNTAINDOG_MLSHORT
+#define MLTK_MLINT         MLBERNESEMOUNTAINDOG_MLINT
+#define MLTK_MLLONG        MLBERNESEMOUNTAINDOG_MLLONG
+#define MLTK_MLINT64       MLBERNESEMOUNTAINDOG_MLINT64
+#define MLTK_MLSIZE_T      MLBERNESEMOUNTAINDOG_MLSIZE_T
+#define MLTK_MLFLOAT       MLBERNESEMOUNTAINDOG_MLFLOAT
+#define MLTK_MLDOUBLE      MLBERNESEMOUNTAINDOG_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLBERNESEMOUNTAINDOG_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLSETTER_NUMERICS_ID
+#define MLTK_CSHORT        MLSETTER_CSHORT
+#define MLTK_CINT          MLSETTER_CINT
+#define MLTK_CLONG         MLSETTER_CLONG
+#define MLTK_CINT64        MLSETTER_CINT64
+#define MLTK_CSIZE_T       MLSETTER_CSIZE_T
+#define MLTK_CFLOAT        MLSETTER_CFLOAT
+#define MLTK_CDOUBLE       MLSETTER_CDOUBLE
+#define MLTK_CLONGDOULBE   MLSETTER_CLONGDOUBLE
+#define MLTK_MLSHORT       MLSETTER_MLSHORT
+#define MLTK_MLINT         MLSETTER_MLINT
+#define MLTK_MLLONG        MLSETTER_MLLONG
+#define MLTK_MLINT64       MLSETTER_MLINT64
+#define MLTK_MLSIZE_T      MLSETTER_MLSIZE_T
+#define MLTK_MLFLOAT       MLSETTER_MLFLOAT
+#define MLTK_MLDOUBLE      MLSETTER_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLSETTER_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLFRENCH_BULLDOG_NUMERICS_ID
+#define MLTK_CSHORT        MLFRENCH_BULLDOG_CSHORT
+#define MLTK_CINT          MLFRENCH_BULLDOG_CINT
+#define MLTK_CLONG         MLFRENCH_BULLDOG_CLONG
+#define MLTK_CINT64        MLFRENCH_BULLDOG_CINT64
+#define MLTK_CSIZE_T       MLFRENCH_BULLDOG_CSIZE_T
+#define MLTK_CFLOAT        MLFRENCH_BULLDOG_CFLOAT
+#define MLTK_CDOUBLE       MLFRENCH_BULLDOG_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLFRENCH_BULLDOG_CLONGDOUBLE
+#define MLTK_MLSHORT       MLFRENCH_BULLDOG_MLSHORT
+#define MLTK_MLINT         MLFRENCH_BULLDOG_MLINT
+#define MLTK_MLLONG        MLFRENCH_BULLDOG_MLLONG
+#define MLTK_MLINT64       MLFRENCH_BULLDOG_MLINT64
+#define MLTK_MLSIZE_T      MLFRENCH_BULLDOG_MLSIZE_T
+#define MLTK_MLFLOAT       MLFRENCH_BULLDOG_MLFLOAT
+#define MLTK_MLDOUBLE      MLFRENCH_BULLDOG_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLFRENCH_BULLDOG_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLBOERBOEL_NUMERICS_ID
+#define MLTK_CSHORT        MLBOERBOEL_CSHORT
+#define MLTK_CINT          MLBOERBOEL_CINT
+#define MLTK_CLONG         MLBOERBOEL_CLONG
+#define MLTK_CINT64        MLBOERBOEL_CINT64
+#define MLTK_CSIZE_T       MLBOERBOEL_CSIZE_T
+#define MLTK_CFLOAT        MLBOERBOEL_CFLOAT
+#define MLTK_CDOUBLE       MLBOERBOEL_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLBOERBOEL_CLONGDOUBLE
+#define MLTK_MLSHORT       MLBOERBOEL_MLSHORT
+#define MLTK_MLINT         MLBOERBOEL_MLINT
+#define MLTK_MLLONG        MLBOERBOEL_MLLONG
+#define MLTK_MLINT64       MLBOERBOEL_MLINT64
+#define MLTK_MLSIZE_T      MLBOERBOEL_MLSIZE_T
+#define MLTK_MLFLOAT       MLBOERBOEL_MLFLOAT
+#define MLTK_MLDOUBLE      MLBOERBOEL_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLBOERBOEL_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLBICHON_FRISE_NUMERICS_ID
+#define MLTK_CSHORT        MLBICHON_FRISE_CSHORT
+#define MLTK_CINT          MLBICHON_FRISE_CINT
+#define MLTK_CLONG         MLBICHON_FRISE_CLONG
+#define MLTK_CINT64        MLBICHON_FRISE_CINT64
+#define MLTK_CSIZE_T       MLBICHON_FRISE_CSIZE_T
+#define MLTK_CFLOAT        MLBICHON_FRISE_CFLOAT
+#define MLTK_CDOUBLE       MLBICHON_FRISE_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLBICHON_FRISE_CLONGDOUBLE
+#define MLTK_MLSHORT       MLBICHON_FRISE_MLSHORT
+#define MLTK_MLINT         MLBICHON_FRISE_MLINT
+#define MLTK_MLLONG        MLBICHON_FRISE_MLLONG
+#define MLTK_MLINT64       MLBICHON_FRISE_MLINT64
+#define MLTK_MLSIZE_T      MLBICHON_FRISE_MLSIZE_T
+#define MLTK_MLFLOAT       MLBICHON_FRISE_MLFLOAT
+#define MLTK_MLDOUBLE      MLBICHON_FRISE_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLBICHON_FRISE_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLHELEN_NUMERICS_ID
+#define MLTK_CSHORT        MLHELEN_CSHORT
+#define MLTK_CINT          MLHELEN_CINT
+#define MLTK_CLONG         MLHELEN_CLONG
+#define MLTK_CINT64        MLHELEN_CINT64
+#define MLTK_CSIZE_T       MLHELEN_CSIZE_T
+#define MLTK_CFLOAT        MLHELEN_CFLOAT
+#define MLTK_CDOUBLE       MLHELEN_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLHELEN_CLONGDOUBLE
+#define MLTK_MLSHORT       MLHELEN_MLSHORT
+#define MLTK_MLINT         MLHELEN_MLINT
+#define MLTK_MLLONG        MLHELEN_MLLONG
+#define MLTK_MLINT64       MLHELEN_MLINT64
+#define MLTK_MLSIZE_T      MLHELEN_MLSIZE_T
+#define MLTK_MLFLOAT       MLHELEN_MLFLOAT
+#define MLTK_MLDOUBLE      MLHELEN_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLHELEN_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLBEAGLE_NUMERICS_ID
+#define MLTK_CSHORT        MLBEAGLE_CSHORT
+#define MLTK_CINT          MLBEAGLE_CINT
+#define MLTK_CLONG         MLBEAGLE_CLONG
+#define MLTK_CINT64        MLBEAGLE_CINT64
+#define MLTK_CSIZE_T       MLBEAGLE_CSIZE_T
+#define MLTK_CFLOAT        MLBEAGLE_CFLOAT
+#define MLTK_CDOUBLE       MLBEAGLE_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLBEAGLE_CLONGDOUBLE
+#define MLTK_MLSHORT       MLBEAGLE_MLSHORT
+#define MLTK_MLINT         MLBEAGLE_MLINT
+#define MLTK_MLLONG        MLBEAGLE_MLLONG
+#define MLTK_MLINT64       MLBEAGLE_MLINT64
+#define MLTK_MLSIZE_T      MLBEAGLE_MLSIZE_T
+#define MLTK_MLFLOAT       MLBEAGLE_MLFLOAT
+#define MLTK_MLDOUBLE      MLBEAGLE_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLBEAGLE_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLBULLTERRIER_NUMERICS_ID
+#define MLTK_CSHORT        MLBULLTERRIER_CSHORT
+#define MLTK_CINT          MLBULLTERRIER_CINT
+#define MLTK_CLONG         MLBULLTERRIER_CLONG
+#define MLTK_CINT64        MLBULLTERRIER_CINT64
+#define MLTK_CSIZE_T       MLBULLTERRIER_CSIZE_T
+#define MLTK_CFLOAT        MLBULLTERRIER_CFLOAT
+#define MLTK_CDOUBLE       MLBULLTERRIER_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLBULLTERRIER_CLONGDOUBLE
+#define MLTK_MLSHORT       MLBULLTERRIER_MLSHORT
+#define MLTK_MLINT         MLBULLTERRIER_MLINT
+#define MLTK_MLLONG        MLBULLTERRIER_MLLONG
+#define MLTK_MLINT64       MLBULLTERRIER_MLINT64
+#define MLTK_MLSIZE_T      MLBULLTERRIER_MLSIZE_T
+#define MLTK_MLFLOAT       MLBULLTERRIER_MLFLOAT
+#define MLTK_MLDOUBLE      MLBULLTERRIER_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLBULLTERRIER_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLBORDERTERRIER_NUMERICS_ID
+#define MLTK_CSHORT        MLBORDERTERRIER_CSHORT
+#define MLTK_CINT          MLBORDERTERRIER_CINT
+#define MLTK_CLONG         MLBORDERTERRIER_CLONG
+#define MLTK_CINT64        MLBORDERTERRIER_CINT64
+#define MLTK_CSIZE_T       MLBORDERTERRIER_CSIZE_T
+#define MLTK_CFLOAT        MLBORDERTERRIER_CFLOAT
+#define MLTK_CDOUBLE       MLBORDERTERRIER_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLBORDERTERRIER_CLONGDOUBLE
+#define MLTK_MLSHORT       MLBORDERTERRIER_MLSHORT
+#define MLTK_MLINT         MLBORDERTERRIER_MLINT
+#define MLTK_MLLONG        MLBORDERTERRIER_MLLONG
+#define MLTK_MLINT64       MLBORDERTERRIER_MLINT64
+#define MLTK_MLSIZE_T      MLBORDERTERRIER_MLSIZE_T
+#define MLTK_MLFLOAT       MLBORDERTERRIER_MLFLOAT
+#define MLTK_MLDOUBLE      MLBORDERTERRIER_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLBORDERTERRIER_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLBASENJI_NUMERICS_ID
+#define MLTK_CSHORT        MLBASENJI_CSHORT
+#define MLTK_CINT          MLBASENJI_CINT
+#define MLTK_CLONG         MLBASENJI_CLONG
+#define MLTK_CINT64        MLBASENJI_CINT64
+#define MLTK_CSIZE_T       MLBASENJI_CSIZE_T
+#define MLTK_CFLOAT        MLBASENJI_CFLOAT
+#define MLTK_CDOUBLE       MLBASENJI_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLBASENJI_CLONGDOUBLE
+#define MLTK_MLSHORT       MLBASENJI_MLSHORT
+#define MLTK_MLINT         MLBASENJI_MLINT
+#define MLTK_MLLONG        MLBASENJI_MLLONG
+#define MLTK_MLINT64       MLBASENJI_MLINT64
+#define MLTK_MLSIZE_T      MLBASENJI_MLSIZE_T
+#define MLTK_MLFLOAT       MLBASENJI_MLFLOAT
+#define MLTK_MLDOUBLE      MLBASENJI_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLBASENJI_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID MLBEAUCERON_NUMERICS_ID
+#define MLTK_CSHORT        MLBEAUCERON_CSHORT
+#define MLTK_CINT          MLBEAUCERON_CINT
+#define MLTK_CLONG         MLBEAUCERON_CLONG
+#define MLTK_CINT64        MLBEAUCERON_CINT64
+#define MLTK_CSIZE_T       MLBEAUCERON_CSIZE_T
+#define MLTK_CFLOAT        MLBEAUCERON_CFLOAT
+#define MLTK_CDOUBLE       MLBEAUCERON_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLBEAUCERON_CLONGDOUBLE
+#define MLTK_MLSHORT       MLBEAUCERON_MLSHORT
+#define MLTK_MLINT         MLBEAUCERON_MLINT
+#define MLTK_MLLONG        MLBEAUCERON_MLLONG
+#define MLTK_MLINT64       MLBEAUCERON_MLINT64
+#define MLTK_MLSIZE_T      MLBEAUCERON_MLSIZE_T
+#define MLTK_MLFLOAT       MLBEAUCERON_MLFLOAT
+#define MLTK_MLDOUBLE      MLBEAUCERON_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLBEAUCERON_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLGREATDANE_NUMERICS_ID
+#define MLTK_CSHORT        MLGREATDANE_CSHORT
+#define MLTK_CINT          MLGREATDANE_CINT
+#define MLTK_CLONG         MLGREATDANE_CLONG
+#define MLTK_CINT64        MLGREATDANE_CINT64
+#define MLTK_CSIZE_T       MLGREATDANE_CSIZE_T
+#define MLTK_CFLOAT        MLGREATDANE_CFLOAT
+#define MLTK_CDOUBLE       MLGREATDANE_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLGREATDANE_CLONGDOUBLE
+#define MLTK_MLSHORT       MLGREATDANE_MLSHORT
+#define MLTK_MLINT         MLGREATDANE_MLINT
+#define MLTK_MLLONG        MLGREATDANE_MLLONG
+#define MLTK_MLINT64       MLGREATDANE_MLINT64
+#define MLTK_MLSIZE_T      MLGREATDANE_MLSIZE_T
+#define MLTK_MLFLOAT       MLGREATDANE_MLFLOAT
+#define MLTK_MLDOUBLE      MLGREATDANE_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLGREATDANE_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID MLSHARPEI_NUMERICS_ID
+#define MLTK_CSHORT        MLSHARPEI_CSHORT
+#define MLTK_CINT          MLSHARPEI_CINT
+#define MLTK_CLONG         MLSHARPEI_CLONG
+#define MLTK_CINT64        MLSHARPEI_CINT64
+#define MLTK_CSIZE_T       MLSHARPEI_CSIZE_T
+#define MLTK_CFLOAT        MLSHARPEI_CFLOAT
+#define MLTK_CDOUBLE       MLSHARPEI_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLSHARPEI_CLONGDOUBLE
+#define MLTK_MLSHORT       MLSHARPEI_MLSHORT
+#define MLTK_MLINT         MLSHARPEI_MLINT
+#define MLTK_MLLONG        MLSHARPEI_MLLONG
+#define MLTK_MLINT64       MLSHARPEI_MLINT64
+#define MLTK_MLSIZE_T      MLSHARPEI_MLSIZE_T
+#define MLTK_MLFLOAT       MLSHARPEI_MLFLOAT
+#define MLTK_MLDOUBLE      MLSHARPEI_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLSHARPEI_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID MLTIBETANMASTIFF_NUMERICS_ID
+#define MLTK_CSHORT        MLTIBETANMASTIFF_CSHORT
+#define MLTK_CINT          MLTIBETANMASTIFF_CINT
+#define MLTK_CLONG         MLTIBETANMASTIFF_CLONG
+#define MLTK_CINT64        MLTIBETANMASTIFF_CINT64
+#define MLTK_CSIZE_T       MLTIBETANMASTIFF_CSIZE_T
+#define MLTK_CFLOAT        MLTIBETANMASTIFF_CFLOAT
+#define MLTK_CDOUBLE       MLTIBETANMASTIFF_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLTIBETANMASTIFF_CLONGDOUBLE
+#define MLTK_MLSHORT       MLTIBETANMASTIFF_MLSHORT
+#define MLTK_MLINT         MLTIBETANMASTIFF_MLINT
+#define MLTK_MLLONG        MLTIBETANMASTIFF_MLLONG
+#define MLTK_MLINT64       MLTIBETANMASTIFF_MLINT64
+#define MLTK_MLSIZE_T      MLTIBETANMASTIFF_MLSIZE_T
+#define MLTK_MLFLOAT       MLTIBETANMASTIFF_MLFLOAT
+#define MLTK_MLDOUBLE      MLTIBETANMASTIFF_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLTIBETANMASTIFF_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLREDDOG_NUMERICS_ID
+#define MLTK_CSHORT        MLREDDOG_CSHORT
+#define MLTK_CINT          MLREDDOG_CINT
+#define MLTK_CLONG         MLREDDOG_CLONG
+#define MLTK_CINT64        MLREDDOG_CINT64
+#define MLTK_CSIZE_T       MLREDDOG_CSIZE_T
+#define MLTK_CFLOAT        MLREDDOG_CFLOAT
+#define MLTK_CDOUBLE       MLREDDOG_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLREDDOG_CLONGDOUBLE
+#define MLTK_MLSHORT       MLREDDOG_MLSHORT
+#define MLTK_MLINT         MLREDDOG_MLINT
+#define MLTK_MLLONG        MLREDDOG_MLLONG
+#define MLTK_MLINT64       MLREDDOG_MLINT64
+#define MLTK_MLSIZE_T      MLREDDOG_MLSIZE_T
+#define MLTK_MLFLOAT       MLREDDOG_MLFLOAT
+#define MLTK_MLDOUBLE      MLREDDOG_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLREDDOG_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLBERGAMASCO_NUMERICS_ID
+#define MLTK_CSHORT        MLBERGAMASCO_CSHORT
+#define MLTK_CINT          MLBERGAMASCO_CINT
+#define MLTK_CLONG         MLBERGAMASCO_CLONG
+#define MLTK_CINT64        MLBERGAMASCO_CINT64
+#define MLTK_CSIZE_T       MLBERGAMASCO_CSIZE_T
+#define MLTK_CFLOAT        MLBERGAMASCO_CFLOAT
+#define MLTK_CDOUBLE       MLBERGAMASCO_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLBERGAMASCO_CLONGDOUBLE
+#define MLTK_MLSHORT       MLBERGAMASCO_MLSHORT
+#define MLTK_MLINT         MLBERGAMASCO_MLINT
+#define MLTK_MLLONG        MLBERGAMASCO_MLLONG
+#define MLTK_MLINT64       MLBERGAMASCO_MLINT64
+#define MLTK_MLSIZE_T      MLBERGAMASCO_MLSIZE_T
+#define MLTK_MLFLOAT       MLBERGAMASCO_MLFLOAT
+#define MLTK_MLDOUBLE      MLBERGAMASCO_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLBERGAMASCO_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLAUSTRALIANCATTLEDOG_NUMERICS_ID
+#define MLTK_CSHORT        MLAUSTRALIANCATTLEDOG_CSHORT
+#define MLTK_CINT          MLAUSTRALIANCATTLEDOG_CINT
+#define MLTK_CLONG         MLAUSTRALIANCATTLEDOG_CLONG
+#define MLTK_CINT64        MLAUSTRALIANCATTLEDOG_CINT64
+#define MLTK_CSIZE_T       MLAUSTRALIANCATTLEDOG_CSIZE_T
+#define MLTK_CFLOAT        MLAUSTRALIANCATTLEDOG_CFLOAT
+#define MLTK_CDOUBLE       MLAUSTRALIANCATTLEDOG_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLAUSTRALIANCATTLEDOG_CLONGDOUBLE
+#define MLTK_MLSHORT       MLAUSTRALIANCATTLEDOG_MLSHORT
+#define MLTK_MLINT         MLAUSTRALIANCATTLEDOG_MLINT
+#define MLTK_MLLONG        MLAUSTRALIANCATTLEDOG_MLLONG
+#define MLTK_MLINT64       MLAUSTRALIANCATTLEDOG_MLINT64
+#define MLTK_MLSIZE_T      MLAUSTRALIANCATTLEDOG_MLSIZE_T
+#define MLTK_MLFLOAT       MLAUSTRALIANCATTLEDOG_MLFLOAT
+#define MLTK_MLDOUBLE      MLAUSTRALIANCATTLEDOG_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLAUSTRALIANCATTLEDOG_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLBOXER_NUMERICS_ID
+#define MLTK_CSHORT        MLBOXER_CSHORT
+#define MLTK_CINT          MLBOXER_CINT
+#define MLTK_CLONG         MLBOXER_CLONG
+#define MLTK_CINT64        MLBOXER_CINT64
+#define MLTK_CSIZE_T       MLBOXER_CSIZE_T
+#define MLTK_CFLOAT        MLBOXER_CFLOAT
+#define MLTK_CDOUBLE       MLBOXER_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLBOXER_CLONGDOUBLE
+#define MLTK_MLSHORT       MLBOXER_MLSHORT
+#define MLTK_MLINT         MLBOXER_MLINT
+#define MLTK_MLLONG        MLBOXER_MLLONG
+#define MLTK_MLINT64       MLBOXER_MLINT64
+#define MLTK_MLSIZE_T      MLBOXER_MLSIZE_T
+#define MLTK_MLFLOAT       MLBOXER_MLFLOAT
+#define MLTK_MLDOUBLE      MLBOXER_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLBOXER_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLAKITAINU_NUMERICS_ID
+#define MLTK_CSHORT        MLAKITAINU_CSHORT
+#define MLTK_CINT          MLAKITAINU_CINT
+#define MLTK_CLONG         MLAKITAINU_CLONG
+#define MLTK_CINT64        MLAKITAINU_CINT64
+#define MLTK_CSIZE_T       MLAKITAINU_CSIZE_T
+#define MLTK_CFLOAT        MLAKITAINU_CFLOAT
+#define MLTK_CDOUBLE       MLAKITAINU_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLAKITAINU_CLONGDOUBLE
+#define MLTK_MLSHORT       MLAKITAINU_MLSHORT
+#define MLTK_MLINT         MLAKITAINU_MLINT
+#define MLTK_MLLONG        MLAKITAINU_MLLONG
+#define MLTK_MLINT64       MLAKITAINU_MLINT64
+#define MLTK_MLSIZE_T      MLAKITAINU_MLSIZE_T
+#define MLTK_MLFLOAT       MLAKITAINU_MLFLOAT
+#define MLTK_MLDOUBLE      MLAKITAINU_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLAKITAINU_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLCHIHUAHUA_NUMERICS_ID
+#define MLTK_CSHORT        MLCHIHUAHUA_CSHORT
+#define MLTK_CINT          MLCHIHUAHUA_CINT
+#define MLTK_CLONG         MLCHIHUAHUA_CLONG
+#define MLTK_CINT64        MLCHIHUAHUA_CINT64
+#define MLTK_CSIZE_T       MLCHIHUAHUA_CSIZE_T
+#define MLTK_CFLOAT        MLCHIHUAHUA_CFLOAT
+#define MLTK_CDOUBLE       MLCHIHUAHUA_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLCHIHUAHUA_CLONGDOUBLE
+#define MLTK_MLSHORT       MLCHIHUAHUA_MLSHORT
+#define MLTK_MLINT         MLCHIHUAHUA_MLINT
+#define MLTK_MLLONG        MLCHIHUAHUA_MLLONG
+#define MLTK_MLINT64       MLCHIHUAHUA_MLINT64
+#define MLTK_MLSIZE_T      MLCHIHUAHUA_MLSIZE_T
+#define MLTK_MLFLOAT       MLCHIHUAHUA_MLFLOAT
+#define MLTK_MLDOUBLE      MLCHIHUAHUA_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLCHIHUAHUA_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLCHINOOK_NUMERICS_ID
+#define MLTK_CSHORT        MLCHINOOK_CSHORT
+#define MLTK_CINT          MLCHINOOK_CINT
+#define MLTK_CLONG         MLCHINOOK_CLONG
+#define MLTK_CINT64        MLCHINOOK_CINT64
+#define MLTK_CSIZE_T       MLCHINOOK_CSIZE_T
+#define MLTK_CFLOAT        MLCHINOOK_CFLOAT
+#define MLTK_CDOUBLE       MLCHINOOK_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLCHINOOK_CLONGDOUBLE
+#define MLTK_MLSHORT       MLCHINOOK_MLSHORT
+#define MLTK_MLINT         MLCHINOOK_MLINT
+#define MLTK_MLLONG        MLCHINOOK_MLLONG
+#define MLTK_MLINT64       MLCHINOOK_MLINT64
+#define MLTK_MLSIZE_T      MLCHINOOK_MLSIZE_T
+#define MLTK_MLFLOAT       MLCHINOOK_MLFLOAT
+#define MLTK_MLDOUBLE      MLCHINOOK_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLCHINOOK_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLROTTWEILER_NUMERICS_ID
+#define MLTK_CSHORT        MLROTTWEILER_CSHORT
+#define MLTK_CINT          MLROTTWEILER_CINT
+#define MLTK_CLONG         MLROTTWEILER_CLONG
+#define MLTK_CINT64        MLROTTWEILER_CINT64
+#define MLTK_CSIZE_T       MLROTTWEILER_CSIZE_T
+#define MLTK_CFLOAT        MLROTTWEILER_CFLOAT
+#define MLTK_CDOUBLE       MLROTTWEILER_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLROTTWEILER_CLONGDOUBLE
+#define MLTK_MLSHORT       MLROTTWEILER_MLSHORT
+#define MLTK_MLINT         MLROTTWEILER_MLINT
+#define MLTK_MLLONG        MLROTTWEILER_MLLONG
+#define MLTK_MLINT64       MLROTTWEILER_MLINT64
+#define MLTK_MLSIZE_T      MLROTTWEILER_MLSIZE_T
+#define MLTK_MLFLOAT       MLROTTWEILER_MLFLOAT
+#define MLTK_MLDOUBLE      MLROTTWEILER_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLROTTWEILER_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLPHARAOHHOUND_NUMERICS_ID
+#define MLTK_CSHORT        MLPHARAOHHOUND_CSHORT
+#define MLTK_CINT          MLPHARAOHHOUND_CINT
+#define MLTK_CLONG         MLPHARAOHHOUND_CLONG
+#define MLTK_CINT64        MLPHARAOHHOUND_CINT64
+#define MLTK_CSIZE_T       MLPHARAOHHOUND_CSIZE_T
+#define MLTK_CFLOAT        MLPHARAOHHOUND_CFLOAT
+#define MLTK_CDOUBLE       MLPHARAOHHOUND_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLPHARAOHHOUND_CLONGDOUBLE
+#define MLTK_MLSHORT       MLPHARAOHHOUND_MLSHORT
+#define MLTK_MLINT         MLPHARAOHHOUND_MLINT
+#define MLTK_MLLONG        MLPHARAOHHOUND_MLLONG
+#define MLTK_MLINT64       MLPHARAOHHOUND_MLINT64
+#define MLTK_MLSIZE_T      MLPHARAOHHOUND_MLSIZE_T
+#define MLTK_MLFLOAT       MLPHARAOHHOUND_MLFLOAT
+#define MLTK_MLDOUBLE      MLPHARAOHHOUND_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLPHARAOHHOUND_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLTROUT_NUMERICS_ID
+#define MLTK_CSHORT        MLTROUT_CSHORT
+#define MLTK_CINT          MLTROUT_CINT
+#define MLTK_CLONG         MLTROUT_CLONG
+#define MLTK_CINT64        MLTROUT_CINT64
+#define MLTK_CSIZE_T       MLTROUT_CSIZE_T
+#define MLTK_CFLOAT        MLTROUT_CFLOAT
+#define MLTK_CDOUBLE       MLTROUT_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLTROUT_CLONGDOUBLE
+#define MLTK_MLSHORT       MLTROUT_MLSHORT
+#define MLTK_MLINT         MLTROUT_MLINT
+#define MLTK_MLLONG        MLTROUT_MLLONG
+#define MLTK_MLINT64       MLTROUT_MLINT64
+#define MLTK_MLSIZE_T      MLTROUT_MLSIZE_T
+#define MLTK_MLFLOAT       MLTROUT_MLFLOAT
+#define MLTK_MLDOUBLE      MLTROUT_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLTROUT_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLPUG_NUMERICS_ID
+#define MLTK_CSHORT        MLPUG_CSHORT
+#define MLTK_CINT          MLPUG_CINT
+#define MLTK_CLONG         MLPUG_CLONG
+#define MLTK_CINT64        MLPUG_CINT64
+#define MLTK_CSIZE_T       MLPUG_CSIZE_T
+#define MLTK_CFLOAT        MLPUG_CFLOAT
+#define MLTK_CDOUBLE       MLPUG_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLPUG_CLONGDOUBLE
+#define MLTK_MLSHORT       MLPUG_MLSHORT
+#define MLTK_MLINT         MLPUG_MLINT
+#define MLTK_MLLONG        MLPUG_MLLONG
+#define MLTK_MLINT64       MLPUG_MLINT64
+#define MLTK_MLSIZE_T      MLPUG_MLSIZE_T
+#define MLTK_MLFLOAT       MLPUG_MLFLOAT
+#define MLTK_MLDOUBLE      MLPUG_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLPUG_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLPOINTER_NUMERICS_ID
+#define MLTK_CSHORT        MLPOINTER_CSHORT
+#define MLTK_CINT          MLPOINTER_CINT
+#define MLTK_CLONG         MLPOINTER_CLONG
+#define MLTK_CINT64        MLPOINTER_CINT64
+#define MLTK_CSIZE_T       MLPOINTER_CSIZE_T
+#define MLTK_CFLOAT        MLPOINTER_CFLOAT
+#define MLTK_CDOUBLE       MLPOINTER_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLPOINTER_CLONGDOUBLE
+#define MLTK_MLSHORT       MLPOINTER_MLSHORT
+#define MLTK_MLINT         MLPOINTER_MLINT
+#define MLTK_MLLONG        MLPOINTER_MLLONG
+#define MLTK_MLINT64       MLPOINTER_MLINT64
+#define MLTK_MLSIZE_T      MLPOINTER_MLSIZE_T
+#define MLTK_MLFLOAT       MLPOINTER_MLFLOAT
+#define MLTK_MLDOUBLE      MLPOINTER_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLPOINTER_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLSAMOYED_NUMERICS_ID
+#define MLTK_CSHORT        MLSAMOYED_CSHORT
+#define MLTK_CINT          MLSAMOYED_CINT
+#define MLTK_CLONG         MLSAMOYED_CLONG
+#define MLTK_CINT64        MLSAMOYED_CINT64
+#define MLTK_CSIZE_T       MLSAMOYED_CSIZE_T
+#define MLTK_CFLOAT        MLSAMOYED_CFLOAT
+#define MLTK_CDOUBLE       MLSAMOYED_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLSAMOYED_CLONGDOUBLE
+#define MLTK_MLSHORT       MLSAMOYED_MLSHORT
+#define MLTK_MLINT         MLSAMOYED_MLINT
+#define MLTK_MLLONG        MLSAMOYED_MLLONG
+#define MLTK_MLINT64       MLSAMOYED_MLINT64
+#define MLTK_MLSIZE_T      MLSAMOYED_MLSIZE_T
+#define MLTK_MLFLOAT       MLSAMOYED_MLFLOAT
+#define MLTK_MLDOUBLE      MLSAMOYED_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLSAMOYED_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLSIBERIANHUSKY_NUMERICS_ID
+#define MLTK_CSHORT        MLSIBERIANHUSKY_CSHORT
+#define MLTK_CINT          MLSIBERIANHUSKY_CINT
+#define MLTK_CLONG         MLSIBERIANHUSKY_CLONG
+#define MLTK_CINT64        MLSIBERIANHUSKY_CINT64
+#define MLTK_CSIZE_T       MLSIBERIANHUSKY_CSIZE_T
+#define MLTK_CFLOAT        MLSIBERIANHUSKY_CFLOAT
+#define MLTK_CDOUBLE       MLSIBERIANHUSKY_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLSIBERIANHUSKY_CLONGDOUBLE
+#define MLTK_MLSHORT       MLSIBERIANHUSKY_MLSHORT
+#define MLTK_MLINT         MLSIBERIANHUSKY_MLINT
+#define MLTK_MLLONG        MLSIBERIANHUSKY_MLLONG
+#define MLTK_MLINT64       MLSIBERIANHUSKY_MLINT64
+#define MLTK_MLSIZE_T      MLSIBERIANHUSKY_MLSIZE_T
+#define MLTK_MLFLOAT       MLSIBERIANHUSKY_MLFLOAT
+#define MLTK_MLDOUBLE      MLSIBERIANHUSKY_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLSIBERIANHUSKY_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLSHIBAINU_NUMERICS_ID
+#define MLTK_CSHORT        MLSHIBAINU_CSHORT
+#define MLTK_CINT          MLSHIBAINU_CINT
+#define MLTK_CLONG         MLSHIBAINU_CLONG
+#define MLTK_CINT64        MLSHIBAINU_CINT64
+#define MLTK_CSIZE_T       MLSHIBAINU_CSIZE_T
+#define MLTK_CFLOAT        MLSHIBAINU_CFLOAT
+#define MLTK_CDOUBLE       MLSHIBAINU_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLSHIBAINU_CLONGDOUBLE
+#define MLTK_MLSHORT       MLSHIBAINU_MLSHORT
+#define MLTK_MLINT         MLSHIBAINU_MLINT
+#define MLTK_MLLONG        MLSHIBAINU_MLLONG
+#define MLTK_MLINT64       MLSHIBAINU_MLINT64
+#define MLTK_MLSIZE_T      MLSHIBAINU_MLSIZE_T
+#define MLTK_MLFLOAT       MLSHIBAINU_MLFLOAT
+#define MLTK_MLDOUBLE      MLSHIBAINU_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLSHIBAINU_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLNEWFOUNDLAND_NUMERICS_ID
+#define MLTK_CSHORT        MLNEWFOUNDLAND_CSHORT
+#define MLTK_CINT          MLNEWFOUNDLAND_CINT
+#define MLTK_CLONG         MLNEWFOUNDLAND_CLONG
+#define MLTK_CINT64        MLNEWFOUNDLAND_CINT64
+#define MLTK_CSIZE_T       MLNEWFOUNDLAND_CSIZE_T
+#define MLTK_CFLOAT        MLNEWFOUNDLAND_CFLOAT
+#define MLTK_CDOUBLE       MLNEWFOUNDLAND_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLNEWFOUNDLAND_CLONGDOUBLE
+#define MLTK_MLSHORT       MLNEWFOUNDLAND_MLSHORT
+#define MLTK_MLINT         MLNEWFOUNDLAND_MLINT
+#define MLTK_MLLONG        MLNEWFOUNDLAND_MLLONG
+#define MLTK_MLINT64       MLNEWFOUNDLAND_MLINT64
+#define MLTK_MLSIZE_T      MLNEWFOUNDLAND_MLSIZE_T
+#define MLTK_MLFLOAT       MLNEWFOUNDLAND_MLFLOAT
+#define MLTK_MLDOUBLE      MLNEWFOUNDLAND_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLNEWFOUNDLAND_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLAFFENPINSCHER_NUMERICS_ID
+#define MLTK_CSHORT        MLAFFENPINSCHER_CSHORT
+#define MLTK_CINT          MLAFFENPINSCHER_CINT
+#define MLTK_CLONG         MLAFFENPINSCHER_CLONG
+#define MLTK_CINT64        MLAFFENPINSCHER_CINT64
+#define MLTK_CSIZE_T       MLAFFENPINSCHER_CSIZE_T
+#define MLTK_CFLOAT        MLAFFENPINSCHER_CFLOAT
+#define MLTK_CDOUBLE       MLAFFENPINSCHER_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLAFFENPINSCHER_CLONGDOUBLE
+#define MLTK_MLSHORT       MLAFFENPINSCHER_MLSHORT
+#define MLTK_MLINT         MLAFFENPINSCHER_MLINT
+#define MLTK_MLLONG        MLAFFENPINSCHER_MLLONG
+#define MLTK_MLINT64       MLAFFENPINSCHER_MLINT64
+#define MLTK_MLSIZE_T      MLAFFENPINSCHER_MLSIZE_T
+#define MLTK_MLFLOAT       MLAFFENPINSCHER_MLFLOAT
+#define MLTK_MLDOUBLE      MLAFFENPINSCHER_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLAFFENPINSCHER_MLLONGDOUBLE
+#define MATHLINK_NUMERICS_ENVIRONMENT_ID  MLOLD_WIN_ENV_NUMERICS_ID
+#define MLTK_CSHORT        MLOLD_WIN_ENV_CSHORT
+#define MLTK_CINT          MLOLD_WIN_ENV_CINT
+#define MLTK_CLONG         MLOLD_WIN_ENV_CLONG
+#define MLTK_CINT64        MLOLD_WIN_ENV_CINT64
+#define MLTK_CSIZE_T       MLOLD_WIN_ENV_CSIZE_T
+#define MLTK_CFLOAT        MLOLD_WIN_ENV_CFLOAT
+#define MLTK_CDOUBLE       MLOLD_WIN_ENV_CDOUBLE
+#define MLTK_CLONGDOUBLE   MLOLD_WIN_ENV_CLONGDOUBLE
+#define MLTK_MLSHORT       MLOLD_WIN_ENV_MLSHORT
+#define MLTK_MLINT         MLOLD_WIN_ENV_MLINT
+#define MLTK_MLLONG        MLOLD_WIN_ENV_MLLONG
+#define MLTK_MLINT64       MLOLD_WIN_ENV_MLINT64
+#define MLTK_MLSIZE_T      MLOLD_WIN_ENV_MLSIZE_T
+#define MLTK_MLFLOAT       MLOLD_WIN_ENV_MLFLOAT
+#define MLTK_MLDOUBLE      MLOLD_WIN_ENV_MLDOUBLE
+#define MLTK_MLLONGDOUBLE  MLOLD_WIN_ENV_MLLONGDOUBLE
 #define CC_SUPPORTS_LONG_DOUBLE 1
+#define CC_SUPPORTS_LONG_DOUBLE MLPROTOTYPES
+#define __extended_nt__ struct _i87extended_nt
+#define EXTENDED_NT_TO_I87_EXTENDED(a,b) a = b
+#define I87_EXTENDED_TO_EXTENDED_NT(a,b) a = b
+#define __extended_nt__ long double
+#define MLGetReal MLGetDouble
+#define MLGETSTRINGS_HPP
+#define MLGETSYMBOLS_HPP
+#define MLPUTNUMBERS_HPP
+#define MLPutReal MLPutDouble
+#define MLPUTSTRINGS_HPP
+#define MLPUTSYMBOLS_HPP
+#define _WSSTRING_H
 #define MAX_BYTES_PER_OLD_CHARACTER 3
 #define MAX_BYTES_PER_NEW_CHARACTER 6
 #define MAX_BYTES_PER_NEW_CHARACTER 10
 #define WS_MAX_BYTES_PER_CHARACTER MAX_BYTES_PER_NEW_CHARACTER
+#define WSStringFirstPos(s,pos) WSStringFirstPosFun( s, &(pos))
+#define WSStringChar( pos) WSStringCharacter( (pos).str, (pos).end)
 #define WSPutCharToString WSConvertCharacter
+#define WSOldStringFirstPos(s,pos) WSOldStringFirstPosFun( s, &(pos))
+#define _MLCAPUT_H
+#define __array_meterp__
+#define MLPutRealArray MLPutDoubleArray
+#define ML_USES_NEW_PUTBYTEARRAY_API 1
+#define _MLCAGET_H
+#define __array_meterp__
+#define MLGetRealArray    MLGetDoubleArray
+#define MLDisownRealArray MLDisownDoubleArray
+#define MLUNICODECONTAINER_HPP
+#define MLUCS2String(container)   container->pointer.ucs2
+#define MLUTF8String(container)   container->pointer.utf8
+#define MLUTF16String(container)  container->pointer.utf16
+#define MLUTF32String(container)  container->pointer.utf32
+#define MLUnicodeStringLength(container) container->length
+#define MLUnicodeStringType(container) container->type
+#define _MLMARK_H
+#define _MLXFER_H
+#define _MLSYNC_H
+#define _MLPKT_H
+#define _MLPKTNO_H
 #define ILLEGALPKT      0
 #define CALLPKT         7
 #define EVALUATEPKT    13
@@ -1107,11 +3652,51 @@
 #define ENDDLGPKT      20
 #define FIRSTUSERPKT  128
 #define LASTUSERPKT   255
+#define _MLALERT_H
+#define NewMLAlertProc(userRoutine) MLAlertCast((userRoutine))
+#define NewMLRequestProc(userRoutine) MLRequestCast((userRoutine))
+#define NewMLConfirmProc(userRoutine) MLConfirmCast((userRoutine))
+#define NewMLRequestArgvProc(userRoutine) MLRequestArgvCast((userRoutine))
+#define NewMLRequestToInteractProc(userRoutine) MLRequestToInteractCast((userRoutine))
+#define ML_DEFAULT_DIALOG ( (MLDialogFunctionType) 1)
+#define ML_IGNORE_DIALOG ( (MLDialogFunctionType) 0)
+#define ML_SUPPRESS_DIALOG ML_IGNORE_DIALOG
+#define _MLWIN_H
 #define DLG_LINKNAME                101
 #define DLG_TEXT                    102
 #define RIDOK                       1
 #define RIDCANCEL                   104
+#define MLALERT         MLAlert_win
+#define MLREQUEST       MLRequest_win
+#define MLCONFIRM       MLConfirm_win
+#define MLPERMIT        MLPermit_win
+#define MLREQUESTARGV	default_request_argv
+#define _MLDARWIN_H
+#define MLALERT  	MLAlert_darwin
+#define MLREQUEST	MLRequest_darwin
+#define MLCONFIRM	MLConfirm_darwin
+#define MLPERMIT 	MLPermit_darwin
+#define MLREQUESTARGV	default_request_argv
+#define _MLUNIX_H
+#define MLALERT  	MLAlert_unix
+#define MLREQUEST	MLRequest_unix
+#define MLCONFIRM	MLConfirm_unix
+#define MLPERMIT 	MLPermit_unix
+#define MLREQUESTARGV	default_request_argv
 #define WSWAITSUCCESS         1
 #define WSWAITERROR           2
 #define WSWAITTIMEOUT         3
 #define WSWAITCALLBACKABORTED 4
+#define _MLREADY_H
+#define _MLTIME_H
+#define MLINFINITEWAIT static_cast<mltimeval>({-1, -1})
+#define MLINFINITEWAIT {-1, -1}
+#define MLREADYPARALLELERROR -1
+#define MLREADYPARALLELTIMEDOUT -2
+#define MLREADYPARALLELINVALIDARGUMENT -3
+#define MLWAITSUCCESS         1
+#define MLWAITERROR           2
+#define MLWAITTIMEOUT         3
+#define MLWAITCALLBACKABORTED 4
+#define _MLTM_H
+#define _UNBRAND_H_

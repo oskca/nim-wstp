@@ -30,10 +30,10 @@ proc launch*(): WSLink =
   {.emit:[argend, "=argv+argc;"].}
   return OpenArgv(ep, argv, argend, err.addr)
 
-proc waitReturn*(lp: WSLink) =
+proc waitReturn*(lp: WSLink, pktType: int = RETURNPKT) =
   ## skip any packets before the first ReturnPacket
   var pkg = lp.NextPacket()
-  while pkg != 0 and pkg != RETURNPKT:
+  while pkg != 0 and pkg != pktType:
     lp.NewPacket()
     pkg = lp.NextPacket()
 

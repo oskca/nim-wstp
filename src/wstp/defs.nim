@@ -1,7 +1,10 @@
 const
+  WSTP_H* = true
+  WSVERS_H* = true
+  MLPLATFM_H* = true
   WIN64_MATHLINK* = 1
-  I86_WIN32_MATHLINK* = 1
   WIN32_MATHLINK* = 1
+  I86_WIN32_MATHLINK* = 1
   ALPHA_WIN32_MATHLINK* = 1
   CYGWIN_MATHLINK* = 1
   WIN16_MATHLINK* = 1
@@ -51,18 +54,123 @@ const
   BIGENDIAN_NUMERIC_TYPES* = 1
   WSVERSION* = 6
   WSREVISION* = 40
+  WSCREATIONID* = 114411
+  WSAPI4REVISION* = 25
+  WSINTERFACE* = 4
+  WSAPIREVISION* = WSAPI4REVISION
+  WSOLDDEFINITION* = WSAPI4REVISION
+  REBRAND_H* = true
+  ML_C* = true
+  ML_EXTERN_C* = true
+  ML_END_EXTERN_C* = true
+  WS_C* = true
+  WS_EXTERN_C* = true
+  WS_END_EXTERN_C* = true
+  WIN32_LEAN_AND_MEAN* = true
+  WIN32_EXTRA_LEAN* = true
+  MLDEVICE_H* = true
+  MLPROTOTYPES* = 1
 
-##  #define WSMATHVERSION 11.2.0
+template P*(s: untyped): untyped =
+  s
 
 const
-  WSCREATIONID* = 114411
-  WS_C* = "C"
+  MLFAR_H* = true
+  FAR* = true
+  MLHUGE* = true
+  MLTYPES_H* = true
+  MLBASICTYPES_H* = true
+  MLINT64_H* = true
+  ML64BIT_MATHLINK* = 1
+  ML_SMALLEST_SIGNED_64BIT* = -9223372036854775807'i64 - 1
+  ML_LARGEST_SIGNED_64BIT* = 9223372036854775807'i64
+  NO_INT64_STRUCT* = true
+  NO_MLINT64_STRUCT* = true
+
+
+const
+  MLEXPORT* = true
+  WSEXPORT* = true
+
+
+const
+  MLCB* = true
+  WSCB* = true
+  MLAPI* = true
+  WSAPI* = true
+  MLATTR* = true
+  WSATTR* = true
+
+##  #define MLDEFN( rtype, name, params) extern MLATTR rtype MLAPI MLEXPORT name params
+##  #define MLDECL( rtype, name, params) extern rtype MLAPI name P(params)
+##  #define WSDEFN( rtype, name, params) extern WSATTR rtype WSAPI WSEXPORT name params
+##  #define WSDECL( rtype, name, params) extern rtype WSAPI name P(params)
+##  #define ML_DEFN( rtype, name, params) extern rtype MLAPI_ MLEXPORT name params
+##  #define ML_DECL( rtype, name, params) extern ML_C rtype MLAPI_ name P(params)
+##  #define MLCBPROC( rtype, name, params) typedef rtype (MLCB * name) P(params)
+##  #define MLCBDECL( rtype, name, params) extern rtype MLCB name P(params)
+##  #define MLCBDEFN( rtype, name, params) extern rtype MLCB name params
+
+const
+  MLCONST* = true
+  MLSUCCESS* = (1)              ## bugcheck:  this stuff doesnt belong where it can be seen at MLAPI_ layer
+  MLFAILURE* = (0)
+
+
+const
+  MLBN* = true
+  BN* = MLBN
+  MLDEV_WRITE_WINDOW* = 0
+  MLDEV_WRITE* = 1
+  MLDEV_HAS_DATA* = 2
+  MLDEV_READ* = 3
+  MLDEV_READ_COMPLETE* = 4
+  MLDEV_ACKNOWLEDGE* = 5
+  T_DEV_WRITE_WINDOW* = MLDEV_WRITE_WINDOW
+  T_DEV_WRITE* = MLDEV_WRITE
+  T_DEV_HAS_DATA* = MLDEV_HAS_DATA
+  T_DEV_READ* = MLDEV_READ
+  T_DEV_READ_COMPLETE* = MLDEV_READ_COMPLETE
   SCATTERED* = 0
   NOT_SCATTERED* = 1
+
+template CallMLDeviceProc*(userRoutine, thing, selector, p1, p2: untyped): untyped =
+  ((userRoutine)[])((thing), (selector), (dev_voidp)(p1), (dev_voidp)(p2))
+
+template NewMLDeviceProc*(userRoutine: untyped): untyped =
+  (userRoutine)
+
+const
+  MLAPI_H* = true
+  MLALLOC_H* = true
+
+template CallMLAllocatorProc*(userRoutine, size: untyped): untyped =
+  ((userRoutine)[])((size))
+
+template NewMLAllocatorProc*(userRoutine: untyped): untyped =
+  (userRoutine)
+
+template CallMLDeallocatorProc*(userRoutine, p: untyped): untyped =
+  ((userRoutine)[])((p))
+
+template NewMLDeallocatorProc*(userRoutine: untyped): untyped =
+  (userRoutine)
+
+const
+  MLCallAllocator* = CallMLAllocatorProc
+  MLNewAllocator* = NewMLAllocatorProc
+  MLCallDeallocator* = CallMLDeallocatorProc
+  MLNewDeallocator* = NewMLDeallocatorProc
+  WSNTYPES_H* = true
+  WSNUMENV_H* = true
   REALBIT* = 4
+  REAL_MASK* = (1 shl REALBIT)
   XDRBIT* = 5
+  XDR_MASK* = (1 shl XDRBIT)
   BINARYBIT* = 7
+  BINARY_MASK* = (1 shl BINARYBIT)
   SIZEVARIANTBIT* = 6
+  SIZEVARIANT_MASK* = (1 shl SIZEVARIANTBIT)
   WSTK_INVALID* = 155
   WSTK_8BIT_SIGNED_2sCOMPLEMENT_INTEGER* = 160
   WSTK_8BIT_UNSIGNED_2sCOMPLEMENT_INTEGER* = 161
@@ -91,6 +199,41 @@ const
   WSTK_LITTLEENDIAN_IEEE754_SINGLE* = 244
   WSTK_LITTLEENDIAN_IEEE754_DOUBLE* = 246
   WSTK_LITTLEENDIAN_128BIT_DOUBLE* = 248
+
+template WSNE_SIZESELECTOR*(tok: untyped): untyped =
+  WSNE_SELECTOR(0, tok)
+
+const
+  WSNE_INITSELECTOR* = (0)
+
+template WSNE_TOSTRINGSELECTOR*(tok: untyped): untyped =
+  WSNE_SELECTOR(if WSNE_IS_REAL(tok): WSTKREAL else: WSTKINT, tok)
+
+template WSNE_FROMSTRINGSELECTOR*(dtok, stok: untyped): untyped =
+  WSNE_SELECTOR(dtok, stok)
+
+template WSNE_STOK*(selector: untyped): untyped =
+  ((selector) and 0x000000FF)
+
+template WSNE_DTOK*(selector: untyped): untyped =
+  (((selector) and 0x0000FF00) shr 8)
+
+template WSNE_IS_BINARY*(tok: untyped): untyped =
+  ((tok) and BINARY_MASK)
+
+template WSNE_IS_REAL*(tok: untyped): untyped =
+  ((tok) and REAL_MASK)
+
+template WSNE_TEXT_TOKEN*(tok: untyped): untyped =
+  (if WSNE_IS_REAL(tok): WSTKREAL else: WSTKINT)
+
+const
+  WSTK_CSHORT_P* = ((BINARY_MASK or SIZEVARIANT_MASK or 1))
+  WSTK_CINT_P* = ((BINARY_MASK or SIZEVARIANT_MASK or 2))
+  WSTK_CLONG_P* = ((BINARY_MASK or SIZEVARIANT_MASK or 3))
+  WSTK_CFLOAT_P* = ((BINARY_MASK or SIZEVARIANT_MASK or REAL_MASK or 1))
+  WSTK_CDOUBLE_P* = ((BINARY_MASK or SIZEVARIANT_MASK or REAL_MASK or 2))
+  WSTK_CLONGDOUBLE_P* = ((BINARY_MASK or SIZEVARIANT_MASK or REAL_MASK or 3))
   WSTK_64BIT_LITTLEENDIAN_STRUCTURE* = 196
   WSTK_64BIT_BIGENDIAN_STRUCTURE* = 197
   WSTK_128BIT_EXTENDED* = 158
@@ -773,6 +916,25 @@ const
   WSCHINOOK_WSFLOAT* = WSTK_LITTLEENDIAN_IEEE754_SINGLE
   WSCHINOOK_WSDOUBLE* = WSTK_LITTLEENDIAN_IEEE754_DOUBLE
   WSCHINOOK_WSLONGDOUBLE* = WSTK_LITTLEENDIAN_IEEE754_DOUBLE
+  WSOLD_WIN_ENV_NUMERICS_ID* = "Sep 13 1996, 13:46:34"
+  WSOLD_WIN_ENV_CSHORT* = WSTK_CSHORT_P
+  WSOLD_WIN_ENV_CINT* = WSTK_CINT_P
+  WSOLD_WIN_ENV_CLONG* = WSTK_CLONG_P
+  WSOLD_WIN_ENV_CINT64* = WSTK_64BIT_LITTLEENDIAN_STRUCTURE
+  WSOLD_WIN_ENV_CSIZE_T* = WSTK_CLONG_P
+  WSOLD_WIN_ENV_CFLOAT* = WSTK_CFLOAT_P
+  WSOLD_WIN_ENV_CDOUBLE* = WSTK_CDOUBLE_P
+  WSOLD_WIN_ENV_CLONGDOUBLE* = WSTK_CLONGDOUBLE_P
+  WSOLD_WIN_ENV_WSSHORT* = WSTK_CSHORT_P
+  WSOLD_WIN_ENV_WSINT* = WSTK_CINT_P
+  WSOLD_WIN_ENV_WSLONG* = WSTK_CLONG_P
+  WSOLD_WIN_ENV_WSINT64* = WSTK_64BIT_LITTLEENDIAN_STRUCTURE
+  WSOLD_WIN_ENV_WSSIZE_T* = WSTK_CLONG_P
+  WSOLD_WIN_ENV_WSFLOAT* = WSTK_CFLOAT_P
+  WSOLD_WIN_ENV_WSDOUBLE* = WSTK_CDOUBLE_P
+  WSOLD_WIN_ENV_WSLONGDOUBLE* = WSTK_CLONGDOUBLE_P
+  WSTK_CUCHAR* = WSTK_8BIT_UNSIGNED_INTEGER
+  WSTK_WSUCHAR* = WSTK_8BIT_UNSIGNED_INTEGER
   WSTP_NUMERICS_ENVIRONMENT_ID* = WSBOERBOEL_NUMERICS_ID
   WSTK_CSHORT* = WSBOERBOEL_CSHORT
   WSTK_CINT* = WSBOERBOEL_CINT
@@ -791,6 +953,101 @@ const
   WSTK_WSDOUBLE* = WSBOERBOEL_WSDOUBLE
   WSTK_WSLONGDOUBLE* = WSBOERBOEL_WSLONGDOUBLE
   CC_SUPPORTS_LONG_DOUBLE* = 1
+
+##  #define _extended_nt_ struct _i87extended_nt
+
+template EXTENDED_NT_TO_I87_EXTENDED*(a, b: untyped): untyped =
+  a = b
+
+template I87_EXTENDED_TO_EXTENDED_NT*(a, b: untyped): untyped =
+  a = b
+
+##  #define _extended_nt_ long double
+
+const
+  MLSTDDEV_H* = true
+  MLVERS_H* = true
+  MLVERSION* = 6
+  MLREVISION* = 41
+  MLCREATIONID* = 114411
+  MLAPI1REVISION* = 1
+  MLAPI2REVISION* = 6
+  MLAPI3REVISION* = 16
+  MLAPI4REVISION* = 25
+  MLINTERFACE* = 4
+  MLAPIREVISION* = MLAPI4REVISION
+  call_dev_allocator* = CallMLAllocatorProc
+  new_dev_allocator* = NewMLAllocatorProc
+  call_dev_deallocator* = CallMLDeallocatorProc
+  new_dev_deallocator* = NewMLDeallocatorProc
+  MLSTDWORLD_INIT* = 16
+  MLSTDWORLD_DEINIT* = 17
+  MLSTDWORLD_MAKE* = 18
+  MLSTDWORLD_GET_SIGNAL_HANDLERS* = 29
+  MLSTDWORLD_RELEASE_SIGNAL_HANDLERS* = 30
+  MLSTDWORLD_PROTOCOL* = 31
+  MLSTDWORLD_MODES* = 32
+  MLSTDWORLD_STREAMCAPACITY* = 33
+  MLSTDWORLD_ID* = 34
+  MLSTDDEV_CONNECT_READY* = 19
+  MLSTDDEV_CONNECT* = 20
+  MLSTDDEV_DESTROY* = 21
+  MLSTDDEV_SET_YIELDER* = 22
+  MLSTDDEV_GET_YIELDER* = 23
+  MLSTDDEV_WRITE_MSG* = 24
+  MLSTDDEV_HAS_MSG* = 25
+  MLSTDDEV_READ_MSG* = 26
+  MLSTDDEV_SET_HANDLER* = 27
+  MLSTDDEV_GET_HANDLER* = 28
+  MLSTDDEV_GET_SIGNAL_HANDLERS* = 29
+  MLSTDDEV_RELEASE_SIGNAL_HANDLERS* = 30
+  T_WORLD_INIT* = MLSTDWORLD_INIT
+  T_WORLD_DEINIT* = MLSTDWORLD_DEINIT
+  T_WORLD_MAKE* = MLSTDWORLD_MAKE
+  T_DEV_CONNECT_READY* = MLSTDDEV_CONNECT_READY
+  T_DEV_CONNECT* = MLSTDDEV_CONNECT
+  T_DEV_DESTROY* = MLSTDDEV_DESTROY
+  T_DEV_SET_YIELDER* = MLSTDDEV_SET_YIELDER
+  T_DEV_GET_YIELDER* = MLSTDDEV_GET_YIELDER
+  T_DEV_WRITE_MSG* = MLSTDDEV_WRITE_MSG
+  T_DEV_HAS_MSG* = MLSTDDEV_HAS_MSG
+  T_DEV_READ_MSG* = MLSTDDEV_READ_MSG
+  T_DEV_SET_HANDLER* = MLSTDDEV_SET_HANDLER
+  T_DEV_GET_HANDLER* = MLSTDDEV_GET_HANDLER
+  DefaultOptions* = (cast[uint](0x00000000))
+  NetworkVisibleMask* = (cast[uint](0x00000003))
+  BrowseMask* = (cast[uint](0x00000010))
+  NonBlockingMask* = (cast[uint](0x00000020))
+  InteractMask* = (cast[uint](0x00000100))
+  YieldMask* = (cast[uint](0x00000200))
+  UseIPV6Mask* = (cast[uint](0x00010000))
+  UseIPV4Mask* = (cast[uint](0x00020000))
+  VersionMask* = (cast[uint](0x0F000000))
+  UseNewTCPIPConnectionMask* = (cast[uint](0x00100000))
+  UseOldTCPIPConnectionMask* = (cast[uint](0x00200000))
+  UseUUIDTCPIPConnectionMask* = (cast[uint](0x00000004))
+  UseAnyNetworkAddressMask* = (cast[uint](0x00000008))
+  NetworkVisible* = (cast[uint](0x00000000))
+  LocallyVisible* = (cast[uint](0x00000001))
+  InternetVisible* = (cast[uint](0x00000002))
+  Browse* = (cast[uint](0x00000000))
+  DontBrowse* = (cast[uint](0x00000010))
+  NonBlocking* = (cast[uint](0x00000000))
+  Blocking* = (cast[uint](0x00000020))
+  Interact* = (cast[uint](0x00000000))
+  DontInteract* = (cast[uint](0x00000100))
+  ForceYield* = (cast[uint](0x00000200))
+  UseIPV6* = (cast[uint](0x00010000))
+  UseIPV4* = (cast[uint](0x00020000))
+  UseNewTCPIPConnection* = (cast[uint](0x00100000))
+  UseOldTCPIPConnection* = (cast[uint](0x00200000))
+  UseUUIDTCPIPConnection* = (cast[uint](0x00000004))
+  UseAnyNetworkAddress* = (cast[uint](0x00000008))
+  INFO_MASK* = (1 shl 31)
+  INFO_TYPE_MASK* = ((1 shl 31) - 1)
+  INFO_SWITCH_MASK* = (1 shl 30)
+  MLDEVICE_MASK* = INFO_MASK
+  WORLD_MASK* = (INFO_MASK or (1 shl 30))
   UNREGISTERED_TYPE* = 0
   UNIXPIPE_TYPE* = 1
   UNIXSOCKET_TYPE* = 2
@@ -799,9 +1056,36 @@ const
   WINFMAP_TYPE* = 10
   WINSHM_TYPE* = 11
   SOCKET2_TYPE* = 12
+  GENERIC_TYPE* = 13
   UNIXSHM_TYPE* = 14
   INTRAPROCESS_TYPE* = 15
+  MLDEVICE_TYPE* = 0
+  MLDEVICE_NAME* = 1
+  MLDEVICE_NAME_SIZE* = 2
+  MLDEVICE_WORLD_ID* = 5
+  SHM_FD* = (UNIXSHM_TYPE * 256 + 0) ##  int
+  PIPE_FD* = (UNIXPIPE_TYPE * 256 + 0) ##  int
+  PIPE_CHILD_PID* = (UNIXPIPE_TYPE * 256 + 1) ##  int
+  SOCKET_FD* = (UNIXSOCKET_TYPE * 256 + 0) ##  int
+  INTRA_FD* = (INTRAPROCESS_TYPE * 256 + 0) ##  int
+  SOCKET_PARTNER_ADDR* = (UNIXSOCKET_TYPE * 256 + 1) ##  unsigned long
+  SOCKET_PARTNER_PORT* = (UNIXSOCKET_TYPE * 256 + 2) ##  unsigned short
+  LOOPBACK_FD* = (LOOPBACK_TYPE * 256 + 2) ##  int
+  INTRAPROCESS_FD* = (INTRAPROCESS_TYPE * 256 + 0) ##  int
+  WINDOWS_SET_NOTIFY_WINDOW* = 2330
+  WINDOWS_REMOVE_NOTIFY_WINDOW* = 2331
   WINDOWS_READY_CONDITION* = 2332
+  WORLD_THISLOCATION* = 1
+  WORLD_MODES* = 2
+  WORLD_PROTONAME* = 3
+  WORLD_STREAMCAPACITY* = 4
+  WORLD_ID* = MLDEVICE_WORLD_ID
+
+##  #define MATHLINK_DEVICE_WORLD_ID (_DATE_ ", " _TIME_)
+
+const
+  MLDEVICE_MODE* = MLDEVICE_MASK + 6
+  MLDEVICE_OPTIONS* = MLDEVICE_MASK + 7
   YIELDVERSION* = 1
   INTERNAL_YIELDING* = 0
   MAKE_YIELDING* = 1
@@ -810,6 +1094,85 @@ const
   WRITE_YIELDING* = 4
   DESTROY_YIELDING* = 5
   READY_YIELDING* = 6
+  MAX_SLEEP* = (600)
+
+template NewMLYielderProc*(userRoutine: untyped): untyped =
+  (userRoutine)
+
+const
+  NewMLDeviceYielderProc* = NewMLYielderProc
+
+template NewMLHandlerProc*(userRoutine: untyped): untyped =
+  (userRoutine)
+
+const
+  NewMLDeviceHandlerProc* = NewMLHandlerProc
+  MLSIGNAL_H* = true
+  WSMAKE_H* = true
+  MLPARAMETERSIZE_R1* = 256
+  MLPARAMETERSIZE* = 356
+
+template NewMLUserProc*(userRoutine: untyped): untyped =
+  (userRoutine)
+
+const
+  MLNetworkVisibleMask* = (cast[culong](0x00000003)) ##  00000000000000000000011
+  MLBrowseMask* = (cast[culong](0x00000010)) ##  00000000000000000010000
+  MLNonBlockingMask* = (cast[culong](0x00000020)) ##  00000000000000000110000
+  MLInteractMask* = (cast[culong](0x00000100)) ##  00000000000000100000000
+  MLYieldMask* = (cast[culong](0x00000200)) ##  00000000000001000000000
+  MLUseIPV6Mask* = (cast[culong](0x00010000)) ##  00000010000000000000000
+  MLUseIPV4Mask* = (cast[culong](0x00020000)) ##  00000100000000000000000
+  MLVersionMask* = (cast[culong](0x0000F000)) ##  00000001111000000000000
+  MLUseNewTCPIPConnectionMask* = (cast[culong](0x00100000)) ##  00100000000000000000000
+  MLUseOldTCPIPConnectionMask* = (cast[culong](0x00200000)) ##  01000000000000000000000
+  MLUseUUIDTCPIPConnectionMask* = (cast[culong](0x00000004)) ##  00000000000000000000110
+  MLUseAnyNetworkAddressMask* = (cast[culong](0x00000008)) ##  00000000000000000001000
+  MLDefaultOptions* = (cast[culong](0x00000000))
+  MLNetworkVisible* = (cast[culong](0x00000000))
+  MLLocallyVisible* = (cast[culong](0x00000001))
+  MLInternetVisible* = (cast[culong](0x00000002))
+  MLBrowse* = (cast[culong](0x00000000))
+  MLDontBrowse* = (cast[culong](0x00000010))
+  MLNonBlocking* = (cast[culong](0x00000000))
+  MLBlocking* = (cast[culong](0x00000020))
+  MLInteract* = (cast[culong](0x00000000))
+  MLDontInteract* = (cast[culong](0x00000100))
+  MLForceYield* = (cast[culong](0x00000200))
+  MLUseIPV6* = (cast[culong](0x00010000))
+  MLUseIPV4* = (cast[culong](0x00020000))
+  MLUseNewTCPIPConnection* = (cast[culong](0x00100000))
+  MLUseOldTCPIPConnection* = (cast[culong](0x00200000))
+  MLUseUUIDTCPIPConnection* = (cast[culong](0x00000004))
+  MLUseAnyNetworkAddress* = (cast[culong](0x00000008))
+  MLASCII_ENC* = 1
+  MLBYTES_ENC* = 2
+  MLUCS2_ENC* = 3
+  MLOLD_ENC* = 4
+  MLUTF8_ENC* = 5
+  MLUTF16_ENC* = 6
+  MLUTF32_ENC* = 8
+  MLTOTAL_TEXT_ENCODINGS* = 8
+  MLLOGERROR* = 0
+  MLLOGWARNING* = 1
+  MLLOGNOTICE* = 2
+  MLLOGINFO* = 3
+  MLLOGDEBUG* = 4
+  MLLOGDEBUG1* = 5
+  MLLOGDEBUG2* = 6
+  MLLOGDEBUG3* = 7
+  MLLOGDEBUG4* = 8
+  MLNTESTPOINTS* = 4
+  MLLINKSERVER_H* = true
+  MLSERVICEDISCOVERYAPI_H* = true
+  MLSDADDSERVICE* = 0x00000001
+  MLSDREMOVESERVICE* = 0x00000002
+  MLSDBROWSEERROR* = 0x00000003
+  MLSDRESOLVEERROR* = 0x00000004
+  MLSDREGISTERERROR* = 0x00000005
+  MLSDMORECOMING* = 0x00000010
+  MLSDNAMECONFLICT* = 0x00000007
+  WSERRNO_H* = true
   WSEUNKNOWN* = -1
   WSEOK* = 0
   WSEDEAD* = 1
@@ -823,11 +1186,20 @@ const
   WSEACCEPT* = 9
   WSECONNECT* = 10
   WSECLOSED* = 11
+  WSEDEPTH* = 12
+  WSENODUPFCN* = 13
+  WSENOACK* = 15
+  WSENODATA* = 16
+  WSENOTDELIVERED* = 17
+  WSENOMSG* = 18
+  WSEFAILED* = 19
   WSEGETENDEXPR* = 20
+  WSEPUTENDPACKET* = 21
   WSENEXTPACKET* = 22
   WSEUNKNOWNPACKET* = 23
   WSEGETENDPACKET* = 24
   WSEABORT* = 25
+  WSEMORE* = 26
   WSENEWLIB* = 27
   WSEOLDLIB* = 28
   WSEBADPARAM* = 29
@@ -844,15 +1216,16 @@ const
   WSENOLISTEN* = 41
   WSEBADNAME* = 42
   WSEBADHOST* = 43
+  WSERESOURCE* = 44
   WSELAUNCHFAILED* = 45
   WSELAUNCHNAME* = 46
+  WSELAST* = WSELAUNCHNAME
   WSEPDATABAD* = 47
   WSEPSCONVERT* = 48
   WSEGSCONVERT* = 49
   WSENOTEXE* = 50
   WSESYNCOBJECTMAKE* = 51
   WSEBACKOUT* = 52
-  WSELAST* = WSEBACKOUT
   WSEBADOPTSYM* = 53
   WSEBADOPTSTR* = 54
   WSENEEDBIGGERBUFFER* = 55
@@ -866,16 +1239,249 @@ const
   WSEBADDISCOVERYFLAGS* = 63
   WSEDISCOVERYNAMECOLLISION* = 64
   WSEBADSERVICEDISCOVERY* = 65
-  WSTKEND* = '\x0A'
-  WSTKAEND* = '\x0D'
+  WSETRACEON* = 996
+  WSETRACEOFF* = 997
+  WSEDEBUG* = 998
+  WSEASSERT* = 999
+  WSEUSER* = 1000
+  MLERRORS_H* = true
+  MLERRNO_H* = true
+  MLEUNKNOWN* = -1
+  MLEOK* = 0
+  MLEDEAD* = 1
+  MLEGBAD* = 2
+  MLEGSEQ* = 3
+  MLEPBTK* = 4
+  MLEPSEQ* = 5
+  MLEPBIG* = 6
+  MLEOVFL* = 7
+  MLEMEM* = 8
+  MLEACCEPT* = 9
+  MLECONNECT* = 10
+  MLECLOSED* = 11
+  MLEDEPTH* = 12
+  MLENODUPFCN* = 13
+  MLENOACK* = 15
+  MLENODATA* = 16
+  MLENOTDELIVERED* = 17
+  MLENOMSG* = 18
+  MLEFAILED* = 19
+  MLEGETENDEXPR* = 20
+  MLEPUTENDPACKET* = 21
+  MLENEXTPACKET* = 22
+  MLEUNKNOWNPACKET* = 23
+  MLEGETENDPACKET* = 24
+  MLEABORT* = 25
+  MLEMORE* = 26
+  MLENEWLIB* = 27
+  MLEOLDLIB* = 28
+  MLEBADPARAM* = 29
+  MLENOTIMPLEMENTED* = 30
+  MLEINIT* = 32
+  MLEARGV* = 33
+  MLEPROTOCOL* = 34
+  MLEMODE* = 35
+  MLELAUNCH* = 36
+  MLELAUNCHAGAIN* = 37
+  MLELAUNCHSPACE* = 38
+  MLENOPARENT* = 39
+  MLENAMETAKEN* = 40
+  MLENOLISTEN* = 41
+  MLEBADNAME* = 42
+  MLEBADHOST* = 43
+  MLERESOURCE* = 44
+  MLELAUNCHFAILED* = 45
+  MLELAUNCHNAME* = 46
+  MLELAST* = MLELAUNCHNAME
+  MLEPDATABAD* = 47
+  MLEPSCONVERT* = 48
+  MLEGSCONVERT* = 49
+  MLENOTEXE* = 50
+  MLESYNCOBJECTMAKE* = 51
+  MLEBACKOUT* = 52
+  MLEBADOPTSYM* = 53
+  MLEBADOPTSTR* = 54
+  MLENEEDBIGGERBUFFER* = 55
+  MLEBADNUMERICSID* = 56
+  MLESERVICENOTAVAILABLE* = 57
+  MLEBADARGUMENT* = 58
+  MLEBADDISCOVERYHOSTNAME* = 59
+  MLEBADDISCOVERYDOMAINNAME* = 60
+  MLEBADSERVICENAME* = 61
+  MLEBADDISCOVERYSTATE* = 62
+  MLEBADDISCOVERYFLAGS* = 63
+  MLEDISCOVERYNAMECOLLISION* = 64
+  MLEBADSERVICEDISCOVERY* = 65
+  MLETRACEON* = 996
+  MLETRACEOFF* = 997
+  MLEDEBUG* = 998
+  MLEASSERT* = 999
+  MLEUSER* = 1000
+  MLYLDMSG_H* = true
+  MLGET_H* = true
+  MLPUT_H* = true
+
+##  #define MLPutExpression is obsolete, use MLPutComposite
+
+const
+  WSTK_H* = true
+  WSTKOLDINT* = 'I'
+  WSTKOLDREAL* = 'R'
+  WSTKFUNC* = 'F'
+  WSTKERROR* = (0)              ##  bad token
+  WSTKERR* = (0)                ##  bad token
+
+template WSTK_IS_TEXT*(tok: untyped): untyped =
+  ((tok and 0x000000F6) == 0x00000022)
+
+const
+  WSTKSTR* = '\"'
+  WSTKSYM*  = '\x23' 
+  WSTKOPTSYM* = 'O'
+  WSTKOPTSTR* = 'Q'
+  WSTKREAL* = '*'
+  WSTKINT* = '+'
+  WSTKPCTEND* = ']'
   WSTKSEND* = ','
-  WSTKCONT* = '\x08'
+  WSTKELEN* = ' '
   WSTKNULL* = '.'
-  WSTK_LASTUSER* = '?'
-  NEW_WIN32_NUMENV* = 1
+  WSTKOLDSYM* = 'Y'
+  WSTKOLDSTR* = 'S'
+  WSTKPACKED* = 'P'
+  WSTKARRAY* = 'A'
+  WSTKDIM* = 'D'
+  WSLENGTH_DECODER* = (cast[uint](1) shl 16)
+  WSTKPACKED_DECODER* = (cast[uint](1) shl 17)
+  WSTKARRAY_DECODER* = (cast[uint](1) shl 18)
+  WSTKNULLSEQUENCE_DECODER* = (cast[uint](0))
+  MLINTEGER64_H* = true
+  MLGETNUMBERS_HPP* = true
+  MLGETSTRINGS_HPP* = true
+  MLGETSYMBOLS_HPP* = true
+  MLPUTNUMBERS_HPP* = true
+  MLPUTSTRINGS_HPP* = true
+  MLPUTSYMBOLS_HPP* = true
+  MLNTYPES_H* = true
+  MLNUMENV_H* = true
+  MLTK_32BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER* = 164
+  MLTK_32BIT_UNSIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER* = 165
+  MLTK_32BIT_UNSIGNED_BIGENDIAN_INTEGER* = MLTK_32BIT_UNSIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+  MLTK_64BIT_SIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER* = 166
+  MLTK_64BIT_UNSIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER* = 167
+  MLTK_64BIT_UNSIGNED_BIGENDIAN_INTEGER* = MLTK_64BIT_UNSIGNED_2sCOMPLEMENT_BIGENDIAN_INTEGER
+  MLTK_16BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER* = 226
+  MLTK_16BIT_UNSIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER* = 227
+  MLTK_16BIT_UNSIGNED_LITTLEENDIAN_INTEGER* = MLTK_16BIT_UNSIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+  MLTK_32BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER* = 228
+  MLTK_32BIT_UNSIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER* = 229
+  MLTK_32BIT_UNSIGNED_LITTLEENDIAN_INTEGER* = MLTK_32BIT_UNSIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+  MLTK_64BIT_SIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER* = 230
+  MLTK_64BIT_UNSIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER* = 231
+  MLTK_64BIT_UNSIGNED_LITTLEENDIAN_INTEGER* = MLTK_64BIT_UNSIGNED_2sCOMPLEMENT_LITTLEENDIAN_INTEGER
+  MLTK_BIGENDIAN_IEEE754_SINGLE* = 180
+  MLTK_BIGENDIAN_IEEE754_DOUBLE* = 182
+  MLTK_BIGENDIAN_128BIT_DOUBLE* = 184
+  MLTK_LITTLEENDIAN_IEEE754_SINGLE* = 244
+  MLTK_LITTLEENDIAN_IEEE754_DOUBLE* = 246
+  MLTK_LITTLEENDIAN_128BIT_DOUBLE* = 248
+
+template MLNE_SIZESELECTOR*(tok: untyped): untyped =
+  MLNE_SELECTOR(0, tok)
+
+const
+  MLNE_INITSELECTOR* = (0)
+
+template MLNE_TOSTRINGSELECTOR*(tok: untyped): untyped =
+  MLNE_SELECTOR(if MLNE_IS_REAL(tok): MLTKREAL else: MLTKINT, tok)
+
+template MLNE_FROMSTRINGSELECTOR*(dtok, stok: untyped): untyped =
+  MLNE_SELECTOR(dtok, stok)
+
+template MLNE_STOK*(selector: untyped): untyped =
+  ((selector) and 0x000000FF)
+
+template MLNE_DTOK*(selector: untyped): untyped =
+  (((selector) and 0x0000FF00) shr 8)
+
+template MLNE_IS_BINARY*(tok: untyped): untyped =
+  ((tok) and BINARY_MASK)
+
+template MLNE_IS_REAL*(tok: untyped): untyped =
+  ((tok) and REAL_MASK)
+
+template MLNE_TEXT_TOKEN*(tok: untyped): untyped =
+  (if MLNE_IS_REAL(tok): MLTKREAL else: MLTKINT)
+
+const
+  MLTK_CSHORT_P* = ((BINARY_MASK or SIZEVARIANT_MASK or 1))
+  MLTK_CINT_P* = ((BINARY_MASK or SIZEVARIANT_MASK or 2))
+  MLTK_CLONG_P* = ((BINARY_MASK or SIZEVARIANT_MASK or 3))
+  MLTK_CFLOAT_P* = ((BINARY_MASK or SIZEVARIANT_MASK or REAL_MASK or 1))
+  MLTK_CDOUBLE_P* = ((BINARY_MASK or SIZEVARIANT_MASK or REAL_MASK or 2))
+  MLTK_CLONGDOUBLE_P* = ((BINARY_MASK or SIZEVARIANT_MASK or REAL_MASK or 3))
+  MLTK_64BIT_LITTLEENDIAN_STRUCTURE* = 196
+  MLTK_64BIT_BIGENDIAN_STRUCTURE* = 197
+  MLTK_128BIT_EXTENDED* = 158
+  MLTK_128BIT_LONGDOUBLE* = 158
+  MLTK_96BIT_HIGHPADDED_INTEL_80BIT_EXTENDED* = 218
+  MLTK_INTEL_80BIT_EXTENDED* = 216
+  MLMASTIFF_NUMERICS_ID* = "mastiff"
+
+##  #define _extended_nt_ struct _i87extended_nt
+
+template EXTENDED_NT_TO_I87_EXTENDED*(a, b: untyped): untyped =
+  a = b
+
+template I87_EXTENDED_TO_EXTENDED_NT*(a, b: untyped): untyped =
+  a = b
+
+##  #define _extended_nt_ long double
+
+const
+  WSSTRING_H* = true
   MAX_BYTES_PER_OLD_CHARACTER* = 3
   MAX_BYTES_PER_NEW_CHARACTER* = 6
   WS_MAX_BYTES_PER_CHARACTER* = MAX_BYTES_PER_NEW_CHARACTER
+
+template WSStringFirstPos*(s, pos: untyped): untyped =
+  WSStringFirstPosFun(s, addr((pos)))
+
+template WSStringChar*(pos: untyped): untyped =
+  WSStringCharacter((pos).str, (pos).`end`)
+
+template WSOldStringFirstPos*(s, pos: untyped): untyped =
+  WSOldStringFirstPosFun(s, addr((pos)))
+
+const
+  MLCAPUT_H* = true
+  ML_USES_NEW_PUTBYTEARRAY_API* = 1
+  MLCAGET_H* = true
+  MLUNICODECONTAINER_HPP* = true
+
+template MLUCS2String*(container: untyped): untyped =
+  container.pointer.ucs2
+
+template MLUTF8String*(container: untyped): untyped =
+  container.pointer.utf8
+
+template MLUTF16String*(container: untyped): untyped =
+  container.pointer.utf16
+
+template MLUTF32String*(container: untyped): untyped =
+  container.pointer.utf32
+
+template MLUnicodeStringLength*(container: untyped): untyped =
+  container.length
+
+template MLUnicodeStringType*(container: untyped): untyped =
+  container.`type`
+
+const
+  MLMARK_H* = true
+  MLXFER_H* = true
+  MLSYNC_H* = true
+  MLPKT_H* = true
+  MLPKTNO_H* = true
   ILLEGALPKT* = 0
   CALLPKT* = 7
   EVALUATEPKT* = 13
@@ -900,11 +1506,43 @@ const
   ENDDLGPKT* = 20
   FIRSTUSERPKT* = 128
   LASTUSERPKT* = 255
+  MLALERT_H* = true
+
+template NewMLAlertProc*(userRoutine: untyped): untyped =
+  MLAlertCast((userRoutine))
+
+template NewMLRequestProc*(userRoutine: untyped): untyped =
+  MLRequestCast((userRoutine))
+
+template NewMLConfirmProc*(userRoutine: untyped): untyped =
+  MLConfirmCast((userRoutine))
+
+template NewMLRequestArgvProc*(userRoutine: untyped): untyped =
+  MLRequestArgvCast((userRoutine))
+
+template NewMLRequestToInteractProc*(userRoutine: untyped): untyped =
+  MLRequestToInteractCast((userRoutine))
+
+const
+  MLWIN_H* = true
   DLG_LINKNAME* = 101
   DLG_TEXT* = 102
   RIDOK* = 1
   RIDCANCEL* = 104
+  MLDARWIN_H* = true
+  MLUNIX_H* = true
   WSWAITSUCCESS* = 1
   WSWAITERROR* = 2
   WSWAITTIMEOUT* = 3
   WSWAITCALLBACKABORTED* = 4
+  MLREADY_H* = true
+  MLTIME_H* = true
+  MLREADYPARALLELERROR* = -1
+  MLREADYPARALLELTIMEDOUT* = -2
+  MLREADYPARALLELINVALIDARGUMENT* = -3
+  MLWAITSUCCESS* = 1
+  MLWAITERROR* = 2
+  MLWAITTIMEOUT* = 3
+  MLWAITCALLBACKABORTED* = 4
+  MLTM_H* = true
+  UNBRAND_H* = true
