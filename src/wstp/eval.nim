@@ -86,7 +86,7 @@ proc getResult(wl: WSLink): Variant =
     showError(wl)
     result = newVariant("error")
 
-proc eval*(e: Expression): Variant =
+proc eval*(e: Expression): Variant {.discardable.} =
   e.put()
   EndPacket(e.wl)
   e.wl.waitReturn(RETURNPKT)
@@ -196,18 +196,25 @@ proc main() =
     ret: cint
     str: cstring
     e, e1, e2: Expression
+    x = Symbol("x")
 
   var wl = launch()
 
-  e = wl.expr("Table[Sin[x], {x,1,10}]")
+  eval wl.expr("Table[Sin[x], {x,1,10}]")
+  eval wl.expr("gf[x_]:=x*2; df[x_]:=x^2")
   e1 = wl.expr("Sin[x]")
   e2 = wl.expr("{x, 1, 10}")
   echo eval wl.expr("Sin[x]")
   echo eval wl.expr("{x, 1, 10}")
 
-  # e = wl.Table(wl.Sin(Symbol("x")), wl.List(Symbol("x"), 1, 10))
-  e = wl.N(wl.Table(eval e1, eval e2))
-  echo eval e
+  echo eval wl.Table(eval e1, eval e2)
+  echo eval wl.Table(eval wl.Log(x), eval wl.List(x, 1, 5))
+
+  echo eval wl.N(wl.Table(eval e1, eval e2))
+  echo eval wl.N(wl.Table(eval wl.Log(x), eval wl.List(x, 1, 5)))
+  echo eval wl.gf(10)
+  echo eval wl.df(10)
+
 
   return
 
