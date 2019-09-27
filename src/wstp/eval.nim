@@ -7,7 +7,12 @@ import launch, parseutils, strformat
 import variant
 import macros
 
+type Symbol* = distinct string
+
+proc `$`*(s: Symbol): string = string(s)
+
 type Expression* = ref object of RootObj
+  wl: WSLink
 
 type StrExpr* = ref object of Expression
   str: string
@@ -16,19 +21,22 @@ type Function* = ref object of Expression
   head: string
   args: seq[Variant]
 
-proc wlexpr*(s: string): StrExpr =
+proc expr*(wl: WSLink, s: string): StrExpr =
   new(result)
+  result.wl = wl
   result.str = s
 
-proc newFunction*(head: string, args: varargs[Variant]): Function =
+proc fn*(wl: WSLink, head: string, args: varargs[Variant]): Function =
   new result
+  result.wl = wl
   result.head = head
   for v in args:
     result.args.add v
 
-macro newFunction*(head: string, args: varargs[untyped]): untyped = 
+macro fn*(wl: WSLink, head: string, args: varargs[untyped]): untyped = 
   result = newNimNode(nnkCall)
-  result.add newIdentNode("newFunction")
+  result.add newIdentNode("fn")
+  result.add wl
   result.add head
   for a in args:
     var nv = newNimNode(nnkCall)
@@ -36,52 +44,8 @@ macro newFunction*(head: string, args: varargs[untyped]): untyped =
     nv.add a
     result.add nv
 
-{.experimental: "dotOperators".}
-
-macro `.()`*(wl:WSLink, head: untyped, args: varargs[untyped]): untyped =
-  # newFunction
-  var f = newNimNode(nnkCall)
-  f.add newIdentNode("newFunction")
-  f.add newStrLitNode head.strVal()
-  for a in args:
-    var nv = newNimNode(nnkCall)
-    nv.add newIdentNode("newVariant")
-    nv.add a
-    f.add nv
-  # eval
-  result = newNimNode(nnkCall)
-  result.add newIdentNode("eval")
-  result.add f
-  result.add wl
-
-dumpTree:
-  wl.List(1,2,3)
-
-method eval*(e: Expression, wl: WSLink) {.base.} =
-  # override this base method
+method put*(e: Expression) {.base.} =
   quit "to override!"
-
-method eval*(e: StrExpr, wl: WSLink) =
-  PutFunction(wl, "EvaluatePacket", 1)
-  PutFunction(wl, "ToExpression", 1)
-  PutString(wl, e.str)
-  EndPacket(wl)
-
-method eval*(f: Function, wl: WSLink) =
-  PutFunction(wl, "EvaluatePacket", 1)
-  PutFunction(wl, f.head, f.args.len)
-  for i in 0..<f.args.len:
-    variantMatch case f.args[i] as v
-    of int:
-      PutInteger(wl, cint v)
-    of string:
-      PutString(wl, cstring v)
-    of float:
-      PutReal(wl, cdouble v)
-    else:
-        echo "dont know what v is"
-  EndPacket(wl)
-
 
 proc showError*(wl: WSLink) =
   if hasError(wl):
@@ -89,6 +53,112 @@ proc showError*(wl: WSLink) =
   else:
     echo fmt"Error detected by this program"
   quit(3)
+
+proc getResult(wl: WSLink): Variant =
+  var 
+    s: cstring
+    i, n: cint
+    r: float
+  case GetNext(wl).char:
+  of WSTKSYM:
+    GetSymbol(wl, s.addr)
+    result = newVariant(Symbol($s))
+    ReleaseSymbol(wl, s)
+  of WSTKSTR:
+    GetString(wl, s.addr)
+    result = newVariant($s)
+    ReleaseString(wl, s)
+  of WSTKINT:
+    GetInteger(wl, i.addr)
+    result = newVariant(i.int)
+  of WSTKREAL:
+    GetReal(wl, r.addr)
+    result = newVariant(r.float)
+  of WSTKFUNC:
+    GetArgCount(wl, n.addr)
+    var head = wl.getResult().get(Symbol)
+    var args = newSeq[Variant]()
+    for i in 1..n :
+      args.add wl.getResult()
+    result = newVariant(wl.fn(head.string, args))
+  else:
+    echo "error getting result"
+    showError(wl)
+    result = newVariant("error")
+
+proc eval*(e: Expression): Variant =
+  e.put()
+  EndPacket(e.wl)
+  e.wl.waitReturn(RETURNPKT)
+  e.wl.getResult()
+
+method put*(e: StrExpr) =
+  PutFunction(e.wl, "EvaluatePacket", 1)
+  PutFunction(e.wl, "ToExpression", 1)
+  PutString(e.wl, e.str)
+
+proc putFunc(f:Function)
+
+proc putVariant(wl: WSLink, arg: Variant) =
+  variantMatch case arg as v
+  of int:
+    PutInteger(wl, cint v)
+  of string:
+    PutString(wl, cstring v)
+  of float:
+    PutReal(wl, cdouble v)
+  of Symbol:
+    PutSymbol(wl, cstring v)
+  of Function:
+    putFunc(v)
+  of StrExpr:
+    putVariant(wl, eval v)
+  else:
+    echo "dont know what v is", arg
+
+proc `$`*(arg: Variant): string =
+  variantMatch case arg as v
+  of int:
+    result = &"int:{v}"
+  of string:
+    result = &"str:{v}"
+  of float:
+    result = &"float:{v}"
+  of Symbol:
+    result = &"sym:{v}"
+  of Function:
+    result = &"{v.head}["
+    for i, a in v.args:
+      result.add $a
+      if i != v.args.len - 1:
+        result.add ", "
+    result.add "]"
+  of StrExpr:
+    result = &"sexpr:{v.str}"
+  else:
+    result = ""
+
+proc putFunc(f: Function) =
+  PutFunction(f.wl, f.head, f.args.len)
+  for arg in f.args:
+    putVariant(f.wl, arg)
+
+method put*(f: Function) =
+  PutFunction(f.wl, "EvaluatePacket", 1)
+  putFunc(f)
+
+{.experimental: "dotOperators".}
+
+macro `.()`*(wl:WSLink, head: untyped, args: varargs[untyped]): untyped =
+  #fn 
+  var f = newNimNode(nnkCall)
+  f.add newIdentNode("fn")
+  f.add wl
+  f.add newStrLitNode head.strVal()
+  for a in args:
+    f.add a
+  # ret
+  result = f
 
 proc printResult(wl: WSLink) =
   var 
@@ -118,8 +188,6 @@ proc printResult(wl: WSLink) =
       printResult(wl)
       if i != n: echo ", "
     echo "]"
-  of WSTKERROR.char:
-    showError(wl)
   else:
     showError(wl)
 
@@ -127,42 +195,19 @@ proc main() =
   var
     ret: cint
     str: cstring
+    e, e1, e2: Expression
 
   var wl = launch()
-  var vl = newVariant(@[newVariant(1), newVariant(2)])
-  echo vl
 
-  # var istr = stdin.readLine()
-  # var i = 0
-  # discard parseInt(istr, i)
-  # echo "integer:", i
+  e = wl.expr("Table[Sin[x], {x,1,10}]")
+  e1 = wl.expr("Sin[x]")
+  e2 = wl.expr("{x, 1, 10}")
+  echo eval wl.expr("Sin[x]")
+  echo eval wl.expr("{x, 1, 10}")
 
-  # var e: Expression
-  # e = wlexpr "Range[10]"
-  # e.eval(wl)
-  # wl.waitReturn(RETURNPKT)
-  # wl.printResult()
-
-  # ReleaseString(wl, str)
-  # e = newFunction("List", 3, "a str")
-  # eval(e, wl)
-  # eval(newFunction("List", 3, "a str"), wl)
-  # e.eval(wl)
-  # wl.waitReturn(RETURNPKT)
-  # wl.printResult()
-
-  # wl.List(1,2,3, "good", 2*3)
-  wl.Range(0,10,2)
-  # e.eval(wl)
-  wl.waitReturn(RETURNPKT)
-  wl.printResult()
-  # wl.waitReturn(RETURNPKT)
-  # wl.printResult()
-  # wl.waitReturn(RETURNPKT)
-  # wl.printResult()
-
-  PutFunction(wl, "Exit", 0)
-  EndPacket(wl)
+  # e = wl.Table(wl.Sin(Symbol("x")), wl.List(Symbol("x"), 1, 10))
+  e = wl.N(wl.Table(eval e1, eval e2))
+  echo eval e
 
   return
 
