@@ -22,29 +22,40 @@ type Function* = ref object of Expression
   args: seq[Variant]
 
 proc expr*(wl: WSLink, s: string): StrExpr =
+  ## expr wrap Wolfram code in the for of string
   new(result)
   result.wl = wl
   result.str = s
 
 proc fn*(wl: WSLink, head: string, args: varargs[Variant]): Function =
+  ## fn warp Wolfram Function call `head`
+  ## of Variant args
   new result
   result.wl = wl
   result.head = head
   for v in args:
     result.args.add v
 
-macro fn*(wl: WSLink, head: string, args: varargs[untyped]): untyped = 
+macro mkfn*(wl: WSLink, head: string, args: varargs[typed]): untyped = 
+  ## mkfn warp Wolfram Function call `head`
+  ## of any args with basic types or Variant
   result = newNimNode(nnkCall)
   result.add newIdentNode("fn")
   result.add wl
   result.add head
   for a in args:
-    var nv = newNimNode(nnkCall)
-    nv.add newIdentNode("newVariant")
-    nv.add a
-    result.add nv
+    let ntk = a.getType().typeKind()
+    when defined(debug):
+      echo &"node kind:{a.kind}, typeKind:{ntk}"
+    if ntk != ntyObject:
+      var nv = newNimNode(nnkCall)
+      nv.add newIdentNode("newVariant")
+      nv.add a
+      result.add nv
+    else:
+      result.add a
 
-method put*(e: Expression) {.base.} =
+method put(e: Expression) {.base.} =
   quit "to override!"
 
 proc showError*(wl: WSLink) =
@@ -92,7 +103,13 @@ proc eval*(e: Expression): Variant {.discardable.} =
   e.wl.waitReturn(RETURNPKT)
   e.wl.getResult()
 
-method put*(e: StrExpr) =
+proc eval*(s: Symbol): Variant {.discardable.} =
+  newVariant(s)
+
+proc eval*(wl: WSLink, str: string): Variant =
+  eval wl.expr(str)
+
+method put(e: StrExpr) =
   PutFunction(e.wl, "EvaluatePacket", 1)
   PutFunction(e.wl, "ToExpression", 1)
   PutString(e.wl, e.str)
@@ -111,10 +128,8 @@ proc putVariant(wl: WSLink, arg: Variant) =
     PutSymbol(wl, cstring v)
   of Function:
     putFunc(v)
-  of StrExpr:
-    putVariant(wl, eval v)
   else:
-    echo "dont know what v is", arg
+    echo "dont know what TYPE to put:", arg
 
 proc `$`*(arg: Variant): string =
   variantMatch case arg as v
@@ -143,22 +158,39 @@ proc putFunc(f: Function) =
   for arg in f.args:
     putVariant(f.wl, arg)
 
-method put*(f: Function) =
+method put(f: Function) =
   PutFunction(f.wl, "EvaluatePacket", 1)
   putFunc(f)
 
 {.experimental: "dotOperators".}
 
-macro `.()`*(wl:WSLink, head: untyped, args: varargs[untyped]): untyped =
+macro `.()`*(wl:WSLink, head: untyped, args: varargs[typed]): untyped =
   #fn 
   var f = newNimNode(nnkCall)
-  f.add newIdentNode("fn")
+  f.add newIdentNode("mkfn")
   f.add wl
   f.add newStrLitNode head.strVal()
+  # echo "head:", head.strVal()
   for a in args:
-    f.add a
+    let ntk = a.getType().typeKind()
+    # echo "\tntK:", ntk
+    # eval the args as necessary
+    if ntk != ntyObject and ntk != ntyInt and 
+      ntk != ntyFloat and ntk != ntyString and
+      ntk != ntyDistinct:
+      let ev = newNimNode(nnkCall)
+      ev.add newIdentNode("eval")
+      ev.add a
+      f.add ev
+    else:
+      f.add a
   # ret
   result = f
+
+macro `.`*(wl: WSLink, field: untyped): untyped =
+  var fstr = field.strVal()
+  quote do:
+    Symbol(`fstr`)
 
 proc printResult(wl: WSLink) =
   var 
@@ -196,27 +228,50 @@ proc main() =
     ret: cint
     str: cstring
     e, e1, e2: Expression
-    x = Symbol("x")
+    # x = Symbol("x")
 
   var wl = launch()
 
-  eval wl.expr("Table[Sin[x], {x,1,10}]")
+  # string functions 
   eval wl.expr("gf[x_]:=x*2; df[x_]:=x^2")
   e1 = wl.expr("Sin[x]")
   e2 = wl.expr("{x, 1, 10}")
+  echo eval wl.gf(10)
+  echo eval wl.df(10)
+  # symbol
+  echo eval wl.Sin
+  # func call with eval
+  echo eval wl.Table(eval wl.Sin(wl.x), eval wl.expr("{x, 1, 10}"))
+  echo eval wl.Table(eval wl.Sin(wl.x), eval wl.List(wl.x, 1, 10))
+  echo eval wl.Table(eval wl.Sin(eval wl.x), eval wl.expr("{x, 1, 10}"))
+  # func call with auto eval
+  echo eval wl.Map(wl.PrimeQ, wl.expr("Range[5]"))
+  echo eval wl.Table(e1, e2)
+  echo eval wl.Map(wl.expr("#^2 &"), wl.expr("Range[5]"))
+  echo eval wl.Map(wl.expr("#^2 &"), wl.expr("Range[5]"))
   echo eval wl.expr("Sin[x]")
   echo eval wl.expr("{x, 1, 10}")
 
-  echo eval wl.Table(eval e1, eval e2)
-  echo eval wl.Table(eval wl.Log(x), eval wl.List(x, 1, 5))
+  # mix expr and Function
+  echo eval wl.Map(wl.expr("#^2 &"), wl.Range(5))
 
-  echo eval wl.N(wl.Table(eval e1, eval e2))
-  echo eval wl.N(wl.Table(eval wl.Log(x), eval wl.List(x, 1, 5)))
-  echo eval wl.gf(10)
-  echo eval wl.df(10)
+  # nested func calls
+  echo "N->", eval wl.N(wl.Table(e1, e2))
+  echo eval wl.x
+  echo eval wl.List(1, 5, "x", wl.x)
+  echo eval wl.Log(wl.x)
+  echo eval wl.Table(wl.Log(wl.x), wl.List(wl.x, 1, 5))
+  echo eval wl.N(wl.Table(eval wl.Log(wl.x), eval wl.List(wl.x, 1, 5)))
+  
+  expandMacros:
+    echo eval wl.Map(wl.PrimeQ, wl.expr("Range[5]"))
+    echo eval wl.Map(wl.PrimeQ, wl.Range(5))
 
+  ## TODO: Large return pkt
+  # echo eval wl.BarChart(eval wl.expr("{1,2,3,4,5}"))
 
   return
 
 when isMainModule:
   main()
+
